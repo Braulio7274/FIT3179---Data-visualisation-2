@@ -1,0 +1,9 @@
+state_code,state,abbr,total_population,overseas_born,overseas_percent,uses_other_language,other_language_percent,gap_percentage_points
+5,Western Australia,WA,2660038,857682,32.24,489043,18.38,13.86
+2,Victoria,VIC,6503473,1951672,30.01,1791786,27.55,2.46
+1,New South Wales,NSW,8072106,2366947,29.32,2146080,26.59,2.74
+8,Australian Capital Territory,ACT,454473,130610,28.74,111660,24.57,4.17
+4,South Australia,SA,1781522,428510,24.05,317287,17.81,6.24
+3,Queensland,QLD,5156123,1170336,22.7,681877,13.22,9.47
+7,Northern Territory,NT,232617,50779,21.83,75337,32.39,-10.56
+6,Tasmania,TAS,557531,85648,15.36,48690,8.73,6.63
