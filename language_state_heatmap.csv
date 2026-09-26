@@ -1,0 +1,81 @@
+state_code,state,state_name,language,speakers,state_population,share_pct,share_label,national_rank,national_total,source_table,source_url
+1,NSW,New South Wales,Mandarin,270685,8072163,3.353,3.4%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Arabic,227243,8072163,2.815,2.8%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Vietnamese,117907,8072163,1.461,1.5%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Cantonese,148943,8072163,1.845,1.8%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Punjabi,53460,8072163,0.662,0.7%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Greek,78691,8072163,0.975,1.0%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Italian,64039,8072163,0.793,0.8%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Hindi,80051,8072163,0.992,1.0%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Spanish,71868,8072163,0.89,0.9%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+1,NSW,New South Wales,Nepali,68148,8072163,0.844,0.8%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Mandarin,221798,6503491,3.41,3.4%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Arabic,91441,6503491,1.406,1.4%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Vietnamese,118801,6503491,1.827,1.8%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Cantonese,82432,6503491,1.268,1.3%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Punjabi,104949,6503491,1.614,1.6%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Greek,107158,6503491,1.648,1.6%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Italian,92320,6503491,1.42,1.4%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Hindi,66930,6503491,1.029,1.0%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Spanish,43181,6503491,0.664,0.7%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+2,VIC,Victoria,Nepali,21955,6503491,0.338,0.3%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Mandarin,83607,5156138,1.622,1.6%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Arabic,16171,5156138,0.314,0.3%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Vietnamese,31370,5156138,0.608,0.6%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Cantonese,27437,5156138,0.532,0.5%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Punjabi,30873,5156138,0.599,0.6%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Greek,10475,5156138,0.203,0.2%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Italian,17989,5156138,0.349,0.3%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Hindi,21344,5156138,0.414,0.4%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Spanish,29642,5156138,0.575,0.6%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+3,QLD,Queensland,Nepali,12060,5156138,0.234,0.2%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Mandarin,51751,2660026,1.946,1.9%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Arabic,16000,2660026,0.601,0.6%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Vietnamese,22763,2660026,0.856,0.9%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Cantonese,19683,2660026,0.74,0.7%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Punjabi,20613,2660026,0.775,0.8%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Greek,4520,2660026,0.17,0.2%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Italian,25432,2660026,0.956,1.0%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Hindi,11896,2660026,0.447,0.4%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Spanish,12958,2660026,0.487,0.5%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+5,WA,Western Australia,Nepali,5038,2660026,0.189,0.2%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Mandarin,32133,1781516,1.804,1.8%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Arabic,11033,1781516,0.619,0.6%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Vietnamese,21855,1781516,1.227,1.2%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Cantonese,10166,1781516,0.571,0.6%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Punjabi,20004,1781516,1.123,1.1%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Greek,21882,1781516,1.228,1.2%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Italian,23828,1781516,1.338,1.3%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Hindi,9884,1781516,0.555,0.6%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Spanish,7273,1781516,0.408,0.4%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+4,SA,South Australia,Nepali,9671,1781516,0.543,0.5%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Mandarin,8129,557571,1.458,1.5%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Arabic,972,557571,0.174,0.2%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Vietnamese,1467,557571,0.263,0.3%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Cantonese,1536,557571,0.275,0.3%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Punjabi,2556,557571,0.458,0.5%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Greek,1126,557571,0.202,0.2%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Italian,954,557571,0.171,0.2%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Hindi,1284,557571,0.23,0.2%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Spanish,1571,557571,0.282,0.3%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+6,TAS,Tasmania,Nepali,7248,557571,1.3,1.3%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Mandarin,2526,232605,1.086,1.1%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Arabic,427,232605,0.184,0.2%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Vietnamese,1565,232605,0.673,0.7%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Cantonese,803,232605,0.345,0.3%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Punjabi,1563,232605,0.672,0.7%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Greek,3258,232605,1.401,1.4%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Italian,668,232605,0.287,0.3%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Hindi,969,232605,0.417,0.4%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Spanish,748,232605,0.322,0.3%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+7,NT,Northern Territory,Nepali,3099,232605,1.332,1.3%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Mandarin,14397,454499,3.168,3.2%,1,685268,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Arabic,3867,454499,0.851,0.9%,2,367154,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Vietnamese,5028,454499,1.106,1.1%,3,320760,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Cantonese,4230,454499,0.931,0.9%,4,295292,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Punjabi,5019,454499,1.104,1.1%,5,239041,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Greek,2527,454499,0.556,0.6%,6,229643,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Italian,2816,454499,0.62,0.6%,7,228046,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Hindi,4769,454499,1.049,1.0%,8,197132,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Spanish,4122,454499,0.907,0.9%,9,171378,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
+8,ACT,Australian Capital Territory,Nepali,5859,454499,1.289,1.3%,10,133078,2021 Census G13C/G13D/G13E (STE),https://www.abs.gov.au/census/find-census-data/datapacks
