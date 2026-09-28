@@ -1,0 +1,49 @@
+path_id,origin_label,destination_state,destination_abbr,settlers,country_total,order,lon,lat
+f01,India,Victoria,VIC,189927,481033,0,78.9629,22.5937
+f01,India,Victoria,VIC,189927,481033,1,144.9631,-37.8136
+f02,India,New South Wales,NSW,131781,481033,0,78.9629,22.5937
+f02,India,New South Wales,NSW,131781,481033,1,151.2093,-33.8688
+f03,India,Queensland,QLD,55306,481033,0,78.9629,22.5937
+f03,India,Queensland,QLD,55306,481033,1,153.026,-27.4705
+f04,China,New South Wales,NSW,103706,285359,0,104.1954,35.8617
+f04,China,New South Wales,NSW,103706,285359,1,151.2093,-33.8688
+f05,China,Victoria,VIC,101427,285359,0,104.1954,35.8617
+f05,China,Victoria,VIC,101427,285359,1,144.9631,-37.8136
+f06,China,Queensland,QLD,33953,285359,0,104.1954,35.8617
+f06,China,Queensland,QLD,33953,285359,1,153.026,-27.4705
+f07,Philippines,New South Wales,NSW,38798,130342,0,121.774,12.8797
+f07,Philippines,New South Wales,NSW,38798,130342,1,151.2093,-33.8688
+f08,Philippines,Victoria,VIC,32515,130342,0,121.774,12.8797
+f08,Philippines,Victoria,VIC,32515,130342,1,144.9631,-37.8136
+f09,Philippines,Queensland,QLD,24773,130342,0,121.774,12.8797
+f09,Philippines,Queensland,QLD,24773,130342,1,153.026,-27.4705
+f10,Nepal,New South Wales,NSW,57348,119962,0,84.124,28.3949
+f10,Nepal,New South Wales,NSW,57348,119962,1,151.2093,-33.8688
+f11,Nepal,Victoria,VIC,21222,119962,0,84.124,28.3949
+f11,Nepal,Victoria,VIC,21222,119962,1,144.9631,-37.8136
+f12,Nepal,Queensland,QLD,11084,119962,0,84.124,28.3949
+f12,Nepal,Queensland,QLD,11084,119962,1,153.026,-27.4705
+f13,United Kingdom,New South Wales,NSW,30380,98288,0,-3.436,55.3781
+f13,United Kingdom,New South Wales,NSW,30380,98288,1,151.2093,-33.8688
+f14,United Kingdom,Queensland,QLD,21141,98288,0,-3.436,55.3781
+f14,United Kingdom,Queensland,QLD,21141,98288,1,153.026,-27.4705
+f15,United Kingdom,Victoria,VIC,19492,98288,0,-3.436,55.3781
+f15,United Kingdom,Victoria,VIC,19492,98288,1,144.9631,-37.8136
+f16,Pakistan,Victoria,VIC,29693,80988,0,69.3451,30.3753
+f16,Pakistan,Victoria,VIC,29693,80988,1,144.9631,-37.8136
+f17,Pakistan,New South Wales,NSW,25491,80988,0,69.3451,30.3753
+f17,Pakistan,New South Wales,NSW,25491,80988,1,151.2093,-33.8688
+f18,Pakistan,Western Australia,WA,10058,80988,0,69.3451,30.3753
+f18,Pakistan,Western Australia,WA,10058,80988,1,115.8605,-31.9505
+f19,Vietnam,Victoria,VIC,27856,77895,0,108.2772,14.0583
+f19,Vietnam,Victoria,VIC,27856,77895,1,144.9631,-37.8136
+f20,Vietnam,New South Wales,NSW,26464,77895,0,108.2772,14.0583
+f20,Vietnam,New South Wales,NSW,26464,77895,1,151.2093,-33.8688
+f21,Vietnam,Queensland,QLD,8795,77895,0,108.2772,14.0583
+f21,Vietnam,Queensland,QLD,8795,77895,1,153.026,-27.4705
+f22,Sri Lanka,Victoria,VIC,28932,58410,0,80.7718,7.8731
+f22,Sri Lanka,Victoria,VIC,28932,58410,1,144.9631,-37.8136
+f23,Sri Lanka,New South Wales,NSW,10367,58410,0,80.7718,7.8731
+f23,Sri Lanka,New South Wales,NSW,10367,58410,1,151.2093,-33.8688
+f24,Sri Lanka,Queensland,QLD,5603,58410,0,80.7718,7.8731
+f24,Sri Lanka,Queensland,QLD,5603,58410,1,153.026,-27.4705
