@@ -1,0 +1,11 @@
+rank,language,nsw_speakers,nsw_percent,victoria_speakers,victoria_percent,nsw_population,victoria_population,source_url
+1,Mandarin,270685,3.353,221798,3.41,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+2,Arabic,227243,2.815,91441,1.406,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+3,Vietnamese,117907,1.461,118801,1.827,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+4,Cantonese,148943,1.845,82432,1.268,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+5,Punjabi,53460,0.662,104949,1.614,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+6,Greek,78691,0.975,107158,1.648,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+7,Italian,64039,0.793,92320,1.42,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+8,Hindi,80051,0.992,66930,1.029,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+9,Spanish,71868,0.89,43181,0.664,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
+10,Nepali,68148,0.844,21955,0.338,8072163,6503491,https://www.abs.gov.au/census/find-census-data/datapacks
