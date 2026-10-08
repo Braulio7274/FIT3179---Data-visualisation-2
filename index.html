@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- Our CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,7 +25,11 @@
 
   <main class="dashboard">
 
-    <!-- HERO -->
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
     <header class="hero">
 
       <p class="eyebrow">
@@ -38,14 +42,18 @@
 
       <p class="hero-text">
         Exploring where Australians come from, where culturally diverse
-        communities live, how states differ, and how migration has shaped
-        Australia.
+        communities live, how states differ, and how migration continues
+        to shape Australia.
       </p>
 
     </header>
 
 
-    <!-- SECTION 1 -->
+
+    <!-- ==================================================
+         SECTION 1
+    =================================================== -->
+
     <section class="section">
 
       <div class="section-heading">
@@ -53,12 +61,17 @@
         <span class="section-number">01</span>
 
         <div>
-          <h2>Where do Australians come from?</h2>
+
+          <h2>
+            Where do Australians come from?
+          </h2>
 
           <p>
-            Australia's population reflects migration from countries
-            across almost every region of the world.
+            Australia is home to people from a wide range of countries
+            and linguistic backgrounds. These visualisations show some
+            of the largest communities represented within the population.
           </p>
+
         </div>
 
       </div>
@@ -72,7 +85,7 @@
 
 
         <article class="chart-card">
-          <div id="ranked-languages"></div>
+          <div id="language-bar"></div>
         </article>
 
       </div>
@@ -80,7 +93,11 @@
     </section>
 
 
-    <!-- SECTION 2 -->
+
+    <!-- ==================================================
+         SECTION 2
+    =================================================== -->
+
     <section class="section">
 
       <div class="section-heading">
@@ -88,39 +105,39 @@
         <span class="section-number">02</span>
 
         <div>
-          <h2>Where do culturally diverse communities live?</h2>
+
+          <h2>
+            Where do culturally diverse communities live?
+          </h2>
 
           <p>
-            Cultural diversity is distributed differently across
-            Australia's states and local areas.
+            Cultural diversity is not distributed evenly across Australia.
+            Some areas have considerably larger overseas-born populations
+            than others.
           </p>
+
         </div>
 
       </div>
 
 
       <article class="chart-card chart-wide">
-        <div id="map"></div>
+        <div id="choropleth"></div>
       </article>
 
 
-      <div class="grid-two">
-
-        <article class="chart-card">
-          <div id="language-heatmap"></div>
-        </article>
-
-
-        <article class="chart-card">
-          <div id="dumbbell"></div>
-        </article>
-
-      </div>
+      <article class="chart-card chart-wide">
+        <div id="proportional-symbol"></div>
+      </article>
 
     </section>
 
 
-    <!-- SECTION 3 -->
+
+    <!-- ==================================================
+         SECTION 3
+    =================================================== -->
+
     <section class="section">
 
       <div class="section-heading">
@@ -128,25 +145,48 @@
         <span class="section-number">03</span>
 
         <div>
-          <h2>How do states compare?</h2>
+
+          <h2>
+            How do states differ?
+          </h2>
 
           <p>
-            Comparing language communities reveals differences in the
-            cultural composition of Australian states.
+            Comparing languages and diversity across states reveals
+            differences in the cultural composition of Australia's
+            population.
           </p>
+
         </div>
 
       </div>
 
 
       <article class="chart-card chart-wide">
-        <div id="butterfly"></div>
+        <div id="heatmap"></div>
       </article>
+
+
+      <div class="grid-two">
+
+        <article class="chart-card">
+          <div id="dumbbell"></div>
+        </article>
+
+
+        <article class="chart-card">
+          <div id="butterfly"></div>
+        </article>
+
+      </div>
 
     </section>
 
 
-    <!-- SECTION 4 -->
+
+    <!-- ==================================================
+         SECTION 4
+    =================================================== -->
+
     <section class="section">
 
       <div class="section-heading">
@@ -154,25 +194,33 @@
         <span class="section-number">04</span>
 
         <div>
-          <h2>How has migration changed over time?</h2>
+
+          <h2>
+            How does migration connect Australia to the world?
+          </h2>
 
           <p>
-            Migration patterns and streams have changed considerably
-            over the last decade.
+            Migration links Australia with countries across the world
+            and contributes differently to each state and territory.
           </p>
+
         </div>
 
       </div>
 
 
       <article class="chart-card chart-wide">
-        <div id="migration-time"></div>
+        <div id="flow-map"></div>
       </article>
 
     </section>
 
 
-    <!-- SECTION 5 -->
+
+    <!-- ==================================================
+         SECTION 5
+    =================================================== -->
+
     <section class="section">
 
       <div class="section-heading">
@@ -180,12 +228,16 @@
         <span class="section-number">05</span>
 
         <div>
-          <h2>How do migration streams distribute across Australia?</h2>
+
+          <h2>
+            How do migration streams distribute across Australia?
+          </h2>
 
           <p>
-            Skilled, family and humanitarian migration contribute
-            differently to each state and territory.
+            Skilled, family and humanitarian migration streams contribute
+            differently to Australia's states and territories.
           </p>
+
         </div>
 
       </div>
@@ -198,7 +250,11 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
     <footer class="footer">
 
       <p>
@@ -207,13 +263,18 @@
       </p>
 
       <p>
-        Visualisation created for FIT3179 Data Visualisation 2.
+        FIT3179 Data Visualisation 2
       </p>
 
     </footer>
 
   </main>
 
+
+
+  <!-- ==================================================
+       LOAD VISUALISATIONS
+  =================================================== -->
 
   <script>
 
@@ -247,47 +308,64 @@
     }
 
 
+
+    /* SECTION 1 */
+
     embedChart(
       "#treemap",
       "visualisations/treemap.json"
     );
 
-
     embedChart(
-      "#ranked-languages",
-      "visualisations/ranked_languages.json"
+      "#language-bar",
+      "visualisations/languagebarchart.json"
     );
 
 
+
+    /* SECTION 2 */
+
     embedChart(
-      "#map",
-      "visualisations/map.json"
+      "#choropleth",
+      "visualisations/chloreplethoverseas.json"
+    );
+
+    embedChart(
+      "#proportional-symbol",
+      "visualisations/proportionalsymbolmap.json"
     );
 
 
-    embedChart(
-      "#language-heatmap",
-      "visualisations/language_heatmap.json"
-    );
 
+    /* SECTION 3 */
+
+    embedChart(
+      "#heatmap",
+      "visualisations/top10heatmap.json"
+    );
 
     embedChart(
       "#dumbbell",
-      "visualisations/dumbbell.json"
+      "visualisations/dumbbellchart.json"
     );
-
 
     embedChart(
       "#butterfly",
-      "visualisations/butterfly.json"
+      "visualisations/butterflychartstates.json"
     );
 
+
+
+    /* SECTION 4 */
 
     embedChart(
-      "#migration-time",
-      "visualisations/migration_time.json"
+      "#flow-map",
+      "visualisations/flowmap.json"
     );
 
+
+
+    /* SECTION 5 */
 
     embedChart(
       "#sankey",
