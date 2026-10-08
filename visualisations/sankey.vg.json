@@ -1,0 +1,348 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 1080,
+  "height": 620,
+  "padding": {"left": 20, "right": 20, "top": 20, "bottom": 20},
+  "background": "white",
+  "title": {
+    "text": "How do migration streams distribute across Australia?",
+    "subtitle": [
+      "Permanent settlers by migration stream and current state/territory, 2016–2025",
+      "Flow width represents number of settlers. Not Recorded destinations are excluded."
+    ],
+    "anchor": "start",
+    "font": "Arial",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "normal",
+    "color": "#17283b",
+    "subtitleColor": "#4b5563",
+    "offset": 12
+  },
+  "data": [
+    {
+      "name": "links",
+      "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/migration_stream_state_sankey.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "settlers": "number",
+          "stream_total": "number",
+          "state_total": "number",
+          "stream_share_pct": "number",
+          "state_share_pct": "number"
+        },
+        "delimiter": ","
+      }
+    },
+    {
+      "name": "nodes",
+      "values": [
+        {
+          "kind": "stream",
+          "name": "Skilled",
+          "total": 1606471,
+          "x": 175,
+          "x2": 197,
+          "y": 95,
+          "y2": 361.72,
+          "label_x": 160,
+          "label_y": 220,
+          "fill": "#315B7D"
+        },
+        {
+          "kind": "stream",
+          "name": "Family",
+          "total": 620758,
+          "x": 175,
+          "x2": 197,
+          "y": 385.72,
+          "y2": 488.78,
+          "label_x": 160,
+          "label_y": 429,
+          "fill": "#43A829"
+        },
+        {
+          "kind": "stream",
+          "name": "Humanitarian",
+          "total": 182020,
+          "x": 175,
+          "x2": 197,
+          "y": 512.78,
+          "y2": 543,
+          "label_x": 160,
+          "label_y": 520,
+          "fill": "#D97A34"
+        },
+        {
+          "kind": "state",
+          "name": "New South Wales",
+          "total": 763968,
+          "x": 745,
+          "x2": 767,
+          "y": 95,
+          "y2": 221.84,
+          "label_x": 810,
+          "label_y": 151,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Victoria",
+          "total": 750483,
+          "x": 745,
+          "x2": 767,
+          "y": 231.84,
+          "y2": 356.44,
+          "label_x": 810,
+          "label_y": 287,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Queensland",
+          "total": 351293,
+          "x": 745,
+          "x2": 767,
+          "y": 366.44,
+          "y2": 424.76,
+          "label_x": 810,
+          "label_y": 389,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Western Australia",
+          "total": 259504,
+          "x": 745,
+          "x2": 767,
+          "y": 434.76,
+          "y2": 477.85,
+          "label_x": 810,
+          "label_y": 449,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "South Australia",
+          "total": 165479,
+          "x": 745,
+          "x2": 767,
+          "y": 487.85,
+          "y2": 515.32,
+          "label_x": 810,
+          "label_y": 494,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Australian Capital Territory",
+          "total": 56047,
+          "x": 745,
+          "x2": 767,
+          "y": 525.32,
+          "y2": 534.63,
+          "label_x": 810,
+          "label_y": 528,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Tasmania",
+          "total": 37936,
+          "x": 745,
+          "x2": 767,
+          "y": 544.63,
+          "y2": 550.93,
+          "label_x": 810,
+          "label_y": 558,
+          "fill": "#6B7280"
+        },
+        {
+          "kind": "state",
+          "name": "Northern Territory",
+          "total": 24539,
+          "x": 745,
+          "x2": 767,
+          "y": 560.93,
+          "y2": 565,
+          "label_x": 810,
+          "label_y": 588,
+          "fill": "#6B7280"
+        }
+      ]
+    },
+    {
+      "name": "state_nodes",
+      "source": "nodes",
+      "transform": [{"type": "filter", "expr": "datum.kind === 'state'"}]
+    },
+    {
+      "name": "stream_nodes",
+      "source": "nodes",
+      "transform": [{"type": "filter", "expr": "datum.kind === 'stream'"}]
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "zindex": 0,
+      "encode": {
+        "enter": {
+          "path": {"field": "path"},
+          "fill": {"field": "color"},
+          "stroke": {"value": "#ffffff"},
+          "strokeWidth": {"value": 0.35},
+          "strokeOpacity": {"value": 0.18},
+          "tooltip": {
+            "signal": "{'Migration stream': datum.stream, 'State / territory': datum.state, 'Settlers': format(datum.settlers, ','), 'Share of stream': format(datum.stream_share_pct, '.1f') + '%', 'Share of state settlers': format(datum.state_share_pct, '.1f') + '%'}"
+          }
+        },
+        "update": {"fillOpacity": {"value": 0.58}},
+        "hover": {"fillOpacity": {"value": 0.88}}
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "nodes"},
+      "zindex": 2,
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "x2": {"field": "x2"},
+          "y": {"field": "y"},
+          "y2": {"field": "y2"},
+          "fill": {"field": "fill"},
+          "cornerRadius": {"value": 2},
+          "tooltip": {
+            "signal": "{'Category': datum.name, 'Settlers': format(datum.total, ',')}"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "from": {"data": "state_nodes"},
+      "interactive": false,
+      "zindex": 1,
+      "encode": {
+        "enter": {
+          "x": {"signal": "datum.x2 + 4"},
+          "x2": {"value": 798},
+          "y": {"signal": "(datum.y + datum.y2) / 2"},
+          "y2": {"field": "label_y"},
+          "stroke": {"value": "#CBD0D6"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "stream_nodes"},
+      "zindex": 3,
+      "encode": {
+        "enter": {
+          "x": {"field": "label_x"},
+          "y": {"field": "label_y"},
+          "text": {"field": "name"},
+          "align": {"value": "right"},
+          "baseline": {"value": "bottom"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "#1F2937"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "stream_nodes"},
+      "interactive": false,
+      "zindex": 3,
+      "encode": {
+        "enter": {
+          "x": {"field": "label_x"},
+          "y": {"signal": "datum.label_y + 4"},
+          "text": {"signal": "format(datum.total, ',')"},
+          "align": {"value": "right"},
+          "baseline": {"value": "top"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 10},
+          "fill": {"value": "#6B7280"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "state_nodes"},
+      "zindex": 3,
+      "encode": {
+        "enter": {
+          "x": {"field": "label_x"},
+          "y": {"field": "label_y"},
+          "text": {"field": "name"},
+          "align": {"value": "left"},
+          "baseline": {"value": "bottom"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "#1F2937"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "state_nodes"},
+      "interactive": false,
+      "zindex": 3,
+      "encode": {
+        "enter": {
+          "x": {"field": "label_x"},
+          "y": {"signal": "datum.label_y + 4"},
+          "text": {"signal": "format(datum.total, ',')"},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 10},
+          "fill": {"value": "#6B7280"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {"value": 186},
+          "y": {"value": 60},
+          "text": {"value": "MIGRATION STREAM"},
+          "align": {"value": "center"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 11},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "#6B7280"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {"value": 756},
+          "y": {"value": 60},
+          "text": {"value": "CURRENT STATE / TERRITORY"},
+          "align": {"value": "center"},
+          "font": {"value": "Arial"},
+          "fontSize": {"value": 11},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "#6B7280"}
+        }
+      }
+    }
+  ],
+  "config": {}
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Dumbbell chart comparing the share of residents born overseas with the share who use a language other than English at home across Australian states and territories, 2021 Census.",
+  "width": 700,
+  "height": 380,
+  "background": "white",
+  "title": {
+    "text": "How do migration and language diversity compare across Australia?",
+    "subtitle": "Share of residents born overseas vs using a language other than English at home — 2021 Census",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 8
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_diversity_dumbbell.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "overseas_percent": "number",
+        "other_language_percent": "number",
+        "overseas_born": "number",
+        "uses_other_language": "number",
+        "total_population": "number"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule", "stroke": "#b8bec7", "strokeWidth": 3},
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "Western Australia",
+            "Victoria",
+            "New South Wales",
+            "Australian Capital Territory",
+            "South Australia",
+            "Queensland",
+            "Northern Territory",
+            "Tasmania"
+          ],
+          "axis": {"title": null, "labelFontSize": 12, "labelPadding": 8}
+        },
+        "x": {
+          "field": "other_language_percent",
+          "type": "quantitative",
+          "scale": {"domain": [0, 35]},
+          "axis": {
+            "title": "Share of state/territory population (%)",
+            "grid": true,
+            "tickCount": 8,
+            "labelExpr": "datum.value + '%'"
+          }
+        },
+        "x2": {"field": "overseas_percent"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": ["overseas_percent", "other_language_percent"],
+          "as": ["metric", "percentage"]
+        },
+        {
+          "calculate": "datum.metric == 'overseas_percent' ? 'Born overseas' : 'Uses a language other than English at home'",
+          "as": "metric_label"
+        },
+        {
+          "calculate": "datum.metric == 'overseas_percent' ? datum.overseas_born : datum.uses_other_language",
+          "as": "people"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "Western Australia",
+            "Victoria",
+            "New South Wales",
+            "Australian Capital Territory",
+            "South Australia",
+            "Queensland",
+            "Northern Territory",
+            "Tasmania"
+          ],
+          "axis": {"title": null}
+        },
+        "x": {
+          "field": "percentage",
+          "type": "quantitative",
+          "scale": {"domain": [0, 35]},
+          "axis": {
+            "title": "Share of state/territory population (%)",
+            "labelExpr": "datum.value + '%'"
+          }
+        },
+        "color": {
+          "field": "metric_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Born overseas",
+              "Uses a language other than English at home"
+            ],
+            "range": ["#4472A8", "#D97B29"]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "circle",
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State / territory"},
+          {"field": "metric_label", "type": "nominal", "title": "Measure"},
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Share of population",
+            "format": ".1f"
+          },
+          {
+            "field": "people",
+            "type": "quantitative",
+            "title": "People",
+            "format": ","
+          },
+          {
+            "field": "total_population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"x": "shared", "y": "shared"}},
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "axis": {
+      "labelColor": "#374151",
+      "titleColor": "#374151",
+      "gridColor": "#e5e7eb",
+      "domain": false
+    },
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  }
+}

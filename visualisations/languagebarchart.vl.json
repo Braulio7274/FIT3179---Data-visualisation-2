@@ -1,0 +1,111 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Ranked bar chart of the ten most common non-English languages used at home in Australia, 2021 Census.",
+  "width": 700,
+  "height": 430,
+  "background": "white",
+  "padding": {"left": 10, "right": 95, "top": 10, "bottom": 10},
+  "title": {
+    "text": "Australia's most widely spoken non-English languages",
+    "subtitle": "Top 10 languages used at home | 2021 Census",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 13,
+    "subtitlePadding": 8
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/ranked_languages.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rank": "number",
+        "speakers": "number",
+        "share_total_population_percent": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "format(datum.speakers, ',') + '  (' + format(datum.share_total_population_percent, '.1f') + '%)'",
+      "as": "label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": {"band": 0.68}},
+      "encoding": {
+        "y": {
+          "field": "language",
+          "type": "nominal",
+          "sort": {"field": "rank", "order": "ascending"},
+          "axis": {
+            "title": null,
+            "labelFontSize": 13,
+            "labelPadding": 8,
+            "labelLimit": 130,
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "x": {
+          "field": "speakers",
+          "type": "quantitative",
+          "axis": {
+            "title": "People speaking language at home",
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "format": "~s",
+            "grid": true,
+            "gridOpacity": 0.18,
+            "domain": false,
+            "ticks": false
+          },
+          "scale": {"zero": true, "nice": true}
+        },
+        "color": {"value": "#3478b8"},
+        "tooltip": [
+          {"field": "rank", "type": "quantitative", "title": "Rank"},
+          {"field": "language", "type": "nominal", "title": "Language"},
+          {
+            "field": "speakers",
+            "type": "quantitative",
+            "title": "People",
+            "format": ","
+          },
+          {
+            "field": "share_total_population_percent",
+            "type": "quantitative",
+            "title": "Share of total population",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "y": {
+          "field": "language",
+          "type": "nominal",
+          "sort": {"field": "rank", "order": "ascending"}
+        },
+        "x": {"field": "speakers", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"},
+        "color": {"value": "#30343b"}
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "axis": {"labelColor": "#30343b", "titleColor": "#30343b"},
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  }
+}

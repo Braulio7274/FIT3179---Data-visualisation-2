@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 980,
+  "height": 620,
+  "title": {
+    "text": "Selected major settler flows to Australian states",
+    "subtitle": [
+      "Top 6 origin countries (excluding Australia) and their top 2 destination states, aggregated across Skilled, Family and Humanitarian streams, 2016–2025.",
+      "Line width shows the number of settlers."
+    ],
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 6
+  },
+  "projection": {
+    "type": "equalEarth",
+    "center": [100, 12],
+    "scale": 265,
+    "translate": [490, 320]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#efefef",
+        "stroke": "white",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
+      },
+      "mark": {"type": "line", "opacity": 0.5, "strokeCap": "round"},
+      "encoding": {
+        "detail": {"field": "flow_id"},
+        "strokeDash": {"field": "flow_rank", "type": "ordinal", "legend": null},
+        "order": {"field": "point_order", "type": "ordinal"},
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "settlers",
+          "type": "quantitative",
+          "scale": {"range": [1, 9]},
+          "legend": {"title": "Settlers", "format": ","}
+        },
+        "color": {
+          "field": "destination_state",
+          "type": "nominal",
+          "legend": {"title": "Destination state"},
+          "scale": {
+            "domain": [
+              "Victoria",
+              "New South Wales",
+              "Queensland",
+              "Western Australia"
+            ],
+            "range": ["#1b9e77", "#7570b3", "#d95f02", "#66a61e"]
+          }
+        },
+        "tooltip": [
+          {"field": "origin_label", "title": "Origin country"},
+          {"field": "destination_state", "title": "Destination state"},
+          {
+            "field": "settlers",
+            "title": "Settlers",
+            "type": "quantitative",
+            "format": ","
+          },
+          {
+            "field": "country_total",
+            "title": "Total settlers from origin",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.origin_country + '-' + datum.destination_state",
+          "as": "flow_id"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
+      },
+      "transform": [
+        {"filter": "datum.point_type === 'origin'"},
+        {
+          "aggregate": [
+            {"op": "max", "field": "lon", "as": "lon"},
+            {"op": "max", "field": "lat", "as": "lat"}
+          ],
+          "groupby": ["origin_country", "origin_label"]
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "shape": "circle",
+        "size": 80,
+        "color": "#a54c49",
+        "stroke": "white",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"name": "United Kingdom", "lon": -3.436, "lat": 55.3781},
+          {"name": "Pakistan", "lon": 69.3451, "lat": 30.3753},
+          {"name": "Nepal", "lon": 84.124, "lat": 28.3949},
+          {"name": "India", "lon": 78.9629, "lat": 22.5937},
+          {"name": "China", "lon": 104.1954, "lat": 35.8617},
+          {"name": "Philippines", "lon": 121.774, "lat": 12.8797}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#7f1d1d",
+        "dx": 6,
+        "dy": -6,
+        "align": "left"
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "name"}
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
+      },
+      "transform": [
+        {"filter": "datum.point_type === 'destination'"},
+        {
+          "aggregate": [
+            {"op": "max", "field": "lon", "as": "lon"},
+            {"op": "max", "field": "lat", "as": "lat"}
+          ],
+          "groupby": ["destination_state", "destination_abbr"]
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "shape": "diamond",
+        "size": 130,
+        "stroke": "white",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "color": {
+          "field": "destination_state",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Victoria",
+              "New South Wales",
+              "Queensland",
+              "Western Australia"
+            ],
+            "range": ["#1b9e77", "#7570b3", "#d95f02", "#66a61e"]
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"abbr": "WA", "lon": 115.8605, "lat": -31.9505},
+          {"abbr": "VIC", "lon": 144.9631, "lat": -37.8136},
+          {"abbr": "NSW", "lon": 151.2093, "lat": -33.8688},
+          {"abbr": "QLD", "lon": 153.026, "lat": -27.4705}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#222",
+        "dx": 8,
+        "dy": 8,
+        "align": "left"
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "abbr"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "legend": {"labelFontSize": 11, "titleFontSize": 12}
+  }
+}

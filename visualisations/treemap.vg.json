@@ -1,0 +1,309 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "2021 Census treemap of the 20 largest overseas birthplace groups. World regions are ranked by the sum of the displayed countries/places, not all birthplaces in each region.",
+  "width": 1000,
+  "height": 900,
+  "padding": 16,
+  "autosize": "pad",
+  "background": "white",
+  "signals": [{"name": "headerHeight", "value": 40}],
+  "title": {
+    "text": "Australia's largest overseas-born communities",
+    "subtitle": [
+      "2021 Census | 20 largest overseas birthplaces, grouped by world region.",
+      "Regions ranked by totals shown; countries/places ranked within their region."
+    ],
+    "anchor": "start",
+    "font": "Arial",
+    "fontSize": 24,
+    "fontWeight": "bold",
+    "color": "#223042",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#53616D",
+    "subtitlePadding": 8,
+    "offset": 20
+  },
+  "data": [
+    {
+      "name": "births",
+      "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/country_birth.csv",
+      "format": {
+        "type": "csv",
+        "parse": {"population": "number"},
+        "delimiter": ","
+      },
+      "transform": [
+        {
+          "type": "window",
+          "groupby": ["region"],
+          "sort": {
+            "field": ["population", "country"],
+            "order": ["descending", "ascending"]
+          },
+          "ops": ["row_number"],
+          "as": ["country_rank"]
+        }
+      ]
+    },
+    {
+      "name": "region_totals",
+      "source": "births",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["region"],
+          "fields": ["population"],
+          "ops": ["sum"],
+          "as": ["region_total"]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": ["region_total", "region"],
+            "order": ["descending", "ascending"]
+          },
+          "ops": ["row_number"],
+          "as": ["region_rank"]
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "source": "births",
+      "transform": [
+        {"type": "nest", "keys": ["region"], "generate": true},
+        {
+          "type": "treemap",
+          "field": "population",
+          "sort": {"field": "value", "order": "descending"},
+          "method": "squarify",
+          "ratio": 1,
+          "round": true,
+          "paddingInner": 6,
+          "paddingTop": {"signal": "headerHeight"},
+          "paddingRight": 6,
+          "paddingBottom": 6,
+          "paddingLeft": 6,
+          "size": [{"signal": "width"}, {"signal": "height + headerHeight"}]
+        }
+      ]
+    },
+    {
+      "name": "regions",
+      "source": "tree",
+      "transform": [
+        {"type": "filter", "expr": "datum.depth == 1"},
+        {
+          "type": "lookup",
+          "from": "region_totals",
+          "key": "region",
+          "fields": ["key"],
+          "values": ["region_rank", "region_total"],
+          "as": ["region_rank", "region_total"]
+        },
+        {"type": "formula", "as": "top", "expr": "datum.y0 - headerHeight"},
+        {"type": "formula", "as": "bottom", "expr": "datum.y1 - headerHeight"}
+      ]
+    },
+    {
+      "name": "countries",
+      "source": "tree",
+      "transform": [
+        {"type": "filter", "expr": "datum.depth == 2"},
+        {
+          "type": "formula",
+          "as": "name_lines",
+          "expr": "length('#' + datum.country_rank + ' ' + datum.country) * 8 <= datum.x1 - datum.x0 - 16 ? ['#' + datum.country_rank + ' ' + datum.country] : (indexof(datum.country, ' ') < 0 ? ['#' + datum.country_rank, datum.country] : ['#' + datum.country_rank + ' ' + substring(datum.country, 0, indexof(datum.country, ' ')), substring(datum.country, indexof(datum.country, ' ') + 1)])"
+        },
+        {"type": "formula", "as": "top", "expr": "datum.y0 - headerHeight"},
+        {"type": "formula", "as": "bottom", "expr": "datum.y1 - headerHeight"},
+        {
+          "type": "formula",
+          "as": "label_top",
+          "expr": "(datum.top + datum.bottom) / 2 - (length(datum.name_lines) * 17 + 18) / 2"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "regionColor",
+      "type": "ordinal",
+      "domain": ["Asia", "Europe", "Oceania", "Africa", "Americas"],
+      "range": ["#456A94", "#A65F28", "#467A59", "#A45351", "#735A93"]
+    }
+  ],
+  "marks": [
+    {
+      "name": "region_backgrounds",
+      "type": "rect",
+      "from": {"data": "regions"},
+      "encode": {
+        "update": {
+          "x": {"field": "x0"},
+          "x2": {"field": "x1"},
+          "y": {"field": "top"},
+          "y2": {"field": "bottom"},
+          "fill": {"scale": "regionColor", "field": "key"},
+          "fillOpacity": {"value": 0.14},
+          "tooltip": {
+            "signal": "{'World region': datum.key, 'Region rank': datum.region_rank, 'Population among displayed birthplaces': format(datum.region_total, ',')}"
+          }
+        }
+      }
+    },
+    {
+      "name": "region_headers",
+      "type": "rect",
+      "from": {"data": "regions"},
+      "encode": {
+        "update": {
+          "x": {"field": "x0"},
+          "x2": {"field": "x1"},
+          "y": {"field": "top"},
+          "height": {"signal": "headerHeight - 3"},
+          "fill": {"scale": "regionColor", "field": "key"},
+          "tooltip": {
+            "signal": "{'World region': datum.key, 'Region rank': datum.region_rank, 'Population among displayed birthplaces': format(datum.region_total, ',')}"
+          }
+        }
+      }
+    },
+    {
+      "name": "country_tiles",
+      "type": "rect",
+      "from": {"data": "countries"},
+      "encode": {
+        "update": {
+          "x": {"field": "x0"},
+          "x2": {"field": "x1"},
+          "y": {"field": "top"},
+          "y2": {"field": "bottom"},
+          "fill": {"scale": "regionColor", "field": "region"},
+          "fillOpacity": {"value": 1},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1},
+          "tooltip": {
+            "signal": "{'Country/place of birth': datum.country, 'World region': datum.region, 'Rank within region': datum.country_rank, 'Australian residents': format(datum.population, ',')}"
+          }
+        },
+        "hover": {"fillOpacity": {"value": 0.85}, "strokeWidth": {"value": 2}}
+      }
+    },
+    {
+      "name": "region_names",
+      "type": "text",
+      "interactive": false,
+      "from": {"data": "regions"},
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"signal": "datum.x0 + 10"},
+          "y": {"signal": "datum.top + 4"},
+          "text": {"signal": "'#' + datum.region_rank + ' ' + datum.key"},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 16},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "white"}
+        }
+      }
+    },
+    {
+      "name": "region_counts",
+      "type": "text",
+      "interactive": false,
+      "from": {"data": "regions"},
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"signal": "datum.x0 + 10"},
+          "y": {"signal": "datum.top + 23"},
+          "text": {"signal": "format(datum.region_total, ',') + ' people'"},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 12},
+          "fill": {"value": "white"}
+        }
+      }
+    },
+    {
+      "name": "country_names",
+      "type": "text",
+      "interactive": false,
+      "from": {"data": "countries"},
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"signal": "(datum.x0 + datum.x1) / 2"},
+          "y": {"field": "label_top"},
+          "text": {"field": "name_lines"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 14},
+          "fontWeight": {"value": "bold"},
+          "lineHeight": {"value": 17},
+          "fill": {"value": "white"}
+        }
+      }
+    },
+    {
+      "name": "country_counts",
+      "type": "text",
+      "interactive": false,
+      "from": {"data": "countries"},
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"signal": "(datum.x0 + datum.x1) / 2"},
+          "y": {
+            "signal": "datum.label_top + length(datum.name_lines) * 17 + 6"
+          },
+          "text": {"signal": "format(datum.population, ',')"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 12},
+          "fill": {"value": "white"}
+        }
+      }
+    },
+    {
+      "name": "scope_note",
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"value": 6},
+          "y": {"signal": "height + 16"},
+          "text": {
+            "value": "Region totals include only the 20 birthplaces shown, not all overseas-born residents from each region."
+          },
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 11},
+          "fill": {"value": "#53616D"}
+        }
+      }
+    },
+    {
+      "name": "source_note",
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "font": {"value": "Arial"},
+          "x": {"value": 6},
+          "y": {"signal": "height + 34"},
+          "text": {
+            "value": "Source: Australian Bureau of Statistics, 2021 Census General Community Profile, G09. Counts are people."
+          },
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 11},
+          "fill": {"value": "#53616D"}
+        }
+      }
+    }
+  ],
+  "config": {}
+}

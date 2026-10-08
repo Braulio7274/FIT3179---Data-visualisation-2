@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Heatmap comparing the share of each state or territory population speaking Australia's ten most common non-English languages at home, 2021 Census.",
+  "width": 720,
+  "height": 430,
+  "background": "white",
+  "title": {
+    "text": "Which languages stand out across Australia?",
+    "subtitle": "Top 10 non-English languages nationally; each cell shows the share of that state or territory population — 2021 Census",
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 8
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/language_state_heatmap.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "speakers": "number",
+        "state_population": "number",
+        "share_pct": "number",
+        "national_rank": "number",
+        "national_total": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "ordinal",
+      "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "y": {
+      "field": "language",
+      "type": "ordinal",
+      "sort": {"field": "national_rank", "order": "ascending"},
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "ticks": false,
+        "domain": false,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2,
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {"scheme": "blues", "domain": [0, 3.5], "clamp": true},
+          "legend": {
+            "title": "Share of state population",
+            "format": ".1f",
+            "labelExpr": "datum.label + '%'",
+            "gradientLength": 240
+          }
+        },
+        "tooltip": [
+          {"field": "language", "type": "nominal", "title": "Language"},
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "speakers",
+            "type": "quantitative",
+            "title": "People speaking at home",
+            "format": ","
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of population",
+            "format": ".2f"
+          },
+          {
+            "field": "national_rank",
+            "type": "quantitative",
+            "title": "National rank",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold"},
+      "encoding": {
+        "text": {"field": "share_label", "type": "nominal"},
+        "color": {
+          "condition": {"test": "datum.share_pct >= 1.7", "value": "white"},
+          "value": "#17283b"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "axis": {"grid": false},
+    "legend": {"titleFontSize": 12, "labelFontSize": 11},
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  }
+}

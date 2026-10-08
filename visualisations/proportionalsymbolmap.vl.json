@@ -1,0 +1,285 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Proportional-symbol map of overseas-born residents by SA2, 2021 Census. All boundary and centroid requests use EPSG:3577. One fixed planar projection draws both layers. Circle area is linear in population. The viewport covers mainland Australia and Tasmania.",
+  "width": 900,
+  "height": 620,
+  "background": "white",
+  "padding": 20,
+  "title": {
+    "text": "Where are Australia's largest overseas-born populations?",
+    "subtitle": [
+      "Circle area = overseas-born residents in each SA2 | 2021 Census",
+      "Mainland Australia and Tasmania. Hover over a circle for its population."
+    ],
+    "anchor": "start",
+    "fontSize": 21,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 8,
+    "offset": 14
+  },
+  "projection": {
+    "type": "identity",
+    "reflectY": true,
+    "scale": 0.00015,
+    "translate": [440, -130],
+    "clipExtent": [[0, 0], [900, 620]]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer/1/query?where=state_code_2021%3C%3E%279%27&outFields=state_code_2021%2Cstate_name_2021&returnGeometry=true&outSR=3577&f=geojson&maxAllowableOffset=1000&geometryPrecision=0",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f3f4f6",
+        "stroke": "#8b949e",
+        "strokeWidth": 0.8,
+        "clip": true
+      },
+      "transform": [
+        {"filter": "isValid(datum.geometry) && isValid(datum.properties)"},
+        {
+          "filter": "datum.geometry.type == 'Polygon' || datum.geometry.type == 'MultiPolygon'"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/0/query?where=state_code_2021%3C%3E%279%27&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=false&returnCentroid=true&outSR=3577&orderByFields=objectid&resultOffset=0&resultRecordCount=2000&f=json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.centroid) && isValid(datum.attributes)"},
+        {
+          "calculate": "toString(datum.attributes.sa2_code_2021)",
+          "as": "sa2_code"
+        },
+        {"calculate": "toNumber(datum.centroid.x)", "as": "map_x"},
+        {"calculate": "toNumber(datum.centroid.y)", "as": "map_y"},
+        {"filter": "isValid(datum.map_x) && isValid(datum.map_y)"},
+        {
+          "lookup": "sa2_code",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "SA2_CODE_2021": "string",
+                  "overseas_born": "number",
+                  "overseas_percent": "number",
+                  "total_population": "number"
+                }
+              }
+            },
+            "key": "SA2_CODE_2021",
+            "fields": ["overseas_born", "overseas_percent", "total_population"]
+          }
+        },
+        {"calculate": "toNumber(datum.overseas_born)", "as": "resident_count"},
+        {"filter": "isValid(datum.resident_count) && datum.resident_count > 0"},
+        {
+          "calculate": "isValid(datum.overseas_percent) ? format(toNumber(datum.overseas_percent), '.1f') + '%' : 'Not available'",
+          "as": "share_label"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#2563eb",
+        "fillOpacity": 0.48,
+        "stroke": "#163a63",
+        "strokeOpacity": 0.65,
+        "strokeWidth": 0.35,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {"field": "map_x", "type": "quantitative"},
+        "latitude": {"field": "map_y", "type": "quantitative"},
+        "size": {
+          "field": "resident_count",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [0, 16000],
+            "range": [0, 480],
+            "zero": true,
+            "clamp": false
+          },
+          "legend": {
+            "title": "Overseas-born residents",
+            "orient": "right",
+            "format": ",.0f",
+            "values": [1000, 5000, 10000, 15000],
+            "offset": 20,
+            "symbolOpacity": 0.55,
+            "symbolFillColor": "#2563eb",
+            "symbolStrokeColor": "#163a63",
+            "symbolStrokeWidth": 0.4,
+            "titleLimit": 260
+          }
+        },
+        "order": {
+          "field": "resident_count",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "attributes.sa2_name_2021",
+            "type": "nominal",
+            "title": "SA2 area"
+          },
+          {
+            "field": "attributes.state_name_2021",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "resident_count",
+            "type": "quantitative",
+            "title": "Overseas-born residents",
+            "format": ",.0f"
+          },
+          {"field": "share_label", "type": "nominal", "title": "Born overseas"},
+          {
+            "field": "total_population",
+            "type": "quantitative",
+            "title": "Total residents",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/0/query?where=state_code_2021%3C%3E%279%27&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=false&returnCentroid=true&outSR=3577&orderByFields=objectid&resultOffset=2000&resultRecordCount=1000&f=json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.centroid) && isValid(datum.attributes)"},
+        {
+          "calculate": "toString(datum.attributes.sa2_code_2021)",
+          "as": "sa2_code"
+        },
+        {"calculate": "toNumber(datum.centroid.x)", "as": "map_x"},
+        {"calculate": "toNumber(datum.centroid.y)", "as": "map_y"},
+        {"filter": "isValid(datum.map_x) && isValid(datum.map_y)"},
+        {
+          "lookup": "sa2_code",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "SA2_CODE_2021": "string",
+                  "overseas_born": "number",
+                  "overseas_percent": "number",
+                  "total_population": "number"
+                }
+              }
+            },
+            "key": "SA2_CODE_2021",
+            "fields": ["overseas_born", "overseas_percent", "total_population"]
+          }
+        },
+        {"calculate": "toNumber(datum.overseas_born)", "as": "resident_count"},
+        {"filter": "isValid(datum.resident_count) && datum.resident_count > 0"},
+        {
+          "calculate": "isValid(datum.overseas_percent) ? format(toNumber(datum.overseas_percent), '.1f') + '%' : 'Not available'",
+          "as": "share_label"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#2563eb",
+        "fillOpacity": 0.48,
+        "stroke": "#163a63",
+        "strokeOpacity": 0.65,
+        "strokeWidth": 0.35,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {"field": "map_x", "type": "quantitative"},
+        "latitude": {"field": "map_y", "type": "quantitative"},
+        "size": {
+          "field": "resident_count",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [0, 16000],
+            "range": [0, 480],
+            "zero": true,
+            "clamp": false
+          },
+          "legend": {
+            "title": "Overseas-born residents",
+            "orient": "right",
+            "format": ",.0f",
+            "values": [1000, 5000, 10000, 15000],
+            "offset": 20,
+            "symbolOpacity": 0.55,
+            "symbolFillColor": "#2563eb",
+            "symbolStrokeColor": "#163a63",
+            "symbolStrokeWidth": 0.4,
+            "titleLimit": 260
+          }
+        },
+        "order": {
+          "field": "resident_count",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "attributes.sa2_name_2021",
+            "type": "nominal",
+            "title": "SA2 area"
+          },
+          {
+            "field": "attributes.state_name_2021",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "resident_count",
+            "type": "quantitative",
+            "title": "Overseas-born residents",
+            "format": ",.0f"
+          },
+          {"field": "share_label", "type": "nominal", "title": "Born overseas"},
+          {
+            "field": "total_population",
+            "type": "quantitative",
+            "title": "Total residents",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"size": "shared"}, "legend": {"size": "shared"}},
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "symbolFillColor": "#2563eb",
+      "symbolStrokeColor": "#163a63",
+      "titleLimit": 260,
+      "labelLimit": 220
+    },
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  },
+  "usermeta": {
+    "boundary_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer/1",
+    "centroid_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/0",
+    "coordinate_system": "GDA94 / Australian Albers (EPSG:3577)",
+    "scope": "Mainland Australia and Tasmania; Other Territories and offshore islands outside the viewport are not shown.",
+    "size_encoding": "A linear scale maps population to circle size (area), with zero population mapped to zero size.",
+    "validation": "Compiled and locally rendered in Vega-Lite 5.6.1 / Vega 5.33.0 using offline geographic test fixtures. Live ABS responses were not accessible in the authoring environment."
+  },
+  "autosize": {"type": "pad", "contains": "content"}
+}
