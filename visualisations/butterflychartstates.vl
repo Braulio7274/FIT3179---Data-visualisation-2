@@ -1,0 +1,212 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Butterfly chart comparing the share of the population speaking the ten most common non-English languages at home in New South Wales and Victoria, 2021 Census.",
+  "background": "white",
+  "padding": 20,
+  "title": {
+    "text": "How do language communities differ between New South Wales and Victoria?",
+    "subtitle": [
+      "Top 10 non-English languages nationally | Share of each state population speaking the language at home",
+      "2021 Census"
+    ],
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 8,
+    "offset": 14
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/nsw_victoria_language_butterfly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rank": "number",
+        "nsw_speakers": "number",
+        "nsw_percent": "number",
+        "victoria_speakers": "number",
+        "victoria_percent": "number"
+      }
+    }
+  },
+  "hconcat": [
+    {
+      "width": 330,
+      "height": 420,
+      "title": {"text": "New South Wales", "fontSize": 16, "anchor": "middle"},
+      "layer": [
+        {
+          "mark": {"type": "bar", "color": "#4C78A8", "cornerRadiusEnd": 2},
+          "encoding": {
+            "y": {
+              "field": "language",
+              "type": "nominal",
+              "sort": {"field": "rank", "order": "ascending"},
+              "axis": null
+            },
+            "x": {
+              "field": "nsw_percent",
+              "type": "quantitative",
+              "scale": {"domain": [0, 4], "reverse": true},
+              "axis": {
+                "title": "Share of state population (%)",
+                "values": [0, 1, 2, 3, 4],
+                "labelExpr": "datum.value + '%'",
+                "grid": true
+              }
+            },
+            "tooltip": [
+              {"field": "language", "type": "nominal", "title": "Language"},
+              {
+                "field": "nsw_speakers",
+                "type": "quantitative",
+                "title": "NSW speakers",
+                "format": ",.0f"
+              },
+              {
+                "field": "nsw_percent",
+                "type": "quantitative",
+                "title": "NSW share (%)",
+                "format": ".2f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -5,
+            "fontSize": 11,
+            "color": "#263238"
+          },
+          "encoding": {
+            "y": {
+              "field": "language",
+              "type": "nominal",
+              "sort": {"field": "rank", "order": "ascending"},
+              "axis": null
+            },
+            "x": {
+              "field": "nsw_percent",
+              "type": "quantitative",
+              "scale": {"domain": [0, 4], "reverse": true}
+            },
+            "text": {
+              "field": "nsw_percent",
+              "type": "quantitative",
+              "format": ".2f"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 115,
+      "height": 420,
+      "title": {"text": "Language", "fontSize": 16, "anchor": "middle"},
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "language",
+          "type": "nominal",
+          "sort": {"field": "rank", "order": "ascending"},
+          "axis": null
+        },
+        "text": {"field": "language", "type": "nominal"}
+      }
+    },
+    {
+      "width": 330,
+      "height": 420,
+      "title": {"text": "Victoria", "fontSize": 16, "anchor": "middle"},
+      "layer": [
+        {
+          "mark": {"type": "bar", "color": "#F58518", "cornerRadiusEnd": 2},
+          "encoding": {
+            "y": {
+              "field": "language",
+              "type": "nominal",
+              "sort": {"field": "rank", "order": "ascending"},
+              "axis": null
+            },
+            "x": {
+              "field": "victoria_percent",
+              "type": "quantitative",
+              "scale": {"domain": [0, 4]},
+              "axis": {
+                "title": "Share of state population (%)",
+                "values": [0, 1, 2, 3, 4],
+                "labelExpr": "datum.value + '%'",
+                "grid": true
+              }
+            },
+            "tooltip": [
+              {"field": "language", "type": "nominal", "title": "Language"},
+              {
+                "field": "victoria_speakers",
+                "type": "quantitative",
+                "title": "Victoria speakers",
+                "format": ",.0f"
+              },
+              {
+                "field": "victoria_percent",
+                "type": "quantitative",
+                "title": "Victoria share (%)",
+                "format": ".2f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 5,
+            "fontSize": 11,
+            "color": "#263238"
+          },
+          "encoding": {
+            "y": {
+              "field": "language",
+              "type": "nominal",
+              "sort": {"field": "rank", "order": "ascending"},
+              "axis": null
+            },
+            "x": {
+              "field": "victoria_percent",
+              "type": "quantitative",
+              "scale": {"domain": [0, 4]}
+            },
+            "text": {
+              "field": "victoria_percent",
+              "type": "quantitative",
+              "format": ".2f"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "spacing": 4,
+  "resolve": {"scale": {"y": "shared"}},
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#E5E7EB",
+      "domainColor": "#9CA3AF",
+      "tickColor": "#9CA3AF"
+    },
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  }
+}
