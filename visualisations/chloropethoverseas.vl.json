@@ -1,0 +1,228 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "ABS 2021 SA2 overseas-born resident share. Full GeoJSON Feature rows are passed to geoshape and automatic projection fitting; geometry is not used as a stand-alone shape field.",
+  "usermeta": {
+    "boundary_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/1",
+    "data_source": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+    "measurement": "100 * (total_population - australia_born - country_birth_not_stated) / total_population",
+    "year": 2021,
+    "boundary_coordinate_system": "GDA94 / Australian Albers, EPSG:3577",
+    "boundary_simplification_tolerance_metres": 100,
+    "testing_note": "JSON syntax checked. Removed both explicit shape encodings so that automatic fitting and drawing use complete GeoJSON Feature rows. Live API rendering was not executable in the authoring environment."
+  },
+  "width": 900,
+  "height": 610,
+  "background": "white",
+  "padding": 20,
+  "autosize": {"type": "pad", "contains": "content"},
+  "title": {
+    "text": "Where do Australia's overseas-born residents live?",
+    "subtitle": [
+      "Share of residents born overseas by SA2 | 2021 Census",
+      "Darker blue = higher share. Grey = unavailable or no residents."
+    ],
+    "anchor": "start",
+    "fontSize": 22,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 8,
+    "offset": 14
+  },
+  "projection": {"type": "identity", "reflectY": true},
+  "layer": [
+    {
+      "data": {
+        "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/1/query?where=1%3D1&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=true&returnM=false&returnZ=false&outSR=3577&maxAllowableOffset=100&geometryPrecision=0&orderByFields=objectid&resultOffset=0&resultRecordCount=2000&f=geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.geometry) && isValid(datum.properties)"},
+        {
+          "filter": "datum.geometry.type == 'Polygon' || datum.geometry.type == 'MultiPolygon'"
+        },
+        {
+          "calculate": "toString(datum.properties.sa2_code_2021)",
+          "as": "sa2_code"
+        },
+        {
+          "lookup": "sa2_code",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "SA2_CODE_2021": "string",
+                  "overseas_percent": "number",
+                  "overseas_born": "number",
+                  "total_population": "number"
+                }
+              }
+            },
+            "key": "SA2_CODE_2021",
+            "fields": ["overseas_percent", "overseas_born", "total_population"]
+          }
+        },
+        {
+          "calculate": "isValid(datum.overseas_percent) && datum.total_population > 0 ? datum.overseas_percent : null",
+          "as": "mapped_percent"
+        },
+        {
+          "calculate": "isValid(datum.mapped_percent) ? format(datum.mapped_percent, '.1f') + '%' : 'Not available / no residents'",
+          "as": "percentage_label"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.18},
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "isValid(datum.mapped_percent)",
+            "field": "mapped_percent",
+            "type": "quantitative",
+            "scale": {"scheme": "blues", "domain": [0, 60], "clamp": true},
+            "legend": {
+              "title": "Residents born overseas",
+              "orient": "bottom",
+              "direction": "horizontal",
+              "gradientLength": 320,
+              "gradientThickness": 14,
+              "values": [0, 10, 20, 30, 40, 50, 60],
+              "labelExpr": "datum.value == 60 ? '60%+' : datum.value + '%'",
+              "offset": 14
+            }
+          },
+          "value": "#e2e5e9"
+        },
+        "tooltip": [
+          {
+            "field": "properties.sa2_name_2021",
+            "type": "nominal",
+            "title": "SA2 area"
+          },
+          {
+            "field": "properties.state_name_2021",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "percentage_label",
+            "type": "nominal",
+            "title": "Born overseas"
+          },
+          {
+            "field": "overseas_born",
+            "type": "quantitative",
+            "title": "Overseas-born residents",
+            "format": ",.0f"
+          },
+          {
+            "field": "total_population",
+            "type": "quantitative",
+            "title": "Total residents",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/1/query?where=1%3D1&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=true&returnM=false&returnZ=false&outSR=3577&maxAllowableOffset=100&geometryPrecision=0&orderByFields=objectid&resultOffset=2000&resultRecordCount=2000&f=geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {"filter": "isValid(datum.geometry) && isValid(datum.properties)"},
+        {
+          "filter": "datum.geometry.type == 'Polygon' || datum.geometry.type == 'MultiPolygon'"
+        },
+        {
+          "calculate": "toString(datum.properties.sa2_code_2021)",
+          "as": "sa2_code"
+        },
+        {
+          "lookup": "sa2_code",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "SA2_CODE_2021": "string",
+                  "overseas_percent": "number",
+                  "overseas_born": "number",
+                  "total_population": "number"
+                }
+              }
+            },
+            "key": "SA2_CODE_2021",
+            "fields": ["overseas_percent", "overseas_born", "total_population"]
+          }
+        },
+        {
+          "calculate": "isValid(datum.overseas_percent) && datum.total_population > 0 ? datum.overseas_percent : null",
+          "as": "mapped_percent"
+        },
+        {
+          "calculate": "isValid(datum.mapped_percent) ? format(datum.mapped_percent, '.1f') + '%' : 'Not available / no residents'",
+          "as": "percentage_label"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.18},
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "isValid(datum.mapped_percent)",
+            "field": "mapped_percent",
+            "type": "quantitative",
+            "scale": {"scheme": "blues", "domain": [0, 60], "clamp": true},
+            "legend": {
+              "title": "Residents born overseas",
+              "orient": "bottom",
+              "direction": "horizontal",
+              "gradientLength": 320,
+              "gradientThickness": 14,
+              "values": [0, 10, 20, 30, 40, 50, 60],
+              "labelExpr": "datum.value == 60 ? '60%+' : datum.value + '%'",
+              "offset": 14
+            }
+          },
+          "value": "#e2e5e9"
+        },
+        "tooltip": [
+          {
+            "field": "properties.sa2_name_2021",
+            "type": "nominal",
+            "title": "SA2 area"
+          },
+          {
+            "field": "properties.state_name_2021",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "percentage_label",
+            "type": "nominal",
+            "title": "Born overseas"
+          },
+          {
+            "field": "overseas_born",
+            "type": "quantitative",
+            "title": "Overseas-born residents",
+            "format": ",.0f"
+          },
+          {
+            "field": "total_population",
+            "type": "quantitative",
+            "title": "Total residents",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"color": "shared"}, "legend": {"color": "shared"}},
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "legend": {"titleFontSize": 12, "labelFontSize": 11, "titleLimit": 350},
+    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+  }
+}
