@@ -1,340 +1,254 @@
 /* =====================================
-   GLOBAL
+   DATA INTRODUCTION
 ===================================== */
 
-* {
-  box-sizing: border-box;
-}
+.data-intro {
+  max-width: 1160px;
 
-html {
-  scroll-behavior: smooth;
-}
+  margin: 0 auto 75px;
+  padding: 45px 50px;
 
-body {
-  margin: 0;
+  background: #ffffff;
 
-  background: #f4f6f8;
-  color: #17283b;
-
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  border: 1px solid #dde3e9;
+  border-radius: 12px;
 }
 
 
-/* =====================================
-   PAGE
-===================================== */
+.data-intro-content {
+  display: grid;
 
-.dashboard {
-  width: min(1280px, calc(100% - 48px));
-  margin: 0 auto;
+  grid-template-columns: 1.15fr 0.85fr;
+
+  align-items: center;
+
+  gap: 55px;
 }
 
 
-/* =====================================
-   HERO
-===================================== */
+/* LEFT SIDE */
 
-.hero {
-  max-width: 900px;
-
-  margin: 0 auto;
-  padding: 75px 20px 70px;
-
-  text-align: center;
+.data-intro-text {
+  min-width: 0;
 }
 
-.eyebrow {
-  margin: 0 0 12px;
+
+.intro-label {
+  margin: 0 0 10px;
 
   color: #315b7d;
 
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2.2px;
+
+  letter-spacing: 1.8px;
 }
 
-.hero h1 {
-  margin: 0;
+
+.data-intro h2 {
+  max-width: 620px;
+
+  margin: 0 0 20px;
 
   color: #17283b;
 
-  font-size: clamp(40px, 5vw, 58px);
-  line-height: 1.08;
-  letter-spacing: -1.5px;
-}
-
-.hero-text {
-  max-width: 720px;
-
-  margin: 22px auto 0;
-
-  color: #627080;
-
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-
-/* =====================================
-   SECTIONS
-===================================== */
-
-.section {
-  padding: 65px 0;
-
-  border-top: 1px solid #dce2e8;
-}
-
-.section-heading {
-  display: flex;
-  align-items: flex-start;
-
-  max-width: 900px;
-
-  margin: 0 0 32px;
-  gap: 18px;
-}
-
-.section-number {
-  flex-shrink: 0;
-
-  padding-top: 5px;
-
-  color: #315b7d;
-
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.section-heading h2 {
-  margin: 0 0 8px;
-
-  color: #17283b;
-
-  font-size: 29px;
+  font-size: 28px;
   line-height: 1.25;
 }
 
-.section-heading p {
-  max-width: 760px;
 
-  margin: 0;
+.intro-description {
+  max-width: 650px;
 
-  color: #667085;
+  margin: 0 0 14px;
+
+  color: #596777;
 
   font-size: 15px;
   line-height: 1.65;
 }
 
 
-/* =====================================
-   CHART CARDS
-===================================== */
+/* STATISTICS */
 
-.chart-card {
-  width: 100%;
-
-  margin: 0 auto 28px;
-  padding: 28px;
-
-  background: #ffffff;
-
-  border: 1px solid #dde3e9;
-  border-radius: 12px;
-
-  overflow: hidden;
-}
-
-
-/* Centre the actual Vega visualisation */
-
-.chart-card > div {
-  display: flex;
-  justify-content: center;
-
-  width: 100%;
-}
-
-.vega-embed {
-  display: flex;
-  justify-content: center;
-
-  max-width: 100%;
-}
-
-.vega-embed > div {
-  max-width: 100%;
-}
-
-
-/* Prevent fixed Vega sizes overflowing */
-
-.chart-card svg {
-  display: block;
-
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* =====================================
-   DIFFERENT CHART WIDTHS
-===================================== */
-
-/* Treemap gets most of the page */
-.feature-card {
-  max-width: 1100px;
-}
-
-
-/* Bar chart doesn't need a huge card */
-.medium-card {
-  max-width: 900px;
-}
-
-
-/* Maps / butterfly / flow */
-.large-card {
-  max-width: 1080px;
-}
-
-
-/* Sankey is naturally the widest */
-.sankey-card {
-  max-width: 1180px;
-}
-
-
-/* =====================================
-   COMPARISON SECTION
-===================================== */
-
-.comparison-grid {
+.intro-stats {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 
-  align-items: start;
+  margin: 32px 0;
 
-  gap: 24px;
-
-  margin-bottom: 28px;
-}
-
-.comparison-grid .chart-card {
-  height: 100%;
-  margin-bottom: 0;
-  padding: 20px;
+  border-top: 1px solid #e0e6ec;
+  border-bottom: 1px solid #e0e6ec;
 }
 
 
-/* =====================================
-   ERROR
-===================================== */
+.intro-stat {
+  display: flex;
+  flex-direction: column;
 
-.chart-error {
+  justify-content: center;
+
+  min-height: 105px;
+
+  padding: 18px 20px;
+
+  text-align: center;
+}
+
+
+.intro-stat:not(:last-child) {
+  border-right: 1px solid #e0e6ec;
+}
+
+
+.stat-value {
+  margin-bottom: 5px;
+
+  color: #315b7d;
+
+  font-size: 23px;
+  font-weight: 700;
+}
+
+
+.stat-label {
+  color: #687586;
+
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+
+/* IMPORTANT NOTE */
+
+.data-note {
+  padding: 15px 18px;
+
+  color: #56616e;
+  background: #f5f7f9;
+
+  border-left: 4px solid #315b7d;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* RIGHT SIDE */
+
+.data-intro-visual {
+  display: flex;
+
+  align-items: stretch;
+
+  min-height: 340px;
+}
+
+
+.visual-placeholder {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
   width: 100%;
 
-  padding: 45px 20px;
+  padding: 45px;
 
   text-align: center;
 
-  color: #8a3442;
-  background: #fff7f8;
+  background:
+    linear-gradient(
+      145deg,
+      #e7edf2 0%,
+      #f7f9fa 55%,
+      #e8efe6 100%
+    );
 
-  border: 1px dashed #c7ced8;
-  border-radius: 6px;
+  border-radius: 8px;
+}
+
+
+.visual-small {
+  margin-bottom: 12px;
+
+  color: #687586;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.visual-big {
+  margin-bottom: 13px;
+
+  color: #17283b;
+
+  font-size: 42px;
+  font-weight: 700;
+
+  letter-spacing: -1px;
+}
+
+
+.visual-sub {
+  max-width: 300px;
+
+  color: #687586;
+
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 
 /* =====================================
-   FOOTER
+   DATA INTRO RESPONSIVE
 ===================================== */
 
-.footer {
-  display: flex;
-  justify-content: space-between;
+@media (max-width: 850px) {
 
-  gap: 30px;
+  .data-intro {
+    padding: 32px;
+  }
 
-  padding: 32px 0 50px;
-
-  color: #77818d;
-
-  border-top: 1px solid #dce2e8;
-
-  font-size: 12px;
-}
-
-.footer p {
-  margin: 0;
-}
-
-
-/* =====================================
-   TABLET
-===================================== */
-
-@media (max-width: 1000px) {
-
-  .comparison-grid {
+  .data-intro-content {
     grid-template-columns: 1fr;
   }
 
-  .comparison-grid .chart-card {
-    height: auto;
+  .data-intro-visual {
+    min-height: 230px;
   }
 
 }
 
 
-/* =====================================
-   MOBILE
-===================================== */
+@media (max-width: 600px) {
 
-@media (max-width: 650px) {
+  .data-intro {
+    margin-bottom: 50px;
 
-  .dashboard {
-    width: calc(100% - 24px);
+    padding: 24px 18px;
   }
 
-  .hero {
-    padding: 50px 10px 45px;
+  .data-intro h2 {
+    font-size: 24px;
   }
 
-  .hero h1 {
-    font-size: 36px;
+  .intro-stats {
+    grid-template-columns: 1fr;
   }
 
-  .hero-text {
-    font-size: 15px;
+  .intro-stat:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid #e0e6ec;
   }
 
-  .section {
-    padding: 45px 0;
-  }
-
-  .section-heading {
-    gap: 11px;
-  }
-
-  .section-heading h2 {
-    font-size: 23px;
-  }
-
-  .chart-card {
-    padding: 12px;
-
-    overflow-x: auto;
-  }
-
-  .footer {
-    flex-direction: column;
-
-    gap: 8px;
+  .visual-big {
+    font-size: 34px;
   }
 
 }
