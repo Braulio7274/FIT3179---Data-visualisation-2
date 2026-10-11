@@ -1,6 +1,6 @@
-/* -----------------------------
+/* =====================================
    GLOBAL
------------------------------- */
+===================================== */
 
 * {
   box-sizing: border-box;
@@ -12,74 +12,88 @@ html {
 
 body {
   margin: 0;
-  background: #f5f7fa;
+
+  background: #f4f6f8;
   color: #17283b;
+
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 }
 
 
-/* -----------------------------
-   MAIN DASHBOARD
------------------------------- */
+/* =====================================
+   PAGE
+===================================== */
 
 .dashboard {
-  width: min(1240px, 94%);
+  width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
 }
 
 
-/* -----------------------------
+/* =====================================
    HERO
------------------------------- */
+===================================== */
 
 .hero {
   max-width: 900px;
+
   margin: 0 auto;
-  padding: 70px 20px 60px;
+  padding: 75px 20px 70px;
+
   text-align: center;
 }
 
 .eyebrow {
   margin: 0 0 12px;
+
+  color: #315b7d;
+
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: #315b7d;
+  letter-spacing: 2.2px;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(36px, 5vw, 58px);
+
+  color: #17283b;
+
+  font-size: clamp(40px, 5vw, 58px);
   line-height: 1.08;
   letter-spacing: -1.5px;
-  color: #17283b;
 }
 
 .hero-text {
-  max-width: 760px;
+  max-width: 720px;
+
   margin: 22px auto 0;
+
+  color: #627080;
+
   font-size: 17px;
   line-height: 1.7;
-  color: #5f6b78;
 }
 
 
-/* -----------------------------
+/* =====================================
    SECTIONS
------------------------------- */
+===================================== */
 
 .section {
-  margin-bottom: 80px;
+  padding: 65px 0;
+
+  border-top: 1px solid #dce2e8;
 }
 
 .section-heading {
   display: flex;
   align-items: flex-start;
-  gap: 18px;
 
   max-width: 900px;
-  margin-bottom: 28px;
+
+  margin: 0 0 32px;
+  gap: 18px;
 }
 
 .section-number {
@@ -87,20 +101,20 @@ body {
 
   padding-top: 5px;
 
+  color: #315b7d;
+
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
-
-  color: #315b7d;
 }
 
 .section-heading h2 {
-  margin: 0 0 7px;
-
-  font-size: 28px;
-  line-height: 1.25;
+  margin: 0 0 8px;
 
   color: #17283b;
+
+  font-size: 29px;
+  line-height: 1.25;
 }
 
 .section-heading p {
@@ -108,90 +122,150 @@ body {
 
   margin: 0;
 
-  font-size: 15px;
-  line-height: 1.6;
-
   color: #667085;
+
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 
-/* -----------------------------
-   CHART LAYOUT
------------------------------- */
-
-.grid-two {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
+/* =====================================
+   CHART CARDS
+===================================== */
 
 .chart-card {
-  min-width: 0;
-
-  padding: 24px;
-
-  background: white;
-
-  border: 1px solid #e0e6ed;
-  border-radius: 10px;
-}
-
-.chart-wide {
   width: 100%;
-  margin-bottom: 24px;
+
+  margin: 0 auto 28px;
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #dde3e9;
+  border-radius: 12px;
+
+  overflow: hidden;
 }
 
-.sankey-card {
-  overflow-x: auto;
+
+/* Centre the actual Vega visualisation */
+
+.chart-card > div {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
 }
-
-
-/* -----------------------------
-   VEGA
------------------------------- */
 
 .vega-embed {
-  width: 100%;
-}
+  display: flex;
+  justify-content: center;
 
-.vega-embed > div {
-  width: 100%;
-}
-
-.chart-card svg {
   max-width: 100%;
 }
 
+.vega-embed > div {
+  max-width: 100%;
+}
+
+
+/* Prevent fixed Vega sizes overflowing */
+
+.chart-card svg {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =====================================
+   DIFFERENT CHART WIDTHS
+===================================== */
+
+/* Treemap gets most of the page */
+.feature-card {
+  max-width: 1100px;
+}
+
+
+/* Bar chart doesn't need a huge card */
+.medium-card {
+  max-width: 900px;
+}
+
+
+/* Maps / butterfly / flow */
+.large-card {
+  max-width: 1080px;
+}
+
+
+/* Sankey is naturally the widest */
+.sankey-card {
+  max-width: 1180px;
+}
+
+
+/* =====================================
+   COMPARISON SECTION
+===================================== */
+
+.comparison-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+.comparison-grid .chart-card {
+  height: 100%;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+
+/* =====================================
+   ERROR
+===================================== */
+
 .chart-error {
-  padding: 40px 20px;
+  width: 100%;
+
+  padding: 45px 20px;
 
   text-align: center;
-
-  border: 1px dashed #c7ced8;
-  border-radius: 6px;
 
   color: #8a3442;
   background: #fff7f8;
 
-  font-size: 14px;
+  border: 1px dashed #c7ced8;
+  border-radius: 6px;
 }
 
 
-/* -----------------------------
+/* =====================================
    FOOTER
------------------------------- */
+===================================== */
 
 .footer {
   display: flex;
   justify-content: space-between;
+
   gap: 30px;
 
-  margin-top: 20px;
-  padding: 28px 0 50px;
-
-  border-top: 1px solid #dce2e9;
+  padding: 32px 0 50px;
 
   color: #77818d;
+
+  border-top: 1px solid #dce2e8;
+
   font-size: 12px;
 }
 
@@ -200,43 +274,51 @@ body {
 }
 
 
-/* -----------------------------
+/* =====================================
    TABLET
------------------------------- */
+===================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-  .grid-two {
+  .comparison-grid {
     grid-template-columns: 1fr;
   }
 
-  .section {
-    margin-bottom: 60px;
+  .comparison-grid .chart-card {
+    height: auto;
   }
 
 }
 
 
-/* -----------------------------
+/* =====================================
    MOBILE
------------------------------- */
+===================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
   .dashboard {
-    width: 95%;
+    width: calc(100% - 24px);
   }
 
   .hero {
     padding: 50px 10px 45px;
   }
 
+  .hero h1 {
+    font-size: 36px;
+  }
+
   .hero-text {
     font-size: 15px;
   }
 
+  .section {
+    padding: 45px 0;
+  }
+
   .section-heading {
-    gap: 12px;
+    gap: 11px;
   }
 
   .section-heading h2 {
@@ -245,11 +327,13 @@ body {
 
   .chart-card {
     padding: 12px;
+
     overflow-x: auto;
   }
 
   .footer {
     flex-direction: column;
+
     gap: 8px;
   }
 
