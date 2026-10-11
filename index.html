@@ -11,13 +11,22 @@
 
   <title>Cultural Diversity in Australia</title>
 
-  <!-- Vega libraries -->
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Vega -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 
@@ -41,8 +50,8 @@
       </h1>
 
       <p class="hero-text">
-        How migration, language and place reveal the changing
-        cultural landscape of Australia.
+        How migration, language and place reveal the cultural
+        landscape of modern Australia.
       </p>
 
     </header>
@@ -50,46 +59,60 @@
 
 
     <!-- ==================================================
-         DATA INTRODUCTION
+         UNDERSTANDING THE DATA
     =================================================== -->
 
     <section class="data-intro">
 
-      <div class="data-intro-content">
+      <div class="data-intro-grid">
 
 
-        <!-- LEFT SIDE -->
+        <!-- LEFT: INFORMATION -->
 
-        <div class="data-intro-text">
+        <div class="data-info">
 
           <p class="intro-label">
             UNDERSTANDING THE DATA
           </p>
 
           <h2>
-            Two datasets tell different parts of Australia's story
+            Exploring Australia's cultural diversity through two data sources
           </h2>
 
-          <p class="intro-description">
-            This visualisation combines data from the
-            <strong>Australian Bureau of Statistics (ABS)</strong>
-            with settlement data from the
-            <strong>Australian Government Department of Home Affairs</strong>.
-          </p>
 
           <p class="intro-description">
-            ABS data is used to explore country of birth,
-            languages spoken and the geographic distribution
-            of culturally diverse communities.
-            Home Affairs data is used to examine migration streams
-            and where new settlers have established themselves
-            across Australia.
+
+            This visualisation combines data from the
+            <strong>Australian Bureau of Statistics (ABS)</strong>
+            and the
+            <strong>Australian Government Department of Home Affairs</strong>.
+
           </p>
+
+
+          <p class="intro-description">
+
+            ABS data is used to examine country of birth,
+            languages spoken and where culturally diverse communities
+            are located across Australia.
+
+          </p>
+
+
+          <p class="intro-description">
+
+            Department of Home Affairs settlement data is used to explore
+            migration streams and where new settlers established themselves
+            between 2016 and 2025.
+
+          </p>
+
 
 
           <!-- STATISTICS -->
 
           <div class="intro-stats">
+
 
             <div class="intro-stat">
 
@@ -132,46 +155,50 @@
           </div>
 
 
+
           <!-- NOTE -->
 
-          <div class="data-note">
+          <p class="intro-note">
 
             <strong>Important:</strong>
+            The two datasets represent different populations and periods.
+            ABS Census data describes Australia's resident population,
+            while Home Affairs data records settlement activity.
+            Their values should therefore not always be compared directly.
 
-            The datasets describe different populations and
-            time periods. ABS Census figures describe Australia's
-            resident population, while Home Affairs settlement
-            records describe migration and settlement activity.
-            Values from the two sources should therefore not always
-            be compared directly.
-
-          </div>
+          </p>
 
         </div>
 
 
 
-        <!-- RIGHT SIDE -->
+        <!-- RIGHT: IMAGE SPACE -->
 
-        <div class="data-intro-visual">
+        <div class="data-image">
 
-          <div class="visual-placeholder">
+          <!--
+            Later, replace the image-placeholder div below with:
 
-            <span class="visual-small">
-              CULTURAL DIVERSITY
+            <img
+              src="images/your-image.jpg"
+              alt="Cultural diversity in Australia"
+            >
+          -->
+
+          <div class="image-placeholder">
+
+            <span class="image-placeholder-title">
+              IMAGE
             </span>
 
-            <span class="visual-big">
-              Australia
-            </span>
-
-            <span class="visual-sub">
-              Country of birth • Language • Migration • Settlement
+            <span class="image-placeholder-text">
+              Add an image representing multicultural Australia here
             </span>
 
           </div>
 
         </div>
+
 
       </div>
 
@@ -191,6 +218,7 @@
           01
         </span>
 
+
         <div>
 
           <h2>
@@ -199,9 +227,9 @@
 
           <p>
             Australia is home to people from a wide range of
-            countries and linguistic backgrounds. These
-            visualisations highlight some of the largest cultural
-            and language communities represented in the population.
+            countries and linguistic backgrounds. These visualisations
+            highlight some of the largest communities represented
+            in the population.
           </p>
 
         </div>
@@ -238,6 +266,7 @@
           02
         </span>
 
+
         <div>
 
           <h2>
@@ -245,9 +274,9 @@
           </h2>
 
           <p>
-            Cultural diversity is not distributed evenly across
-            Australia. These maps show how overseas-born populations
-            are distributed geographically across different areas.
+            Cultural diversity is not distributed evenly across Australia.
+            These maps show how overseas-born populations vary between
+            different areas.
           </p>
 
         </div>
@@ -284,6 +313,7 @@
           03
         </span>
 
+
         <div>
 
           <h2>
@@ -291,14 +321,15 @@
           </h2>
 
           <p>
-            Comparing languages and measures of cultural diversity
-            reveals important differences between Australian states
+            Comparing language communities and broader measures of
+            diversity reveals differences between Australian states
             and territories.
           </p>
 
         </div>
 
       </div>
+
 
 
       <div class="comparison-grid">
@@ -317,7 +348,9 @@
 
         </article>
 
+
       </div>
+
 
 
       <article class="chart-card large-card">
@@ -342,6 +375,7 @@
           04
         </span>
 
+
         <div>
 
           <h2>
@@ -349,9 +383,9 @@
           </h2>
 
           <p>
-            Migration connects Australia with countries across the
-            world, creating movement between major origin countries
-            and destinations within Australia.
+            Migration connects Australia with countries across the world,
+            creating major flows between origin countries and destinations
+            within Australia.
           </p>
 
         </div>
@@ -381,6 +415,7 @@
           05
         </span>
 
+
         <div>
 
           <h2>
@@ -389,8 +424,7 @@
 
           <p>
             Skilled, family and humanitarian migration streams
-            contribute differently to Australia's states and
-            territories.
+            contribute differently to Australia's states and territories.
           </p>
 
         </div>
@@ -456,10 +490,7 @@
           error
         );
 
-        const target =
-          document.querySelector(element);
-
-        target.innerHTML =
+        document.querySelector(element).innerHTML =
           '<div class="chart-error">' +
           'Unable to load visualisation.' +
           '</div>';
@@ -469,8 +500,6 @@
     }
 
 
-
-    /* SECTION 1 */
 
     embedChart(
       "#treemap",
@@ -484,9 +513,6 @@
     );
 
 
-
-    /* SECTION 2 */
-
     embedChart(
       "#choropleth",
       "visualisations/chloreplethoverseas.json"
@@ -498,9 +524,6 @@
       "visualisations/proportionalsymbolmap.json"
     );
 
-
-
-    /* SECTION 3 */
 
     embedChart(
       "#heatmap",
@@ -520,17 +543,11 @@
     );
 
 
-
-    /* SECTION 4 */
-
     embedChart(
       "#flow-map",
       "visualisations/flowmap.json"
     );
 
-
-
-    /* SECTION 5 */
 
     embedChart(
       "#sankey",
