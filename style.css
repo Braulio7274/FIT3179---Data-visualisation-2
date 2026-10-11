@@ -6,9 +6,11 @@
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
+
 
 body {
   margin: 0;
@@ -16,8 +18,10 @@ body {
   background: #f4f6f8;
   color: #17283b;
 
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  font-family: "Inter", Arial, sans-serif;
+
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 
@@ -37,14 +41,15 @@ body {
 ===================================== */
 
 .hero {
-  max-width: 900px;
+  max-width: 950px;
 
   margin: 0 auto;
 
-  padding: 70px 20px 55px;
+  padding: 70px 20px 50px;
 
   text-align: center;
 }
+
 
 .eyebrow {
   margin: 0 0 12px;
@@ -57,6 +62,7 @@ body {
   letter-spacing: 2.2px;
 }
 
+
 .hero h1 {
   margin: 0;
 
@@ -64,57 +70,75 @@ body {
 
   font-size: clamp(40px, 5vw, 58px);
 
+  font-weight: 700;
+
   line-height: 1.08;
 
-  letter-spacing: -1.5px;
+  letter-spacing: -1.6px;
 }
 
+
 .hero-text {
-  max-width: 720px;
+  max-width: 700px;
 
-  margin: 22px auto 0;
+  margin: 20px auto 0;
 
-  color: #627080;
+  color: #667382;
 
-  font-size: 17px;
+  font-size: 18px;
 
-  line-height: 1.7;
+  font-weight: 400;
+
+  line-height: 1.65;
 }
 
 
 /* =====================================
-   DATA INTRODUCTION
+   UNDERSTANDING THE DATA
 ===================================== */
 
 .data-intro {
   max-width: 1160px;
 
-  margin: 0 auto 75px;
+  margin: 0 auto 80px;
 
-  padding: 45px 50px;
+  padding: 48px;
 
   background: #ffffff;
 
   border: 1px solid #dde3e9;
 
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 
-.data-intro-content {
+.data-intro-grid {
   display: grid;
 
-  grid-template-columns: 1.15fr 0.85fr;
+  /*
+    More room for text on the left.
+    Image gets roughly 40% on right.
+  */
 
-  align-items: center;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  align-items: stretch;
 
   gap: 55px;
 }
 
 
-/* LEFT SIDE */
+/* =====================================
+   LEFT INTRO INFORMATION
+===================================== */
 
-.data-intro-text {
+.data-info {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
   min-width: 0;
 }
 
@@ -124,42 +148,55 @@ body {
 
   color: #315b7d;
 
-  font-size: 12px;
+  font-size: 11px;
 
   font-weight: 700;
 
-  letter-spacing: 1.8px;
+  letter-spacing: 1.9px;
 }
 
 
-.data-intro h2 {
+.data-info h2 {
   max-width: 620px;
 
-  margin: 0 0 20px;
+  margin: 0 0 21px;
 
   color: #17283b;
 
-  font-size: 28px;
+  font-size: 30px;
+
+  font-weight: 700;
 
   line-height: 1.25;
+
+  letter-spacing: -0.6px;
 }
 
 
 .intro-description {
   max-width: 650px;
 
-  margin: 0 0 14px;
+  margin: 0 0 13px;
 
   color: #596777;
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.65;
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+
+.intro-description strong {
+  color: #26384a;
+
+  font-weight: 600;
 }
 
 
 /* =====================================
-   INTRO STATS
+   INTRO STATISTICS
 ===================================== */
 
 .intro-stats {
@@ -167,11 +204,11 @@ body {
 
   grid-template-columns: repeat(3, 1fr);
 
-  margin: 32px 0;
+  margin: 28px 0;
 
-  border-top: 1px solid #e0e6ec;
+  border-top: 1px solid #e1e6eb;
 
-  border-bottom: 1px solid #e0e6ec;
+  border-bottom: 1px solid #e1e6eb;
 }
 
 
@@ -182,51 +219,57 @@ body {
 
   justify-content: center;
 
-  min-height: 105px;
+  min-height: 100px;
 
-  padding: 18px 20px;
+  padding: 16px;
 
   text-align: center;
 }
 
 
 .intro-stat:not(:last-child) {
-  border-right: 1px solid #e0e6ec;
+  border-right: 1px solid #e1e6eb;
 }
 
 
 .stat-value {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 
   color: #315b7d;
 
-  font-size: 23px;
+  font-size: 22px;
 
   font-weight: 700;
+
+  line-height: 1.2;
 }
 
 
 .stat-label {
-  color: #687586;
+  color: #6b7785;
 
-  font-size: 12px;
+  font-size: 11px;
 
-  line-height: 1.35;
+  font-weight: 500;
+
+  line-height: 1.4;
 }
 
 
 /* =====================================
-   DATA NOTE
+   INTRO NOTE
 ===================================== */
 
-.data-note {
-  padding: 15px 18px;
+.intro-note {
+  margin: 0;
 
-  color: #56616e;
+  padding: 14px 16px;
+
+  color: #5a6571;
 
   background: #f5f7f9;
 
-  border-left: 4px solid #315b7d;
+  border-left: 3px solid #315b7d;
 
   font-size: 12px;
 
@@ -234,20 +277,35 @@ body {
 }
 
 
-/* =====================================
-   INTRO VISUAL
-===================================== */
+.intro-note strong {
+  color: #26384a;
 
-.data-intro-visual {
-  display: flex;
-
-  align-items: stretch;
-
-  min-height: 340px;
+  font-weight: 700;
 }
 
 
-.visual-placeholder {
+/* =====================================
+   RIGHT IMAGE SPACE
+===================================== */
+
+.data-image {
+  min-height: 440px;
+
+  display: flex;
+
+  align-items: stretch;
+}
+
+
+/*
+  This is temporary.
+
+  When you have your actual image,
+  replace .image-placeholder in HTML
+  with an <img>.
+*/
+
+.image-placeholder {
   display: flex;
 
   flex-direction: column;
@@ -258,56 +316,56 @@ body {
 
   width: 100%;
 
-  padding: 45px;
+  min-height: 440px;
+
+  padding: 40px;
 
   text-align: center;
 
-  background:
-    linear-gradient(
-      145deg,
-      #e7edf2 0%,
-      #f7f9fa 55%,
-      #e8efe6 100%
-    );
+  background: #e9edf1;
 
-  border-radius: 8px;
+  border: 2px dashed #bdc7d0;
+
+  border-radius: 6px;
 }
 
 
-.visual-small {
-  margin-bottom: 12px;
+.image-placeholder-title {
+  margin-bottom: 8px;
 
-  color: #687586;
+  color: #526170;
 
-  font-size: 11px;
+  font-size: 15px;
 
   font-weight: 700;
 
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 
-.visual-big {
-  margin-bottom: 13px;
+.image-placeholder-text {
+  max-width: 260px;
 
-  color: #17283b;
+  color: #75808b;
 
-  font-size: 42px;
+  font-size: 12px;
 
-  font-weight: 700;
-
-  letter-spacing: -1px;
+  line-height: 1.5;
 }
 
 
-.visual-sub {
-  max-width: 300px;
+/* Actual image styling for later */
 
-  color: #687586;
+.data-image img {
+  display: block;
 
-  font-size: 13px;
+  width: 100%;
 
-  line-height: 1.6;
+  height: 440px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
 }
 
 
@@ -338,11 +396,11 @@ body {
 .section-number {
   flex-shrink: 0;
 
-  padding-top: 5px;
+  padding-top: 6px;
 
   color: #315b7d;
 
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 700;
 
@@ -357,7 +415,11 @@ body {
 
   font-size: 29px;
 
+  font-weight: 700;
+
   line-height: 1.25;
+
+  letter-spacing: -0.5px;
 }
 
 
@@ -366,9 +428,9 @@ body {
 
   margin: 0;
 
-  color: #667085;
+  color: #667382;
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 1.65;
 }
@@ -389,13 +451,11 @@ body {
 
   border: 1px solid #dde3e9;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
   overflow: hidden;
 }
 
-
-/* Centre actual Vega chart */
 
 .chart-card > div {
   display: flex;
@@ -498,6 +558,8 @@ body {
   border: 1px dashed #c7ced8;
 
   border-radius: 6px;
+
+  font-size: 13px;
 }
 
 
@@ -518,7 +580,7 @@ body {
 
   border-top: 1px solid #dce2e8;
 
-  font-size: 12px;
+  font-size: 11px;
 }
 
 
@@ -537,6 +599,7 @@ body {
     grid-template-columns: 1fr;
   }
 
+
   .comparison-grid .chart-card {
     height: auto;
   }
@@ -545,21 +608,35 @@ body {
 
 
 /* =====================================
-   DATA INTRO RESPONSIVE
+   INTRO TABLET
 ===================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
   .data-intro {
-    padding: 32px;
+    padding: 35px;
   }
 
-  .data-intro-content {
+
+  .data-intro-grid {
     grid-template-columns: 1fr;
+
+    gap: 35px;
   }
 
-  .data-intro-visual {
-    min-height: 230px;
+
+  .data-image {
+    min-height: 300px;
+  }
+
+
+  .image-placeholder {
+    min-height: 300px;
+  }
+
+
+  .data-image img {
+    height: 300px;
   }
 
 }
@@ -577,7 +654,7 @@ body {
 
 
   .hero {
-    padding: 50px 10px 45px;
+    padding: 48px 10px 42px;
   }
 
 
@@ -588,6 +665,35 @@ body {
 
   .hero-text {
     font-size: 15px;
+  }
+
+
+  .data-intro {
+    margin-bottom: 50px;
+
+    padding: 25px 18px;
+  }
+
+
+  .data-info h2 {
+    font-size: 24px;
+  }
+
+
+  .intro-description {
+    font-size: 13px;
+  }
+
+
+  .intro-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .intro-stat:not(:last-child) {
+    border-right: 0;
+
+    border-bottom: 1px solid #e1e6eb;
   }
 
 
@@ -610,35 +716,6 @@ body {
     padding: 12px;
 
     overflow-x: auto;
-  }
-
-
-  .data-intro {
-    margin-bottom: 50px;
-
-    padding: 24px 18px;
-  }
-
-
-  .data-intro h2 {
-    font-size: 24px;
-  }
-
-
-  .intro-stats {
-    grid-template-columns: 1fr;
-  }
-
-
-  .intro-stat:not(:last-child) {
-    border-right: 0;
-
-    border-bottom: 1px solid #e0e6ec;
-  }
-
-
-  .visual-big {
-    font-size: 34px;
   }
 
 
