@@ -27,6 +27,7 @@ body {
 
 .dashboard {
   width: min(1280px, calc(100% - 48px));
+
   margin: 0 auto;
 }
 
@@ -39,7 +40,8 @@ body {
   max-width: 900px;
 
   margin: 0 auto;
-  padding: 75px 20px 70px;
+
+  padding: 70px 20px 55px;
 
   text-align: center;
 }
@@ -51,6 +53,7 @@ body {
 
   font-size: 12px;
   font-weight: 700;
+
   letter-spacing: 2.2px;
 }
 
@@ -60,7 +63,9 @@ body {
   color: #17283b;
 
   font-size: clamp(40px, 5vw, 58px);
+
   line-height: 1.08;
+
   letter-spacing: -1.5px;
 }
 
@@ -72,8 +77,10 @@ body {
   color: #627080;
 
   font-size: 17px;
+
   line-height: 1.7;
 }
+
 
 /* =====================================
    DATA INTRODUCTION
@@ -83,11 +90,13 @@ body {
   max-width: 1160px;
 
   margin: 0 auto 75px;
+
   padding: 45px 50px;
 
   background: #ffffff;
 
   border: 1px solid #dde3e9;
+
   border-radius: 12px;
 }
 
@@ -116,6 +125,7 @@ body {
   color: #315b7d;
 
   font-size: 12px;
+
   font-weight: 700;
 
   letter-spacing: 1.8px;
@@ -130,6 +140,7 @@ body {
   color: #17283b;
 
   font-size: 28px;
+
   line-height: 1.25;
 }
 
@@ -142,11 +153,14 @@ body {
   color: #596777;
 
   font-size: 15px;
+
   line-height: 1.65;
 }
 
 
-/* STATISTICS */
+/* =====================================
+   INTRO STATS
+===================================== */
 
 .intro-stats {
   display: grid;
@@ -156,12 +170,14 @@ body {
   margin: 32px 0;
 
   border-top: 1px solid #e0e6ec;
+
   border-bottom: 1px solid #e0e6ec;
 }
 
 
 .intro-stat {
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
@@ -185,6 +201,7 @@ body {
   color: #315b7d;
 
   font-size: 23px;
+
   font-weight: 700;
 }
 
@@ -193,26 +210,33 @@ body {
   color: #687586;
 
   font-size: 12px;
+
   line-height: 1.35;
 }
 
 
-/* IMPORTANT NOTE */
+/* =====================================
+   DATA NOTE
+===================================== */
 
 .data-note {
   padding: 15px 18px;
 
   color: #56616e;
+
   background: #f5f7f9;
 
   border-left: 4px solid #315b7d;
 
   font-size: 12px;
+
   line-height: 1.6;
 }
 
 
-/* RIGHT SIDE */
+/* =====================================
+   INTRO VISUAL
+===================================== */
 
 .data-intro-visual {
   display: flex;
@@ -225,9 +249,11 @@ body {
 
 .visual-placeholder {
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
+
   align-items: center;
 
   width: 100%;
@@ -254,6 +280,7 @@ body {
   color: #687586;
 
   font-size: 11px;
+
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -266,6 +293,7 @@ body {
   color: #17283b;
 
   font-size: 42px;
+
   font-weight: 700;
 
   letter-spacing: -1px;
@@ -278,56 +306,8 @@ body {
   color: #687586;
 
   font-size: 13px;
+
   line-height: 1.6;
-}
-
-
-/* =====================================
-   DATA INTRO RESPONSIVE
-===================================== */
-
-@media (max-width: 850px) {
-
-  .data-intro {
-    padding: 32px;
-  }
-
-  .data-intro-content {
-    grid-template-columns: 1fr;
-  }
-
-  .data-intro-visual {
-    min-height: 230px;
-  }
-
-}
-
-
-@media (max-width: 600px) {
-
-  .data-intro {
-    margin-bottom: 50px;
-
-    padding: 24px 18px;
-  }
-
-  .data-intro h2 {
-    font-size: 24px;
-  }
-
-  .intro-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .intro-stat:not(:last-child) {
-    border-right: 0;
-    border-bottom: 1px solid #e0e6ec;
-  }
-
-  .visual-big {
-    font-size: 34px;
-  }
-
 }
 
 
@@ -341,15 +321,19 @@ body {
   border-top: 1px solid #dce2e8;
 }
 
+
 .section-heading {
   display: flex;
+
   align-items: flex-start;
 
   max-width: 900px;
 
   margin: 0 0 32px;
+
   gap: 18px;
 }
+
 
 .section-number {
   flex-shrink: 0;
@@ -359,9 +343,12 @@ body {
   color: #315b7d;
 
   font-size: 13px;
+
   font-weight: 700;
+
   letter-spacing: 1px;
 }
+
 
 .section-heading h2 {
   margin: 0 0 8px;
@@ -369,8 +356,10 @@ body {
   color: #17283b;
 
   font-size: 29px;
+
   line-height: 1.25;
 }
+
 
 .section-heading p {
   max-width: 760px;
@@ -380,6 +369,7 @@ body {
   color: #667085;
 
   font-size: 15px;
+
   line-height: 1.65;
 }
 
@@ -392,78 +382,79 @@ body {
   width: 100%;
 
   margin: 0 auto 28px;
+
   padding: 28px;
 
   background: #ffffff;
 
   border: 1px solid #dde3e9;
+
   border-radius: 12px;
 
   overflow: hidden;
 }
 
 
-/* Centre the actual Vega visualisation */
+/* Centre actual Vega chart */
 
 .chart-card > div {
   display: flex;
+
   justify-content: center;
 
   width: 100%;
 }
 
+
 .vega-embed {
   display: flex;
+
   justify-content: center;
 
   max-width: 100%;
 }
+
 
 .vega-embed > div {
   max-width: 100%;
 }
 
 
-/* Prevent fixed Vega sizes overflowing */
-
 .chart-card svg {
   display: block;
 
   max-width: 100%;
+
   height: auto;
 }
 
 
 /* =====================================
-   DIFFERENT CHART WIDTHS
+   CHART WIDTHS
 ===================================== */
 
-/* Treemap gets most of the page */
 .feature-card {
   max-width: 1100px;
 }
 
 
-/* Bar chart doesn't need a huge card */
 .medium-card {
   max-width: 900px;
 }
 
 
-/* Maps / butterfly / flow */
 .large-card {
   max-width: 1080px;
 }
 
 
-/* Sankey is naturally the widest */
 .sankey-card {
   max-width: 1180px;
 }
 
 
 /* =====================================
-   COMPARISON SECTION
+   COMPARISON GRID
 ===================================== */
 
 .comparison-grid {
@@ -479,15 +470,18 @@ body {
   margin-bottom: 28px;
 }
 
+
 .comparison-grid .chart-card {
   height: 100%;
+
   margin-bottom: 0;
+
   padding: 20px;
 }
 
 
 /* =====================================
-   ERROR
+   ERROR MESSAGE
 ===================================== */
 
 .chart-error {
@@ -498,9 +492,11 @@ body {
   text-align: center;
 
   color: #8a3442;
+
   background: #fff7f8;
 
   border: 1px dashed #c7ced8;
+
   border-radius: 6px;
 }
 
@@ -511,6 +507,7 @@ body {
 
 .footer {
   display: flex;
+
   justify-content: space-between;
 
   gap: 30px;
@@ -523,6 +520,7 @@ body {
 
   font-size: 12px;
 }
+
 
 .footer p {
   margin: 0;
@@ -547,6 +545,27 @@ body {
 
 
 /* =====================================
+   DATA INTRO RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+  .data-intro {
+    padding: 32px;
+  }
+
+  .data-intro-content {
+    grid-template-columns: 1fr;
+  }
+
+  .data-intro-visual {
+    min-height: 230px;
+  }
+
+}
+
+
+/* =====================================
    MOBILE
 ===================================== */
 
@@ -556,35 +575,72 @@ body {
     width: calc(100% - 24px);
   }
 
+
   .hero {
     padding: 50px 10px 45px;
   }
+
 
   .hero h1 {
     font-size: 36px;
   }
 
+
   .hero-text {
     font-size: 15px;
   }
+
 
   .section {
     padding: 45px 0;
   }
 
+
   .section-heading {
     gap: 11px;
   }
 
+
   .section-heading h2 {
     font-size: 23px;
   }
+
 
   .chart-card {
     padding: 12px;
 
     overflow-x: auto;
   }
+
+
+  .data-intro {
+    margin-bottom: 50px;
+
+    padding: 24px 18px;
+  }
+
+
+  .data-intro h2 {
+    font-size: 24px;
+  }
+
+
+  .intro-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .intro-stat:not(:last-child) {
+    border-right: 0;
+
+    border-bottom: 1px solid #e0e6ec;
+  }
+
+
+  .visual-big {
+    font-size: 34px;
+  }
+
 
   .footer {
     flex-direction: column;
