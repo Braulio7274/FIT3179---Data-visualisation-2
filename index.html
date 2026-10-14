@@ -1,363 +1,1784 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  />
+  >
+
   <title>Cultural Diversity in Australia</title>
 
-  <!-- Fonts -->
+
+  <!-- =========================================================
+       FONTS
+  ========================================================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Vega -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- =========================================================
+       VEGA
+  ========================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+
+
+  <!-- =========================================================
+       CSS
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
+
 <body>
 
+
   <main class="page">
+
 
     <!-- =========================================================
          HERO
     ========================================================== -->
+
     <header class="hero">
-      <h1>Cultural Diversity in Australia</h1>
-      <p class="hero-subtitle">
-        How migration, language, birthplace and settlement patterns shape Australia’s cultural landscape.
+
+      <p class="hero-label">
+        AUSTRALIAN CULTURAL DIVERSITY
       </p>
+
+      <h1>
+        Cultural Diversity<br>
+        in Australia
+      </h1>
+
+      <p class="hero-subtitle">
+
+        How birthplace, language, geography and migration
+        reveal the cultural landscape of modern Australia.
+
+      </p>
+
     </header>
 
 
+
     <!-- =========================================================
-         INTRO / DATA EXPLANATION
+         INTRODUCTION
     ========================================================== -->
+
     <section class="intro-section">
+
+
       <div class="intro-grid">
 
+
+        <!-- LEFT -->
+
         <div class="intro-text">
-          <h2>Understanding the Data</h2>
 
-          <p>
-            This visualisation draws primarily on two data sources:
-            <strong>Australian Bureau of Statistics (ABS)</strong> Census data,
-            and <strong>Department of Home Affairs</strong> settlement data.
+
+          <p class="section-label">
+            UNDERSTANDING THE DATA
           </p>
 
+
+          <h2>
+            Two sources reveal different parts of Australia's story
+          </h2>
+
+
           <p>
-            ABS data is used to explore birthplace, languages spoken,
-            and geographic patterns of diversity across Australia.
-            Home Affairs settlement data is used to show how recent
-            migration streams distribute across states and territories.
+
+            This visualisation combines data from the
+            <strong>Australian Bureau of Statistics (ABS)</strong>
+            with settlement data from the
+            <strong>Australian Government Department of Home Affairs</strong>.
+
           </p>
+
+
+          <p>
+
+            ABS Census data is used to explore birthplace,
+            languages spoken and the geographic distribution of
+            culturally diverse communities across Australia.
+
+          </p>
+
+
+          <p>
+
+            Home Affairs settlement data is used to examine
+            migration streams and where new settlers established
+            themselves between 2016 and 2025.
+
+          </p>
+
+
+
+          <!-- INTRO STATS -->
 
           <div class="intro-stats">
-            <div class="intro-stat">
-              <span class="stat-number">2</span>
-              <span class="stat-label">primary data sources</span>
-            </div>
+
 
             <div class="intro-stat">
-              <span class="stat-number">8</span>
-              <span class="stat-label">states and territories</span>
+
+              <span class="stat-number">
+                2
+              </span>
+
+              <span class="stat-label">
+                Primary data sources
+              </span>
+
             </div>
 
+
             <div class="intro-stat">
-              <span class="stat-number">2016–2025</span>
-              <span class="stat-label">settlement data period</span>
+
+              <span class="stat-number">
+                8
+              </span>
+
+              <span class="stat-label">
+                States & territories
+              </span>
+
             </div>
+
+
+            <div class="intro-stat">
+
+              <span class="stat-number">
+                2016–2025
+              </span>
+
+              <span class="stat-label">
+                Settlement period
+              </span>
+
+            </div>
+
+
           </div>
 
-          <p class="intro-note">
-            <strong>Note:</strong> ABS Census data and settlement data measure different things.
-            Census data describes Australia’s resident population, while settlement data tracks migrant arrivals and streams.
-          </p>
+
+
+          <div class="intro-note">
+
+            <strong>Important:</strong>
+
+            Census and settlement data describe different populations.
+            ABS Census figures describe Australia's resident population,
+            while Home Affairs data records migration and settlement
+            activity. Their values should therefore not always be
+            compared directly.
+
+          </div>
+
+
         </div>
+
+
+
+        <!-- RIGHT IMAGE -->
 
         <div class="intro-image">
-          <!-- Replace later with an actual image -->
+
+
+          <!--
+              WHEN YOU HAVE YOUR IMAGE:
+
+              Delete the image-placeholder div below
+              and use:
+
+              <img
+                src="images/your-image.jpg"
+                alt="Cultural diversity in Australia"
+              >
+          -->
+
+
           <div class="image-placeholder">
-            <span>IMAGE SPACE</span>
-            <small>Add a multicultural Australia image here</small>
+
+            <span>
+              IMAGE SPACE
+            </span>
+
+            <small>
+              Add a multicultural Australia image here
+            </small>
+
           </div>
+
+
         </div>
 
+
       </div>
+
+
     </section>
 
 
+
     <!-- =========================================================
-         SECTION 1
+         SECTION 01
     ========================================================== -->
+
     <section class="story-section">
-      <div class="section-header">
-        <h2>Australia’s Diversity Begins with Birthplace and Language</h2>
-        <p>
-          The composition of Australia’s population reflects decades of migration.
-          Birthplace and language data show the scale of major communities and the
-          range of cultures represented across the country.
-        </p>
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          01
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            ORIGINS & LANGUAGE
+          </p>
+
+
+          <h2>
+            Australia's diversity begins with where people come from
+          </h2>
+
+
+          <p>
+
+            Decades of migration have created a population with
+            connections to countries and languages across the world.
+            Birthplace and language reveal two different dimensions
+            of this diversity.
+
+          </p>
+
+
+        </div>
+
+
       </div>
 
+
+
       <div class="chart-grid two-col">
-        <div class="chart-panel">
+
+
+        <article class="chart-panel">
+
           <div id="treemap"></div>
-        </div>
 
-        <div class="chart-panel">
+        </article>
+
+
+        <article class="chart-panel">
+
           <div id="language-bar"></div>
-        </div>
+
+        </article>
+
+
       </div>
 
+
+
       <div class="insight-grid">
+
+
         <p>
-          The treemap highlights the largest overseas-born communities, showing how
-          Australia’s diversity is shaped by both long-established and more recent migration patterns.
+
+          <strong>Country of birth.</strong>
+          The treemap shows the relative size of major overseas-born
+          communities and how they contribute to Australia's broader
+          population structure.
+
         </p>
+
+
         <p>
-          The ranked language chart complements this by showing the most widely spoken
-          languages other than English, revealing the cultural and linguistic breadth of the population.
+
+          <strong>Language.</strong>
+          The ranked chart shows the most commonly spoken languages
+          other than English, providing another view of Australia's
+          cultural composition.
+
         </p>
+
+
       </div>
+
+
     </section>
 
 
+
     <!-- =========================================================
-         SECTION 2
+         SECTION 02
     ========================================================== -->
+
     <section class="story-section">
-      <div class="section-header">
-        <h2>Diversity Is Not Evenly Distributed Across Australia</h2>
-        <p>
-          Cultural diversity varies substantially by location.
-          Some areas have a very high concentration of overseas-born residents,
-          while others remain much less internationally diverse.
-        </p>
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          02
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            GEOGRAPHY
+          </p>
+
+
+          <h2>
+            Cultural diversity is concentrated differently across Australia
+          </h2>
+
+
+          <p>
+
+            The overseas-born population is not distributed evenly.
+            Some communities are concentrated in Australia's largest
+            metropolitan areas, while others are spread more broadly.
+
+          </p>
+
+
+        </div>
+
+
       </div>
 
+
+
       <div class="chart-grid two-col">
-        <div class="chart-panel">
+
+
+        <article class="chart-panel">
+
           <div id="choropleth"></div>
-        </div>
 
-        <div class="chart-panel">
+        </article>
+
+
+        <article class="chart-panel">
+
           <div id="proportional-symbol"></div>
-        </div>
+
+        </article>
+
+
       </div>
 
+
+
       <div class="insight-grid">
+
+
         <p>
-          The choropleth map emphasises the proportion of overseas-born residents in each SA2,
-          making it easier to identify areas where diversity forms a large share of the local population.
+
+          <strong>Population share.</strong>
+          The choropleth highlights areas where overseas-born residents
+          make up a particularly large proportion of the local population.
+
         </p>
+
+
         <p>
-          The proportional symbol map instead highlights magnitude, helping show which places
-          have the largest overseas-born populations in absolute terms.
+
+          <strong>Population size.</strong>
+          The proportional-symbol map focuses instead on absolute
+          numbers, revealing where the largest overseas-born populations
+          are located.
+
         </p>
+
+
       </div>
+
+
     </section>
 
 
+
     <!-- =========================================================
-         SECTION 3
+         SECTION 03
     ========================================================== -->
+
     <section class="story-section">
-      <div class="section-header">
-        <h2>Language Patterns Reveal Differences Between States</h2>
-        <p>
-          The composition of language communities differs across Australian states.
-          Looking at these differences helps reveal how migration histories and settlement patterns vary regionally.
-        </p>
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          03
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            STATE DIFFERENCES
+          </p>
+
+
+          <h2>
+            Australia's states have distinct cultural profiles
+          </h2>
+
+
+          <p>
+
+            Looking beyond national totals reveals substantial
+            differences in the languages and diversity profiles
+            of Australia's states and territories.
+
+          </p>
+
+
+        </div>
+
+
       </div>
 
+
+
+      <!-- HEATMAP + DUMBBELL -->
+
       <div class="chart-grid two-col">
-        <div class="chart-panel">
+
+
+        <article class="chart-panel">
+
           <div id="heatmap"></div>
-        </div>
 
-        <div class="chart-panel">
-          <div id="butterfly"></div>
-        </div>
+        </article>
+
+
+        <article class="chart-panel">
+
+          <div id="dumbbell"></div>
+
+        </article>
+
+
       </div>
+
+
 
       <div class="insight-grid">
-        <p>
-          The heatmap provides a broad comparison of major language groups across states,
-          allowing dominant and less prominent communities to be compared at a glance.
-        </p>
-        <p>
-          The butterfly chart then focuses more directly on differences between
-          New South Wales and Victoria, showing how even the largest states have distinct linguistic profiles.
-        </p>
-      </div>
-    </section>
 
 
-    <!-- =========================================================
-         SECTION 4
-    ========================================================== -->
-    <section class="story-section">
-      <div class="section-header">
-        <h2>States Also Differ in Their Overall Diversity Profiles</h2>
         <p>
-          Diversity is not only visible in individual communities.
-          It can also be compared at the state level to show broader differences in the scale and structure of cultural variation.
+
+          <strong>Language by state.</strong>
+          The heatmap reveals which major language communities are
+          particularly prominent in different parts of Australia.
+
         </p>
+
+
+        <p>
+
+          <strong>State comparison.</strong>
+          The dumbbell chart provides a direct comparison between
+          states using broader indicators of cultural diversity.
+
+        </p>
+
+
       </div>
 
-      <div class="chart-grid one-col narrow-center">
-        <div class="chart-panel">
-          <div id="dumbbell"></div>
-        </div>
-      </div>
 
-      <div class="insight-grid single">
+
+      <!-- BUTTERFLY -->
+
+      <div class="subsection-heading">
+
+        <h3>
+          NSW and Victoria show different language patterns
+        </h3>
+
         <p>
-          The dumbbell chart supports direct comparison between states, making it easier
-          to see which places stand out on selected diversity measures and where the largest gaps appear.
-        </p>
-      </div>
-    </section>
 
+          Australia's two largest states contain many of the same
+          language communities, but their relative sizes differ.
 
-    <!-- =========================================================
-         SECTION 5
-    ========================================================== -->
-    <section class="story-section">
-      <div class="section-header">
-        <h2>Migration Connects Australia to the World</h2>
-        <p>
-          Beyond the resident population, migration data helps reveal how people continue
-          to move into Australia through different channels and toward different destinations.
         </p>
+
       </div>
+
 
       <div class="chart-grid one-col">
-        <div class="chart-panel full-width">
+
+        <article class="chart-panel chart-wide">
+
+          <div id="butterfly"></div>
+
+        </article>
+
+      </div>
+
+
+      <div class="insight-grid single">
+
+
+        <p>
+
+          Comparing New South Wales and Victoria directly makes it
+          easier to see which communities are more strongly represented
+          in each state rather than relying only on national totals.
+
+        </p>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SECTION 04
+    ========================================================== -->
+
+    <section class="story-section">
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          04
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            GLOBAL CONNECTIONS
+          </p>
+
+
+          <h2>
+            Migration connects Australia to countries across the world
+          </h2>
+
+
+          <p>
+
+            Australia's cultural diversity continues to evolve through
+            migration. Settlement patterns reveal the international
+            connections that contribute to the population today.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="chart-grid one-col">
+
+
+        <article class="chart-panel chart-wide">
+
           <div id="flow-map"></div>
-        </div>
+
+        </article>
+
+
       </div>
 
+
+
       <div class="insight-grid single">
+
+
         <p>
-          The flow map shows how migrant movement links origin locations and Australian destinations,
-          emphasising Australia’s continued role as a connected migration destination.
+
+          The flow map emphasises the geographic connections between
+          migrant origins and settlement destinations across Australia,
+          showing the international scale of contemporary migration.
+
         </p>
+
+
       </div>
+
+
     </section>
 
 
+
     <!-- =========================================================
-         SECTION 6
+         SECTION 05
     ========================================================== -->
+
     <section class="story-section">
-      <div class="section-header">
-        <h2>Different Migration Streams Reshape the Settlement Pattern</h2>
-        <p>
-          Not all migrants arrive through the same pathway.
-          Skilled, family and humanitarian streams distribute differently across Australia,
-          shaping the demographic profile of each state and territory.
-        </p>
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          05
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            SETTLEMENT STREAMS
+          </p>
+
+
+          <h2>
+            Different migration streams lead to different destinations
+          </h2>
+
+
+          <p>
+
+            Skilled, family and humanitarian migration do not contribute
+            equally to every state and territory. Their different
+            distributions help shape Australia's settlement patterns.
+
+          </p>
+
+
+        </div>
+
+
       </div>
+
+
 
       <div class="chart-grid one-col">
-        <div class="chart-panel full-width">
+
+
+        <article class="chart-panel chart-sankey">
+
           <div id="sankey"></div>
-        </div>
+
+        </article>
+
+
       </div>
 
+
+
       <div class="insight-grid single">
+
+
         <p>
-          The Sankey diagram shows how migration streams are distributed across Australia,
-          making it easier to compare the relative importance of skilled, family and humanitarian settlement in each state.
+
+          The Sankey diagram shows the relationship between migration
+          stream and destination, making both the dominance of skilled
+          migration and differences between states easier to compare.
+
         </p>
+
+
       </div>
+
+
     </section>
 
 
+
     <!-- =========================================================
-         OPTIONAL PLACEHOLDERS FOR REMAINING 2 VISUALISATIONS
+         SECTION 06 — REMAINING VISUALISATIONS
     ========================================================== -->
+
     <section class="story-section">
-      <div class="section-header">
-        <h2>What Comes Next</h2>
-        <p>
-          Two further visualisations are still to be added. These can be placed into the
-          same narrative structure once finalised.
-        </p>
+
+
+      <div class="section-heading">
+
+
+        <span class="section-number">
+          06
+        </span>
+
+
+        <div>
+
+
+          <p class="section-label">
+            FURTHER PATTERNS
+          </p>
+
+
+          <h2>
+            Two final views complete the story
+          </h2>
+
+
+          <p>
+
+            These remaining visualisations will extend the geographic
+            and migration analysis once their final datasets are prepared.
+
+          </p>
+
+
+        </div>
+
+
       </div>
+
+
 
       <div class="chart-grid two-col">
-        <div class="chart-panel placeholder-panel">
-          <div class="coming-soon">
-            <h3>Visualisation 10</h3>
-            <p>Dot map / geographic extension</p>
-          </div>
-        </div>
 
-        <div class="chart-panel placeholder-panel">
-          <div class="coming-soon">
-            <h3>Visualisation 11</h3>
-            <p>Country of birth × migration stream heatmap</p>
-          </div>
-        </div>
+
+        <!-- DOT MAP -->
+
+        <article class="future-chart">
+
+          <span class="future-number">
+            10
+          </span>
+
+          <h3>
+            Overseas-born dot map
+          </h3>
+
+          <p>
+            Geographic dot-density view of Australia's overseas-born population.
+          </p>
+
+        </article>
+
+
+
+        <!-- FINAL HEATMAP -->
+
+        <article class="future-chart">
+
+          <span class="future-number">
+            11
+          </span>
+
+          <h3>
+            Country × migration stream
+          </h3>
+
+          <p>
+            Comparison of origin countries across skilled,
+            family and humanitarian migration.
+          </p>
+
+        </article>
+
+
       </div>
+
+
     </section>
+
 
 
     <!-- =========================================================
          FOOTER
     ========================================================== -->
+
     <footer class="footer">
+
+
       <p>
-        Data sources: Australian Bureau of Statistics (ABS) and Department of Home Affairs
+
+        Data sources: Australian Bureau of Statistics and
+        Australian Government Department of Home Affairs.
+
       </p>
+
+
       <p>
         FIT3179 Data Visualisation 2
       </p>
+
+
     </footer>
+
 
   </main>
 
 
+
   <!-- =========================================================
-       VEGA EMBEDS
+       VEGA / VEGA-LITE THEME
   ========================================================== -->
+
   <script>
-    const embedOptions = {
-      actions: false,
-      renderer: "svg"
+
+
+    /* =========================================================
+       SITE COLOURS
+    ========================================================== */
+
+
+    const THEME = {
+
+      background: "#FFF7ED",
+
+      heading: "#4A2545",
+
+      text: "#655A67",
+
+      coral: "#E76F51",
+
+      teal: "#2A9D8F",
+
+      mustard: "#E9B949",
+
+      berry: "#A44A6F",
+
+      blueGrey: "#577590",
+
+      olive: "#7A8F4D",
+
+      divider: "#DED3C8",
+
+      neutral: "#EEE4DA"
+
     };
 
-    function embedChart(element, file) {
-      vegaEmbed(element, file, embedOptions)
-        .catch(error => {
-          console.error("Error loading " + file, error);
-          document.querySelector(element).innerHTML =
-            '<div class="chart-error">Unable to load visualisation.</div>';
-        });
+
+    const CATEGORY_PALETTE = [
+
+      THEME.teal,
+      THEME.coral,
+      THEME.mustard,
+      THEME.berry,
+      THEME.blueGrey,
+      THEME.olive
+
+    ];
+
+
+    const MIGRATION_PALETTE = [
+
+      THEME.teal,
+      THEME.coral,
+      THEME.mustard
+
+    ];
+
+
+    const STATE_COMPARISON_PALETTE = [
+
+      THEME.blueGrey,
+      THEME.berry
+
+    ];
+
+
+    const CHOROPLETH_RANGE = [
+
+      "#F2E6E0",
+      "#E8C6B9",
+      "#DFA38F",
+      "#D47D69",
+      "#B65B62",
+      "#7F3D5D"
+
+    ];
+
+
+    const LANGUAGE_HEATMAP_RANGE = [
+
+      "#F4E8ED",
+      "#DDBCCB",
+      "#C58EA6",
+      "#A44A6F",
+      "#71334F"
+
+    ];
+
+
+
+    /* =========================================================
+       GENERAL VEGA CONFIG
+    ========================================================== */
+
+
+    function applyBaseTheme(spec) {
+
+
+      spec.background = THEME.background;
+
+
+      const oldConfig = spec.config || {};
+
+
+      spec.config = {
+
+        ...oldConfig,
+
+        font: "Source Sans 3",
+
+        background: THEME.background,
+
+
+        view: {
+
+          ...(oldConfig.view || {}),
+
+          stroke: null
+
+        },
+
+
+        title: {
+
+          ...(oldConfig.title || {}),
+
+          font: "Space Grotesk",
+
+          fontSize: 20,
+
+          fontWeight: 700,
+
+          color: THEME.heading,
+
+          subtitleFont: "Source Sans 3",
+
+          subtitleFontSize: 12,
+
+          subtitleColor: THEME.text
+
+        },
+
+
+        axis: {
+
+          ...(oldConfig.axis || {}),
+
+          labelFont: "Source Sans 3",
+
+          titleFont: "Source Sans 3",
+
+          labelColor: THEME.text,
+
+          titleColor: THEME.heading,
+
+          gridColor: THEME.divider,
+
+          domainColor: "#BCAEAE",
+
+          tickColor: "#BCAEAE"
+
+        },
+
+
+        legend: {
+
+          ...(oldConfig.legend || {}),
+
+          labelFont: "Source Sans 3",
+
+          titleFont: "Source Sans 3",
+
+          labelColor: THEME.text,
+
+          titleColor: THEME.heading
+
+        },
+
+
+        range: {
+
+          ...(oldConfig.range || {}),
+
+          category: CATEGORY_PALETTE
+
+        }
+
+      };
+
+
+      return spec;
+
     }
 
-    embedChart("#treemap", "visualisations/treemap.json");
-    embedChart("#language-bar", "visualisations/languagebarchart.json");
-    embedChart("#choropleth", "visualisations/chloreplethoverseas.json");
-    embedChart("#proportional-symbol", "visualisations/proportionalsymbolmap.json");
-    embedChart("#heatmap", "visualisations/top10heatmap.json");
-    embedChart("#dumbbell", "visualisations/dumbbellchart.json");
-    embedChart("#butterfly", "visualisations/butterflychartstates.json");
-    embedChart("#flow-map", "visualisations/flowmap.json");
-    embedChart("#sankey", "visualisations/sankey.json");
+
+
+    /* =========================================================
+       SET COLOUR SCALE
+    ========================================================== */
+
+
+    function setScaleRange(definition, range) {
+
+
+      if (!definition || typeof definition !== "object") {
+        return;
+      }
+
+
+      if (definition.scale !== null) {
+
+        definition.scale = {
+
+          ...(definition.scale || {}),
+
+          range: range
+
+        };
+
+
+        delete definition.scale.scheme;
+
+      }
+
+
+    }
+
+
+
+    /* =========================================================
+       COLOUR ENCODINGS
+    ========================================================== */
+
+
+    function themeColourDefinition(definition, nominalRange, quantitativeRange) {
+
+
+      if (!definition || typeof definition !== "object") {
+        return;
+      }
+
+
+      const type = definition.type;
+
+
+      if (
+        (type === "nominal" || type === "ordinal") &&
+        nominalRange
+      ) {
+
+        setScaleRange(
+          definition,
+          nominalRange
+        );
+
+      }
+
+
+      if (
+        type === "quantitative" &&
+        quantitativeRange
+      ) {
+
+        setScaleRange(
+          definition,
+          quantitativeRange
+        );
+
+      }
+
+
+      if (
+        definition.condition &&
+        typeof definition.condition === "object"
+      ) {
+
+        themeColourDefinition(
+          definition.condition,
+          nominalRange,
+          quantitativeRange
+        );
+
+      }
+
+
+    }
+
+
+
+    /* =========================================================
+       CHANGE MARK COLOUR
+    ========================================================== */
+
+
+    function setMarkColour(
+      node,
+      markTypes,
+      colour
+    ) {
+
+
+      if (!node || !node.mark) {
+        return;
+      }
+
+
+      let markType;
+
+
+      if (typeof node.mark === "string") {
+
+        markType = node.mark;
+
+      }
+
+      else {
+
+        markType = node.mark.type;
+
+      }
+
+
+      if (!markTypes.includes(markType)) {
+        return;
+      }
+
+
+      /*
+        Do not override marks that are already
+        coloured by a field.
+      */
+
+      if (
+        node.encoding &&
+        node.encoding.color
+      ) {
+
+        return;
+      }
+
+
+      if (typeof node.mark === "string") {
+
+        node.mark = {
+
+          type: node.mark,
+
+          color: colour
+
+        };
+
+      }
+
+      else {
+
+        node.mark.color = colour;
+
+      }
+
+
+    }
+
+
+
+    /* =========================================================
+       RECURSIVELY THEME VEGA-LITE
+    ========================================================== */
+
+
+    function themeVegaLiteNode(
+      node,
+      fileName
+    ) {
+
+
+      if (!node || typeof node !== "object") {
+        return;
+      }
+
+
+
+      let nominalRange = CATEGORY_PALETTE;
+
+      let quantitativeRange = null;
+
+
+
+      /* TREEMAP */
+
+      if (
+        fileName.includes("treemap")
+      ) {
+
+        nominalRange = CATEGORY_PALETTE;
+
+      }
+
+
+
+      /* LANGUAGE BAR */
+
+      if (
+        fileName.includes("languagebarchart")
+      ) {
+
+        setMarkColour(
+          node,
+          ["bar"],
+          THEME.berry
+        );
+
+      }
+
+
+
+      /* CHOROPLETH */
+
+      if (
+        fileName.includes("chlorepleth") ||
+        fileName.includes("choropleth")
+      ) {
+
+        quantitativeRange =
+          CHOROPLETH_RANGE;
+
+      }
+
+
+
+      /* PROPORTIONAL SYMBOL MAP */
+
+      if (
+        fileName.includes("proportionalsymbol")
+      ) {
+
+        setMarkColour(
+          node,
+          ["circle", "point"],
+          THEME.teal
+        );
+
+      }
+
+
+
+      /* LANGUAGE HEATMAP */
+
+      if (
+        fileName.includes("top10heatmap")
+      ) {
+
+        quantitativeRange =
+          LANGUAGE_HEATMAP_RANGE;
+
+      }
+
+
+
+      /* NSW VS VIC */
+
+      if (
+        fileName.includes("butterfly")
+      ) {
+
+        nominalRange =
+          STATE_COMPARISON_PALETTE;
+
+      }
+
+
+
+      /* DUMBBELL */
+
+      if (
+        fileName.includes("dumbbell")
+      ) {
+
+        nominalRange = [
+
+          THEME.teal,
+
+          THEME.coral
+
+        ];
+
+      }
+
+
+
+      /* FLOW MAP */
+
+      if (
+        fileName.includes("flowmap")
+      ) {
+
+        setMarkColour(
+          node,
+          ["rule", "line"],
+          THEME.coral
+        );
+
+
+        setMarkColour(
+          node,
+          ["circle", "point"],
+          THEME.teal
+        );
+
+      }
+
+
+
+      /*
+        APPLY COLOUR ENCODINGS
+      */
+
+      if (node.encoding) {
+
+
+        if (node.encoding.color) {
+
+          themeColourDefinition(
+
+            node.encoding.color,
+
+            nominalRange,
+
+            quantitativeRange
+
+          );
+
+        }
+
+
+        if (node.encoding.fill) {
+
+          themeColourDefinition(
+
+            node.encoding.fill,
+
+            nominalRange,
+
+            quantitativeRange
+
+          );
+
+        }
+
+
+        if (node.encoding.stroke) {
+
+          themeColourDefinition(
+
+            node.encoding.stroke,
+
+            nominalRange,
+
+            quantitativeRange
+
+          );
+
+        }
+
+
+      }
+
+
+
+      /* LAYERS */
+
+      if (Array.isArray(node.layer)) {
+
+        node.layer.forEach(
+          child =>
+            themeVegaLiteNode(
+              child,
+              fileName
+            )
+        );
+
+      }
+
+
+
+      /* CONCATENATED CHARTS */
+
+      if (Array.isArray(node.hconcat)) {
+
+        node.hconcat.forEach(
+          child =>
+            themeVegaLiteNode(
+              child,
+              fileName
+            )
+        );
+
+      }
+
+
+      if (Array.isArray(node.vconcat)) {
+
+        node.vconcat.forEach(
+          child =>
+            themeVegaLiteNode(
+              child,
+              fileName
+            )
+        );
+
+      }
+
+
+      if (Array.isArray(node.concat)) {
+
+        node.concat.forEach(
+          child =>
+            themeVegaLiteNode(
+              child,
+              fileName
+            )
+        );
+
+      }
+
+
+
+      /* FACET / REPEAT INNER SPEC */
+
+      if (node.spec) {
+
+        themeVegaLiteNode(
+          node.spec,
+          fileName
+        );
+
+      }
+
+
+    }
+
+
+
+    /* =========================================================
+       THEME VEGA ORDINAL SCALES
+
+       Useful for charts such as custom Sankey specs.
+    ========================================================== */
+
+
+    function themeVegaScales(
+      spec,
+      fileName
+    ) {
+
+
+      if (!Array.isArray(spec.scales)) {
+        return;
+      }
+
+
+      spec.scales.forEach(scale => {
+
+
+        if (
+          scale.type === "ordinal" ||
+          scale.range === "category"
+        ) {
+
+
+          if (
+            fileName.includes("sankey")
+          ) {
+
+            scale.range = [
+
+              ...MIGRATION_PALETTE,
+
+              THEME.blueGrey,
+
+              THEME.berry,
+
+              THEME.olive
+
+            ];
+
+          }
+
+          else {
+
+            scale.range =
+              CATEGORY_PALETTE;
+
+          }
+
+
+        }
+
+
+      });
+
+
+    }
+
+
+
+    /* =========================================================
+       APPLY FULL THEME
+    ========================================================== */
+
+
+    function applyChartTheme(
+      originalSpec,
+      file
+    ) {
+
+
+      const spec =
+        JSON.parse(
+          JSON.stringify(originalSpec)
+        );
+
+
+      const fileName =
+        file.toLowerCase();
+
+
+      applyBaseTheme(spec);
+
+
+      themeVegaLiteNode(
+        spec,
+        fileName
+      );
+
+
+      themeVegaScales(
+        spec,
+        fileName
+      );
+
+
+      return spec;
+
+    }
+
+
+
+    /* =========================================================
+       VEGA EMBED
+    ========================================================== */
+
+
+    const embedOptions = {
+
+      actions: false,
+
+      renderer: "svg"
+
+    };
+
+
+    async function embedChart(
+      element,
+      file
+    ) {
+
+
+      const target =
+        document.querySelector(element);
+
+
+      try {
+
+
+        const response =
+          await fetch(file);
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Could not load " + file
+          );
+
+        }
+
+
+        const originalSpec =
+          await response.json();
+
+
+        const themedSpec =
+          applyChartTheme(
+            originalSpec,
+            file
+          );
+
+
+        await vegaEmbed(
+
+          element,
+
+          themedSpec,
+
+          embedOptions
+
+        );
+
+
+      }
+
+      catch (error) {
+
+
+        console.error(
+
+          "Error loading " + file,
+
+          error
+
+        );
+
+
+        target.innerHTML =
+
+          '<div class="chart-error">' +
+
+          'Unable to load visualisation.' +
+
+          '</div>';
+
+
+      }
+
+
+    }
+
+
+
+    /* =========================================================
+       LOAD ALL CURRENT VISUALISATIONS
+    ========================================================== */
+
+
+    embedChart(
+
+      "#treemap",
+
+      "visualisations/treemap.json"
+
+    );
+
+
+    embedChart(
+
+      "#language-bar",
+
+      "visualisations/languagebarchart.json"
+
+    );
+
+
+    embedChart(
+
+      "#choropleth",
+
+      "visualisations/chloreplethoverseas.json"
+
+    );
+
+
+    embedChart(
+
+      "#proportional-symbol",
+
+      "visualisations/proportionalsymbolmap.json"
+
+    );
+
+
+    embedChart(
+
+      "#heatmap",
+
+      "visualisations/top10heatmap.json"
+
+    );
+
+
+    embedChart(
+
+      "#dumbbell",
+
+      "visualisations/dumbbellchart.json"
+
+    );
+
+
+    embedChart(
+
+      "#butterfly",
+
+      "visualisations/butterflychartstates.json"
+
+    );
+
+
+    embedChart(
+
+      "#flow-map",
+
+      "visualisations/flowmap.json"
+
+    );
+
+
+    embedChart(
+
+      "#sankey",
+
+      "visualisations/sankey.json"
+
+    );
+
+
   </script>
 
+
 </body>
+
 </html>
