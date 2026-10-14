@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Butterfly chart comparing the share of the population speaking the ten most common non-English languages at home in New South Wales and Victoria, 2021 Census.",
-  "background": "white",
+  "background": "#FFF7ED",
   "padding": 20,
   "title": {
     "text": "How do language communities differ between New South Wales and Victoria?",
