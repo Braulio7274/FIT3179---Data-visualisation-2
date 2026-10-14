@@ -30,8 +30,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
-  <!-- Change the version number when you need to bypass caching -->
-  <link rel="stylesheet" href="style.css?v=7">
+  <!-- Change v=9 when forcing another cache refresh -->
+  <link
+    rel="stylesheet"
+    href="style.css?v=9"
+  >
 </head>
 
 
@@ -43,7 +46,7 @@
 
   <header class="hero">
 
-    <div class="page-width">
+    <div class="site-width">
 
       <p class="eyebrow">
         AUSTRALIAN CULTURAL DIVERSITY
@@ -75,7 +78,7 @@
 
     <section class="intro-section">
 
-      <div class="page-width intro-grid">
+      <div class="site-width intro-grid">
 
         <div class="intro-copy">
 
@@ -150,8 +153,8 @@
             <strong>Important:</strong>
 
             Census and settlement statistics describe different
-            populations. They should be read together rather than treated
-            as directly equivalent measures.
+            populations. They should be read together rather than
+            treated as directly equivalent measures.
 
           </div>
 
@@ -215,23 +218,23 @@
 
 
 
-      <!-- Treemap gets its own row because it is a tall visualisation -->
+      <!-- Treemap -->
 
-      <article class="visual-card wide-card">
+      <article class="single-chart">
 
-        <div class="chart-stage chart-stage-auto chart-limit-treemap">
+        <div class="chart-stage">
 
           <div id="treemap"></div>
 
         </div>
 
 
-        <p class="visual-note wide-note">
+        <p class="visual-note">
 
           <strong>Origins.</strong>
 
-          The largest overseas-born communities come from several world
-          regions, with Asian and European countries particularly
+          The largest overseas-born communities come from several
+          world regions, with Asian and European countries particularly
           prominent among the largest birthplace groups.
 
         </p>
@@ -240,24 +243,24 @@
 
 
 
-      <!-- Bar chart gets its own row because it has a much wider shape -->
+      <!-- Ranked language bar chart -->
 
-      <article class="visual-card wide-card language-card">
+      <article class="single-chart">
 
-        <div class="chart-stage chart-stage-auto chart-limit-bar">
+        <div class="chart-stage">
 
           <div id="language-bar"></div>
 
         </div>
 
 
-        <p class="visual-note wide-note bar-note">
+        <p class="visual-note">
 
           <strong>Language.</strong>
 
-          Mandarin is the most widely spoken non-English language at home,
-          while a broad range of other languages demonstrates the
-          diversity within Australia's population.
+          Mandarin is the most widely spoken non-English language at
+          home, while a broad range of other languages demonstrates
+          the diversity within Australia's population.
 
         </p>
 
@@ -310,55 +313,45 @@
 
 
       <!--
-        Equal chart stages keep both maps and both explanations aligned.
+        The two charts occupy the first grid row.
+        The two explanations occupy the second grid row.
+        This keeps the explanation lines perfectly aligned.
       -->
 
-      <div class="paired-grid paired-grid-maps">
+      <div class="paired-grid">
+
+        <div class="chart-stage pair-a-chart">
+
+          <div id="choropleth"></div>
+
+        </div>
 
 
-        <article class="visual-card paired-card">
+        <div class="chart-stage pair-b-chart">
 
-          <div class="chart-stage">
+          <div id="proportional-symbol"></div>
 
-            <div id="choropleth"></div>
-
-          </div>
+        </div>
 
 
-          <p class="visual-note">
+        <p class="visual-note pair-a-note">
 
-            <strong>Population share.</strong>
+          <strong>Population share.</strong>
 
-            The choropleth highlights areas where overseas-born
-            residents make up a particularly large proportion of
-            the local population.
+          The choropleth highlights areas where overseas-born residents
+          make up a particularly large proportion of the local population.
 
-          </p>
-
-        </article>
+        </p>
 
 
+        <p class="visual-note pair-b-note">
 
-        <article class="visual-card paired-card">
+          <strong>Population size.</strong>
 
-          <div class="chart-stage">
+          The proportional-symbol map focuses on absolute numbers,
+          revealing where the largest overseas-born populations live.
 
-            <div id="proportional-symbol"></div>
-
-          </div>
-
-
-          <p class="visual-note">
-
-            <strong>Population size.</strong>
-
-            The proportional-symbol map focuses on absolute numbers,
-            revealing where the largest overseas-born populations live.
-
-          </p>
-
-        </article>
-
+        </p>
 
       </div>
 
@@ -409,57 +402,43 @@
 
 
 
-      <!--
-        The heatmap and dumbbell use equal chart stages so the
-        explanation dividers start at the same height.
-      -->
+      <!-- Heatmap and dumbbell -->
 
-      <div class="paired-grid paired-grid-states">
+      <div class="paired-grid">
 
+        <div class="chart-stage pair-a-chart">
 
-        <article class="visual-card paired-card">
+          <div id="heatmap"></div>
 
-          <div class="chart-stage">
-
-            <div id="heatmap"></div>
-
-          </div>
+        </div>
 
 
-          <p class="visual-note">
+        <div class="chart-stage pair-b-chart">
 
-            <strong>Language concentration.</strong>
+          <div id="dumbbell"></div>
 
-            The same language can represent very different shares
-            of the population depending on the state or territory.
-
-          </p>
-
-        </article>
+        </div>
 
 
+        <p class="visual-note pair-a-note">
 
-        <article class="visual-card paired-card">
+          <strong>Language concentration.</strong>
 
-          <div class="chart-stage">
+          The same language can represent very different shares
+          of the population depending on the state or territory.
 
-            <div id="dumbbell"></div>
-
-          </div>
+        </p>
 
 
-          <p class="visual-note">
+        <p class="visual-note pair-b-note">
 
-            <strong>Two measures of diversity.</strong>
+          <strong>Two measures of diversity.</strong>
 
-            Being born overseas and speaking a language other than
-            English at home are related measures, but they do not
-            produce identical patterns across Australia.
+          Being born overseas and speaking a language other than
+          English at home are related measures, but they do not
+          produce identical patterns across Australia.
 
-          </p>
-
-        </article>
-
+        </p>
 
       </div>
 
@@ -486,16 +465,16 @@
         </p>
 
 
-        <article class="visual-card wide-card">
+        <article class="single-chart">
 
-          <div class="chart-stage chart-stage-auto chart-limit-butterfly">
+          <div class="chart-stage">
 
             <div id="butterfly"></div>
 
           </div>
 
 
-          <p class="visual-note wide-note">
+          <p class="visual-note">
 
             <strong>Comparing the states.</strong>
 
@@ -553,16 +532,16 @@
       </div>
 
 
-      <article class="visual-card wide-card">
+      <article class="single-chart">
 
-        <div class="chart-stage chart-stage-auto chart-limit-flow">
+        <div class="chart-stage">
 
           <div id="flow-map"></div>
 
         </div>
 
 
-        <p class="visual-note wide-note">
+        <p class="visual-note">
 
           <strong>Migration flows.</strong>
 
@@ -619,22 +598,22 @@
       </div>
 
 
-      <article class="visual-card wide-card">
+      <article class="single-chart">
 
-        <div class="chart-stage chart-stage-auto chart-limit-sankey">
+        <div class="chart-stage">
 
           <div id="sankey"></div>
 
         </div>
 
 
-        <p class="visual-note wide-note">
+        <p class="visual-note">
 
           <strong>Settlement streams.</strong>
 
-          Skilled migration represents the largest of the three
-          streams, while New South Wales and Victoria receive the
-          greatest overall numbers of permanent settlers.
+          Skilled migration represents the largest of the three streams,
+          while New South Wales and Victoria receive the greatest
+          overall numbers of permanent settlers.
 
         </p>
 
@@ -652,7 +631,7 @@
 
   <footer>
 
-    <div class="page-width footer-inner">
+    <div class="site-width footer-inner">
 
       <div>
         <strong>Cultural Diversity in Australia</strong>
@@ -706,53 +685,53 @@
 
 
     /*
-      The version query ensures GitHub Pages does not display
-      an older cached JSON file.
+      v=9 forces GitHub Pages and the browser to request the
+      latest version of each JSON file.
     */
 
     embedChart(
       "#treemap",
-      "visualisations/treemap.json?v=7"
+      "visualisations/treemap.json?v=9"
     );
 
     embedChart(
       "#language-bar",
-      "visualisations/languagebarchart.json?v=7"
+      "visualisations/languagebarchart.json?v=9"
     );
 
     embedChart(
       "#choropleth",
-      "visualisations/chloreplethoverseas.json?v=7"
+      "visualisations/chloreplethoverseas.json?v=9"
     );
 
     embedChart(
       "#proportional-symbol",
-      "visualisations/proportionalsymbolmap.json?v=7"
+      "visualisations/proportionalsymbolmap.json?v=9"
     );
 
     embedChart(
       "#heatmap",
-      "visualisations/top10heatmap.json?v=7"
+      "visualisations/top10heatmap.json?v=9"
     );
 
     embedChart(
       "#dumbbell",
-      "visualisations/dumbbellchart.json?v=7"
+      "visualisations/dumbbellchart.json?v=9"
     );
 
     embedChart(
       "#butterfly",
-      "visualisations/butterflychartstates.json?v=7"
+      "visualisations/butterflychartstates.json?v=9"
     );
 
     embedChart(
       "#flow-map",
-      "visualisations/flowmap.json?v=7"
+      "visualisations/flowmap.json?v=9"
     );
 
     embedChart(
       "#sankey",
-      "visualisations/sankey.json?v=7"
+      "visualisations/sankey.json?v=9"
     );
 
   </script>
