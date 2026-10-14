@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "width": 980,
   "height": 620,
+  "background": "#FFF7ED",
   "title": {
     "text": "Selected major settler flows to Australian states",
     "subtitle": [
