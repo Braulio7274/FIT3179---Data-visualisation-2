@@ -3,7 +3,7 @@
   "description": "Proportional-symbol map of overseas-born residents by SA2, 2021 Census. All boundary and centroid requests use EPSG:3577. One fixed planar projection draws both layers. Circle area is linear in population. The viewport covers mainland Australia and Tasmania.",
   "width": 900,
   "height": 620,
-  "background": "white",
+  "background": "#FFF7ED",
   "padding": 20,
   "title": {
     "text": "Where are Australia's largest overseas-born populations?",
