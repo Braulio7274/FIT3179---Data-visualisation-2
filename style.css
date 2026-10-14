@@ -1,26 +1,29 @@
 /* =========================================================
    GLOBAL
-   ========================================================= */
+========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
 
+
 body {
   margin: 0;
+
+  overflow-x: hidden;
 
   background: #FFF7ED;
   color: #4A2545;
 
   font-family: "Source Sans 3", Arial, sans-serif;
   line-height: 1.65;
-
-  overflow-x: hidden;
 }
+
 
 h1,
 h2,
@@ -28,17 +31,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Space Grotesk", Arial, sans-serif;
   color: #4A2545;
+  font-family: "Space Grotesk", Arial, sans-serif;
 }
+
 
 p {
   margin-top: 0;
 }
 
+
 img {
   max-width: 100%;
 }
+
 
 ::selection {
   background: #E76F51;
@@ -46,102 +52,111 @@ img {
 }
 
 
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-  padding: 120px 60px 110px;
-}
-
-.hero-inner {
-  width: 100%;
-  max-width: 1420px;
-
+.page-width {
+  width: min(1540px, calc(100% - 64px));
   margin: 0 auto;
 }
 
-.eyebrow {
-  margin-bottom: 20px;
 
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
 
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+/* =========================================================
+   HERO
+========================================================= */
 
-  color: #E76F51;
+.hero {
+  padding: 110px 0 105px;
 }
 
+
 .hero h1 {
-  max-width: 1050px;
+  max-width: 1100px;
 
   margin: 0;
 
   font-size: clamp(4.7rem, 8vw, 8.3rem);
   font-weight: 700;
+
   line-height: 0.9;
   letter-spacing: -0.055em;
 }
+
 
 .hero h1 span {
   color: #2A9D8F;
 }
 
-.hero-description {
-  max-width: 800px;
 
-  margin: 45px 0 0;
+.eyebrow {
+  margin: 0 0 20px;
+
+  color: #E76F51;
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+
+.hero-description {
+  max-width: 840px;
+
+  margin: 44px 0 0;
+
+  color: #655A67;
 
   font-size: 1.4rem;
   line-height: 1.65;
-
-  color: #655A67;
 }
+
 
 
 /* =========================================================
-   INTRO
-   ========================================================= */
+   INTRODUCTION
+========================================================= */
 
 .intro-section {
-  padding: 80px 60px 100px;
+  padding: 75px 0 100px;
 }
 
+
 .intro-grid {
-  width: 100%;
-  max-width: 1420px;
-
-  margin: 0 auto;
-
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
 
   gap: 80px;
 
   align-items: center;
 }
 
+
 .intro-copy h2 {
-  max-width: 700px;
+  max-width: 730px;
 
   margin: 0 0 30px;
 
   font-size: clamp(2.6rem, 4vw, 4.2rem);
-  line-height: 1.04;
 
+  line-height: 1.04;
   letter-spacing: -0.035em;
 }
 
-.intro-copy p {
-  max-width: 720px;
+
+.intro-copy > p {
+  max-width: 730px;
+
+  color: #655A67;
 
   font-size: 1.18rem;
   line-height: 1.75;
-
-  color: #655A67;
 }
+
 
 .stats-row {
   display: grid;
@@ -149,39 +164,62 @@ img {
 
   gap: 28px;
 
+  max-width: 730px;
+
   margin-top: 45px;
   padding-top: 30px;
 
   border-top: 1px solid #DED3C8;
 }
 
+
+.stat {
+  min-width: 0;
+}
+
+
 .stat-number {
+  display: block;
+
   margin-bottom: 5px;
 
-  font-family: "Space Grotesk", sans-serif;
+  color: #4A2545;
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
   font-size: 1.8rem;
   font-weight: 700;
-
-  color: #4A2545;
 }
+
 
 .stat-label {
-  font-size: 0.95rem;
   color: #655A67;
+
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
+
 .intro-note {
+  max-width: 730px;
+
   margin-top: 35px;
 
   padding: 20px 22px;
 
   border-left: 3px solid #2A9D8F;
 
+  color: #655A67;
+
   font-size: 1rem;
   line-height: 1.65;
-
-  color: #655A67;
 }
+
+
+.intro-note strong {
+  color: #4A2545;
+}
+
 
 .intro-image {
   display: flex;
@@ -190,6 +228,7 @@ img {
 
   background: #FFF7ED;
 }
+
 
 .intro-image img {
   display: block;
@@ -203,22 +242,31 @@ img {
 }
 
 
+
 /* =========================================================
-   MAIN STORY SECTIONS
-   ========================================================= */
+   STORY SECTIONS
+========================================================= */
 
 .story-section {
-  width: 100%;
-  max-width: 1500px;
+  width: min(1680px, 100%);
 
   margin: 0 auto;
 
-  padding: 95px 60px 110px;
+  padding: 95px 32px 110px;
 }
+
 
 .story-section + .story-section {
   border-top: 1px solid #DED3C8;
 }
+
+
+.section-heading {
+  max-width: 1200px;
+
+  margin-bottom: 58px;
+}
+
 
 .section-meta {
   display: flex;
@@ -229,246 +277,289 @@ img {
   margin-bottom: 20px;
 }
 
+
 .section-number {
-  font-family: "Space Grotesk", sans-serif;
+  color: #2A9D8F;
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
   font-size: 1.15rem;
   font-weight: 700;
-
-  color: #2A9D8F;
 }
 
+
 .section-kicker {
-  font-family: "Space Grotesk", sans-serif;
+  color: #E76F51;
+
+  font-family: "Space Grotesk", Arial, sans-serif;
 
   font-size: 0.82rem;
   font-weight: 700;
 
   letter-spacing: 0.22em;
-
-  color: #E76F51;
 }
 
+
 .section-title {
-  max-width: 1050px;
+  max-width: 1100px;
 
   margin: 0 0 28px;
 
   font-size: clamp(3rem, 4.5vw, 4.8rem);
 
   line-height: 1.02;
-
   letter-spacing: -0.035em;
 }
 
-.section-lead {
-  max-width: 1050px;
 
-  margin: 0 0 60px;
+.section-lead {
+  max-width: 1080px;
+
+  margin: 0;
+
+  color: #655A67;
 
   font-size: 1.3rem;
   line-height: 1.7;
-
-  color: #655A67;
 }
+
 
 
 /* =========================================================
-   TWO-COLUMN VISUALISATIONS
-   ========================================================= */
-
-.visual-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 60px;
-
-  align-items: start;
-}
+   VISUAL CARDS
+========================================================= */
 
 .visual-card {
   min-width: 0;
-
-  display: flex;
-  flex-direction: column;
 }
 
-.chart-panel {
-  width: 100%;
-  min-width: 0;
 
-  padding: 0;
-
-  overflow: visible;
+.wide-card {
+  margin-bottom: 85px;
 }
 
-.chart-panel > div {
-  width: 100%;
+
+.wide-card:last-child {
+  margin-bottom: 0;
 }
 
-.chart-panel .vega-embed {
-  display: flex;
-
-  justify-content: center;
-  align-items: flex-start;
-
-  width: 100%;
-}
-
-.chart-panel .vega-embed > div {
-  width: 100%;
-
-  max-width: 100%;
-}
-
-.chart-panel svg {
-  display: block;
-
-  width: 100%;
-
-  max-width: 100%;
-
-  height: auto;
-}
 
 
 /* =========================================================
-   TEXT BELOW VISUALISATIONS
-   ========================================================= */
+   PAIRED CHARTS
 
-.visual-note {
-  margin: 26px 0 0;
+   The fixed chart-stage row makes both explanation blocks
+   begin at the same vertical position.
+========================================================= */
 
-  padding-top: 22px;
-
-  border-top: 1px solid #DED3C8;
-
-  font-size: 1.2rem;
-  line-height: 1.75;
-
-  color: #655A67;
-}
-
-.visual-note strong {
-  font-weight: 700;
-
-  color: #4A2545;
-}
-
-
-/* =========================================================
-   GEOGRAPHY
-   ========================================================= */
-
-.geography-section {
-  max-width: 1540px;
-}
-
-.geography-grid {
+.paired-grid {
   display: grid;
 
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 65px;
+  gap: 48px;
 
   align-items: start;
 }
 
-.geography-grid .visual-card {
+
+.paired-card {
+  display: grid;
+
+  grid-template-rows:
+    var(--chart-stage-height)
+    auto;
+
   min-width: 0;
 }
 
 
-/*
-   IMPORTANT:
-   No min-height here.
+/* Geography charts are almost identical in proportion */
 
-   The old 600px minimum height was creating the large
-   blank area below each map.
-*/
+.paired-grid-maps {
+  --chart-stage-height: 535px;
+}
 
-.geography-chart {
+
+/* Heatmap and dumbbell need a slightly shorter common stage */
+
+.paired-grid-states {
+  --chart-stage-height: 470px;
+}
+
+
+
+/* =========================================================
+   CHART STAGES
+========================================================= */
+
+.chart-stage {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
   width: 100%;
+  height: var(--chart-stage-height);
 
-  height: auto;
-  min-height: 0;
+  min-width: 0;
 
+  overflow: hidden;
+}
+
+
+.chart-stage > div {
+  width: 100%;
+  height: 100%;
+}
+
+
+.chart-stage .vega-embed {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.chart-stage .vega-embed > div {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.chart-stage svg {
   display: block;
+
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+
+/* =========================================================
+   NATURAL-HEIGHT / FULL-WIDTH CHARTS
+========================================================= */
+
+.chart-stage-auto {
+  height: auto;
 
   overflow: visible;
 }
 
-.geography-chart > div {
-  width: 100%;
 
-  height: auto;
-}
-
-.geography-chart .vega-embed {
-  display: flex;
-
-  justify-content: center;
-  align-items: flex-start;
-
-  width: 100%;
-  height: auto;
-}
-
-.geography-chart .vega-embed > div {
-  width: 100%;
-  height: auto;
-
-  max-width: 100%;
-}
-
-.geography-chart svg {
-  display: block;
-
-  width: 100%;
-  max-width: 100%;
-
+.chart-stage-auto > div,
+.chart-stage-auto .vega-embed,
+.chart-stage-auto .vega-embed > div {
   height: auto;
 }
 
 
-/* Geography explanation immediately below maps */
+.chart-stage-auto svg {
+  width: 100% !important;
+  height: auto !important;
 
-.geography-grid .visual-note {
+  max-height: none;
+}
+
+
+.chart-limit-treemap {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+
+.chart-limit-bar {
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+
+.chart-limit-butterfly {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+
+.chart-limit-flow {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+}
+
+
+.chart-limit-sankey {
+  width: min(1260px, 100%);
+  margin: 0 auto;
+}
+
+
+
+/* =========================================================
+   VISUAL NOTES
+========================================================= */
+
+.visual-note {
+  width: 100%;
+
   margin: 22px 0 0;
 
   padding-top: 20px;
 
   border-top: 1px solid #DED3C8;
 
-  font-size: 1.2rem;
-  line-height: 1.7;
-
   color: #655A67;
+
+  font-size: 1.16rem;
+  line-height: 1.75;
 }
 
-.geography-grid .visual-note strong {
-  font-weight: 700;
 
+.visual-note strong {
   color: #4A2545;
+  font-weight: 700;
 }
+
+
+.wide-note {
+  width: min(1120px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.bar-note {
+  width: min(920px, 100%);
+}
+
 
 
 /* =========================================================
-   SUBSECTIONS
-   ========================================================= */
+   SUBSECTION
+========================================================= */
 
 .subsection {
-  margin-top: 100px;
+  margin-top: 105px;
 
   padding-top: 70px;
 
   border-top: 1px solid #DED3C8;
 }
 
+
 .subsection-title {
-  max-width: 900px;
+  max-width: 980px;
 
   margin: 0 0 20px;
 
@@ -477,123 +568,91 @@ img {
   line-height: 1.08;
 }
 
-.subsection-lead {
-  max-width: 950px;
 
-  margin-bottom: 50px;
+.subsection-lead {
+  max-width: 980px;
+
+  margin: 0 0 50px;
+
+  color: #655A67;
 
   font-size: 1.25rem;
   line-height: 1.7;
-
-  color: #655A67;
 }
+
 
 
 /* =========================================================
-   FULL-WIDTH VISUALISATIONS
-   ========================================================= */
-
-.full-width-card {
-  width: 100%;
-}
-
-.full-width-chart {
-  width: 100%;
-
-  min-height: 600px;
-}
-
-.full-width-chart .vega-embed {
-  width: 100%;
-}
-
-.full-width-chart svg {
-  width: 100%;
-  height: auto;
-}
-
-.full-note {
-  max-width: 1100px;
-}
-
-.flow-chart {
-  min-height: 650px;
-}
-
-.sankey-chart {
-  min-height: 650px;
-}
-
-
-/* =========================================================
-   ERROR MESSAGE
-   ========================================================= */
+   CHART ERROR
+========================================================= */
 
 .chart-error {
   width: 100%;
 
   padding: 40px;
 
-  text-align: center;
-
   border: 1px solid #DED3C8;
 
   color: #655A67;
+
+  text-align: center;
 }
+
 
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer {
-  margin-top: 50px;
+  margin-top: 30px;
 
   border-top: 1px solid #DED3C8;
 }
 
+
 .footer-inner {
-  width: 100%;
-  max-width: 1420px;
-
-  margin: 0 auto;
-
-  padding: 45px 60px 55px;
-
   display: flex;
+
   justify-content: space-between;
 
   gap: 30px;
 
-  font-size: 0.95rem;
+  padding-top: 45px;
+  padding-bottom: 55px;
 
   color: #655A67;
+
+  font-size: 0.95rem;
 }
+
 
 .footer-inner strong {
   color: #4A2545;
 }
 
 
+
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 1100px) {
 
-  .hero {
-    padding:
-      95px
-      40px
-      85px;
+  .page-width {
+    width: min(100% - 48px, 980px);
   }
 
-  .intro-section {
-    padding:
-      70px
-      40px
-      80px;
+
+  .hero {
+    padding: 90px 0 80px;
   }
+
+
+  .intro-section {
+    padding: 65px 0 80px;
+  }
+
 
   .intro-grid {
     grid-template-columns: 1fr;
@@ -601,71 +660,89 @@ footer {
     gap: 50px;
   }
 
+
   .intro-image {
     min-height: 430px;
   }
+
 
   .intro-image img {
     height: 430px;
   }
 
+
   .story-section {
-    padding:
-      80px
-      40px
-      90px;
+    padding: 80px 36px 90px;
   }
 
-  .visual-grid {
+
+  /*
+    Once paired charts stack vertically, they return to their
+    natural height so no blank area remains.
+  */
+
+  .paired-grid {
     grid-template-columns: 1fr;
 
     gap: 75px;
   }
 
-  .geography-grid {
-    grid-template-columns: 1fr;
 
-    gap: 65px;
+  .paired-card {
+    display: block;
   }
 
 
-  /*
-     Still no minimum height on Geography charts.
-  */
+  .paired-card .chart-stage {
+    height: auto;
 
-  .geography-chart {
-    min-height: 0;
+    overflow: visible;
+  }
+
+
+  .paired-card .chart-stage > div,
+  .paired-card .chart-stage .vega-embed,
+  .paired-card .chart-stage .vega-embed > div {
     height: auto;
   }
 
-  .full-width-chart {
-    min-height: 520px;
+
+  .paired-card .chart-stage svg {
+    width: 100% !important;
+    height: auto !important;
+
+    max-height: none;
   }
 
-  .footer-inner {
-    padding-left: 40px;
-    padding-right: 40px;
+
+  .section-heading {
+    margin-bottom: 48px;
   }
 
 }
 
 
+
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
-  .hero {
-    padding:
-      75px
-      22px
-      65px;
+  .page-width {
+    width: calc(100% - 36px);
   }
+
+
+  .hero {
+    padding: 70px 0 60px;
+  }
+
 
   .hero h1 {
     font-size: 4rem;
   }
+
 
   .hero-description {
     margin-top: 30px;
@@ -673,20 +750,21 @@ footer {
     font-size: 1.1rem;
   }
 
+
   .intro-section {
-    padding:
-      55px
-      22px
-      65px;
+    padding: 50px 0 65px;
   }
+
 
   .intro-copy h2 {
     font-size: 2.5rem;
   }
 
-  .intro-copy p {
+
+  .intro-copy > p {
     font-size: 1.05rem;
   }
+
 
   .stats-row {
     grid-template-columns: 1fr;
@@ -694,58 +772,51 @@ footer {
     gap: 18px;
   }
 
+
   .intro-image {
     min-height: 330px;
   }
+
 
   .intro-image img {
     height: 330px;
   }
 
+
   .story-section {
-    padding:
-      60px
-      22px
-      70px;
+    padding: 60px 18px 70px;
   }
+
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
 
   .section-meta {
     gap: 18px;
   }
 
+
   .section-title {
-    font-size: 2.6rem;
+    font-size: 2.55rem;
   }
+
 
   .section-lead {
-    margin-bottom: 42px;
-
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
-  .visual-grid {
-    gap: 55px;
-  }
 
   .visual-note {
-    font-size: 1.05rem;
+    font-size: 1.04rem;
   }
 
 
-  /*
-     Geography stays natural-height on mobile too.
-  */
-
-  .geography-chart {
-    min-height: 0;
-    height: auto;
+  .wide-card {
+    margin-bottom: 60px;
   }
 
-  .full-width-chart,
-  .flow-chart,
-  .sankey-chart {
-    min-height: 400px;
-  }
 
   .subsection {
     margin-top: 70px;
@@ -753,21 +824,22 @@ footer {
     padding-top: 50px;
   }
 
+
   .subsection-title {
     font-size: 2.2rem;
   }
+
 
   .subsection-lead {
     font-size: 1.08rem;
   }
 
-  .footer-inner {
-    padding:
-      35px
-      22px
-      45px;
 
+  .footer-inner {
     flex-direction: column;
+
+    padding-top: 35px;
+    padding-bottom: 45px;
   }
 
 }
