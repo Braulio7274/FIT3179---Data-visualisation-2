@@ -4,14 +4,22 @@
   "width": 720,
   "height": 430,
   "background": "#FFF7ED",
+
   "title": {
     "text": "Which languages stand out across Australia?",
     "subtitle": "Top 10 non-English languages nationally; each cell shows the share of that state or territory population — 2021 Census",
     "anchor": "start",
+    "font": "Space Grotesk",
     "fontSize": 22,
+    "fontWeight": 700,
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 12,
+    "subtitleFontWeight": 400,
+    "subtitleColor": "#655A67",
     "subtitlePadding": 8
   },
+
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/language_state_heatmap.csv",
     "format": {
@@ -25,33 +33,52 @@
       }
     }
   },
+
   "encoding": {
     "x": {
       "field": "state",
       "type": "ordinal",
-      "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
+      "sort": [
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA",
+        "TAS",
+        "NT",
+        "ACT"
+      ],
       "axis": {
         "title": null,
         "labelAngle": 0,
+        "labelFont": "Source Sans 3",
         "labelFontSize": 12,
         "labelFontWeight": "bold",
+        "labelColor": "#4A2545",
         "ticks": false,
         "domain": false
       }
     },
+
     "y": {
       "field": "language",
       "type": "ordinal",
-      "sort": {"field": "national_rank", "order": "ascending"},
+      "sort": {
+        "field": "national_rank",
+        "order": "ascending"
+      },
       "axis": {
         "title": null,
+        "labelFont": "Source Sans 3",
         "labelFontSize": 12,
+        "labelColor": "#655A67",
         "ticks": false,
         "domain": false,
         "labelPadding": 8
       }
     }
   },
+
   "layer": [
     {
       "mark": {
@@ -60,20 +87,39 @@
         "strokeWidth": 2,
         "cornerRadius": 3
       },
+
       "encoding": {
         "color": {
           "field": "share_pct",
           "type": "quantitative",
-          "scale": {"scheme": "blues", "domain": [0, 3.5], "clamp": true},
+
+          "scale": {
+            "scheme": "blues",
+            "domain": [0, 3.5],
+            "clamp": true
+          },
+
           "legend": {
             "title": "Share of state population",
             "format": ".1f",
             "labelExpr": "datum.label + '%'",
-            "gradientLength": 240
+            "gradientLength": 240,
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 12,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67"
           }
         },
+
         "tooltip": [
-          {"field": "language", "type": "nominal", "title": "Language"},
+          {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language"
+          },
           {
             "field": "state_name",
             "type": "nominal",
@@ -100,22 +146,66 @@
         ]
       }
     },
+
     {
-      "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold"},
+      "mark": {
+        "type": "text",
+        "font": "Source Sans 3",
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+
       "encoding": {
-        "text": {"field": "share_label", "type": "nominal"},
+        "text": {
+          "field": "share_label",
+          "type": "nominal"
+        },
+
         "color": {
-          "condition": {"test": "datum.share_pct >= 1.7", "value": "white"},
-          "value": "#17283b"
+          "condition": {
+            "test": "datum.share_pct >= 1.7",
+            "value": "white"
+          },
+          "value": "#4A2545"
         }
       }
     }
   ],
+
   "config": {
-    "font": "Arial",
-    "view": {"stroke": null},
-    "axis": {"grid": false},
-    "legend": {"titleFontSize": 12, "labelFontSize": 11},
-    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+    "font": "Source Sans 3",
+
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleColor": "#4A2545",
+      "grid": false
+    },
+
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 11,
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#4A2545"
+    },
+
+    "title": {
+      "font": "Space Grotesk",
+      "fontSize": 22,
+      "fontWeight": 700,
+      "color": "#4A2545",
+      "subtitleFont": "Source Sans 3",
+      "subtitleFontSize": 12,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#655A67"
+    }
   }
 }
