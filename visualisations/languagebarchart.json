@@ -4,15 +4,28 @@
   "width": 700,
   "height": 430,
   "background": "#FFF7ED",
-  "padding": {"left": 10, "right": 95, "top": 10, "bottom": 10},
+  "padding": {
+    "left": 10,
+    "right": 95,
+    "top": 10,
+    "bottom": 10
+  },
+
   "title": {
     "text": "Australia's most widely spoken non-English languages",
     "subtitle": "Top 10 languages used at home | 2021 Census",
     "anchor": "start",
+    "font": "Space Grotesk",
     "fontSize": 22,
+    "fontWeight": 700,
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 13,
+    "subtitleFontWeight": 400,
+    "subtitleColor": "#655A67",
     "subtitlePadding": 8
   },
+
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/ranked_languages.csv",
     "format": {
@@ -24,48 +37,84 @@
       }
     }
   },
+
   "transform": [
     {
       "calculate": "format(datum.speakers, ',') + '  (' + format(datum.share_total_population_percent, '.1f') + '%)'",
       "as": "label"
     }
   ],
+
   "layer": [
     {
-      "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": {"band": 0.68}},
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 4,
+        "height": {
+          "band": 0.68
+        }
+      },
+
       "encoding": {
         "y": {
           "field": "language",
           "type": "nominal",
-          "sort": {"field": "rank", "order": "ascending"},
+          "sort": {
+            "field": "rank",
+            "order": "ascending"
+          },
           "axis": {
             "title": null,
+            "labelFont": "Source Sans 3",
             "labelFontSize": 13,
+            "labelColor": "#655A67",
             "labelPadding": 8,
             "labelLimit": 130,
             "ticks": false,
             "domain": false
           }
         },
+
         "x": {
           "field": "speakers",
           "type": "quantitative",
           "axis": {
             "title": "People speaking language at home",
+            "titleFont": "Source Sans 3",
             "titleFontSize": 12,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
             "labelFontSize": 11,
+            "labelColor": "#655A67",
             "format": "~s",
             "grid": true,
             "gridOpacity": 0.18,
+            "gridColor": "#DED3C8",
             "domain": false,
             "ticks": false
           },
-          "scale": {"zero": true, "nice": true}
+          "scale": {
+            "zero": true,
+            "nice": true
+          }
         },
-        "color": {"value": "#3478b8"},
+
+        "color": {
+          "value": "#3478b8"
+        },
+
         "tooltip": [
-          {"field": "rank", "type": "quantitative", "title": "Rank"},
-          {"field": "language", "type": "nominal", "title": "Language"},
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          },
+          {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language"
+          },
           {
             "field": "speakers",
             "type": "quantitative",
@@ -81,31 +130,66 @@
         ]
       }
     },
+
     {
       "mark": {
         "type": "text",
         "align": "left",
         "baseline": "middle",
         "dx": 7,
+        "font": "Source Sans 3",
         "fontSize": 11,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "color": "#655A67"
       },
+
       "encoding": {
         "y": {
           "field": "language",
           "type": "nominal",
-          "sort": {"field": "rank", "order": "ascending"}
+          "sort": {
+            "field": "rank",
+            "order": "ascending"
+          }
         },
-        "x": {"field": "speakers", "type": "quantitative"},
-        "text": {"field": "label", "type": "nominal"},
-        "color": {"value": "#30343b"}
+
+        "x": {
+          "field": "speakers",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
       }
     }
   ],
+
   "config": {
-    "font": "Arial",
-    "view": {"stroke": null},
-    "axis": {"labelColor": "#30343b", "titleColor": "#30343b"},
-    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+    "font": "Source Sans 3",
+
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleColor": "#4A2545",
+      "gridColor": "#DED3C8"
+    },
+
+    "title": {
+      "font": "Space Grotesk",
+      "fontSize": 22,
+      "fontWeight": 700,
+      "color": "#4A2545",
+      "subtitleFont": "Source Sans 3",
+      "subtitleFontSize": 13,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#655A67"
+    }
   }
 }
