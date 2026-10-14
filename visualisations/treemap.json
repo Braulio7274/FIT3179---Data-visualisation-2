@@ -5,7 +5,7 @@
   "height": 900,
   "padding": 16,
   "autosize": "pad",
-  "background": "white",
+  "background": "#FFF7ED",
   "signals": [{"name": "headerHeight", "value": 40}],
   "title": {
     "text": "Australia's largest overseas-born communities",
