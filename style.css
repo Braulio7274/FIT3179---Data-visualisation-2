@@ -1,4 +1,30 @@
 /* =========================================================
+   COLOUR AND SIZE VARIABLES
+========================================================= */
+
+:root {
+  --background: #FFF7ED;
+  --heading: #4A2545;
+  --body-text: #655A67;
+  --accent-coral: #E76F51;
+  --accent-teal: #2A9D8F;
+  --divider: #DED3C8;
+
+  /*
+    Every single full-width chart receives the same width.
+  */
+  --single-chart-width: 1180px;
+
+  /*
+    Page width is deliberately large so paired charts are
+    readable rather than compressed into narrow columns.
+  */
+  --site-width: 1700px;
+}
+
+
+
+/* =========================================================
    GLOBAL
 ========================================================= */
 
@@ -17,8 +43,8 @@ body {
 
   overflow-x: hidden;
 
-  background: #FFF7ED;
-  color: #4A2545;
+  background: var(--background);
+  color: var(--heading);
 
   font-family: "Source Sans 3", Arial, sans-serif;
   line-height: 1.65;
@@ -31,7 +57,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #4A2545;
+  color: var(--heading);
   font-family: "Space Grotesk", Arial, sans-serif;
 }
 
@@ -47,13 +73,17 @@ img {
 
 
 ::selection {
-  background: #E76F51;
-  color: #FFF7ED;
+  background: var(--accent-coral);
+  color: var(--background);
 }
 
 
-.page-width {
-  width: min(1540px, calc(100% - 64px));
+.site-width {
+  width: min(
+    var(--site-width),
+    calc(100% - 64px)
+  );
+
   margin: 0 auto;
 }
 
@@ -65,6 +95,21 @@ img {
 
 .hero {
   padding: 110px 0 105px;
+}
+
+
+.eyebrow {
+  margin: 0 0 20px;
+
+  color: var(--accent-coral);
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 
@@ -82,22 +127,7 @@ img {
 
 
 .hero h1 span {
-  color: #2A9D8F;
-}
-
-
-.eyebrow {
-  margin: 0 0 20px;
-
-  color: #E76F51;
-
-  font-family: "Space Grotesk", Arial, sans-serif;
-
-  font-size: 0.82rem;
-  font-weight: 700;
-
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  color: var(--accent-teal);
 }
 
 
@@ -106,7 +136,7 @@ img {
 
   margin: 44px 0 0;
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1.4rem;
   line-height: 1.65;
@@ -151,7 +181,7 @@ img {
 .intro-copy > p {
   max-width: 730px;
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1.18rem;
   line-height: 1.75;
@@ -169,7 +199,7 @@ img {
   margin-top: 45px;
   padding-top: 30px;
 
-  border-top: 1px solid #DED3C8;
+  border-top: 1px solid var(--divider);
 }
 
 
@@ -183,7 +213,7 @@ img {
 
   margin-bottom: 5px;
 
-  color: #4A2545;
+  color: var(--heading);
 
   font-family: "Space Grotesk", Arial, sans-serif;
 
@@ -193,7 +223,7 @@ img {
 
 
 .stat-label {
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 0.95rem;
   line-height: 1.4;
@@ -207,9 +237,9 @@ img {
 
   padding: 20px 22px;
 
-  border-left: 3px solid #2A9D8F;
+  border-left: 3px solid var(--accent-teal);
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1rem;
   line-height: 1.65;
@@ -217,7 +247,7 @@ img {
 
 
 .intro-note strong {
-  color: #4A2545;
+  color: var(--heading);
 }
 
 
@@ -226,7 +256,7 @@ img {
 
   min-height: 500px;
 
-  background: #FFF7ED;
+  background: var(--background);
 }
 
 
@@ -248,16 +278,19 @@ img {
 ========================================================= */
 
 .story-section {
-  width: min(1680px, 100%);
+  width: min(
+    var(--site-width),
+    calc(100% - 48px)
+  );
 
   margin: 0 auto;
 
-  padding: 95px 32px 110px;
+  padding: 95px 0 110px;
 }
 
 
 .story-section + .story-section {
-  border-top: 1px solid #DED3C8;
+  border-top: 1px solid var(--divider);
 }
 
 
@@ -279,7 +312,7 @@ img {
 
 
 .section-number {
-  color: #2A9D8F;
+  color: var(--accent-teal);
 
   font-family: "Space Grotesk", Arial, sans-serif;
 
@@ -289,7 +322,7 @@ img {
 
 
 .section-kicker {
-  color: #E76F51;
+  color: var(--accent-coral);
 
   font-family: "Space Grotesk", Arial, sans-serif;
 
@@ -317,7 +350,7 @@ img {
 
   margin: 0;
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1.3rem;
   line-height: 1.7;
@@ -326,72 +359,10 @@ img {
 
 
 /* =========================================================
-   VISUAL CARDS
-========================================================= */
-
-.visual-card {
-  min-width: 0;
-}
-
-
-.wide-card {
-  margin-bottom: 85px;
-}
-
-
-.wide-card:last-child {
-  margin-bottom: 0;
-}
-
-
-
-/* =========================================================
-   PAIRED CHARTS
-
-   The fixed chart-stage row makes both explanation blocks
-   begin at the same vertical position.
-========================================================= */
-
-.paired-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 48px;
-
-  align-items: start;
-}
-
-
-.paired-card {
-  display: grid;
-
-  grid-template-rows:
-    var(--chart-stage-height)
-    auto;
-
-  min-width: 0;
-}
-
-
-/* Geography charts are almost identical in proportion */
-
-.paired-grid-maps {
-  --chart-stage-height: 535px;
-}
-
-
-/* Heatmap and dumbbell need a slightly shorter common stage */
-
-.paired-grid-states {
-  --chart-stage-height: 470px;
-}
-
-
-
-/* =========================================================
    CHART STAGES
+
+   Every SVG fills the width of its assigned stage.
+   No fixed chart heights are used.
 ========================================================= */
 
 .chart-stage {
@@ -401,17 +372,15 @@ img {
   justify-content: center;
 
   width: 100%;
-  height: var(--chart-stage-height);
-
   min-width: 0;
 
-  overflow: hidden;
+  overflow: visible;
 }
 
 
 .chart-stage > div {
   width: 100%;
-  height: 100%;
+  min-width: 0;
 }
 
 
@@ -422,104 +391,117 @@ img {
   justify-content: center;
 
   width: 100%;
-  height: 100%;
+  max-width: 100%;
 }
 
 
 .chart-stage .vega-embed > div {
-  display: flex;
-
-  align-items: flex-start;
-  justify-content: center;
-
   width: 100%;
-  height: 100%;
+  max-width: 100%;
 }
 
 
 .chart-stage svg {
   display: block;
 
-  width: auto !important;
-  height: auto !important;
-
-  max-width: 100%;
-  max-height: 100%;
-}
-
-
-
-/* =========================================================
-   NATURAL-HEIGHT / FULL-WIDTH CHARTS
-========================================================= */
-
-.chart-stage-auto {
-  height: auto;
-
-  overflow: visible;
-}
-
-
-.chart-stage-auto > div,
-.chart-stage-auto .vega-embed,
-.chart-stage-auto .vega-embed > div {
-  height: auto;
-}
-
-
-.chart-stage-auto svg {
+  /*
+    This is the key rule. It makes the heatmap, dumbbell
+    and all other charts fill their available widths.
+  */
   width: 100% !important;
   height: auto !important;
 
-  max-height: none;
-}
-
-
-.chart-limit-treemap {
-  width: min(1120px, 100%);
-  margin: 0 auto;
-}
-
-
-.chart-limit-bar {
-  width: min(920px, 100%);
-  margin: 0 auto;
-}
-
-
-.chart-limit-butterfly {
-  width: min(1120px, 100%);
-  margin: 0 auto;
-}
-
-
-.chart-limit-flow {
-  width: min(1240px, 100%);
-  margin: 0 auto;
-}
-
-
-.chart-limit-sankey {
-  width: min(1260px, 100%);
-  margin: 0 auto;
+  max-width: 100% !important;
 }
 
 
 
 /* =========================================================
-   VISUAL NOTES
+   SINGLE / FULL-WIDTH CHARTS
+
+   Treemap, ranked bar chart, butterfly, flow map and Sankey
+   all receive exactly the same outer width.
+========================================================= */
+
+.single-chart {
+  width: min(
+    var(--single-chart-width),
+    100%
+  );
+
+  margin: 0 auto 90px;
+}
+
+
+.single-chart:last-child {
+  margin-bottom: 0;
+}
+
+
+
+/* =========================================================
+   PAIRED CHARTS
+
+   Chart A and Chart B occupy row 1.
+   Their notes occupy row 2.
+
+   Row 1 automatically adopts the height of the taller chart,
+   which aligns both explanation dividers without forcing
+   artificial chart heights.
+========================================================= */
+
+.paired-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  grid-template-areas:
+    "chart-a chart-b"
+    "note-a  note-b";
+
+  column-gap: 48px;
+  row-gap: 0;
+
+  align-items: start;
+}
+
+
+.pair-a-chart {
+  grid-area: chart-a;
+}
+
+
+.pair-b-chart {
+  grid-area: chart-b;
+}
+
+
+.pair-a-note {
+  grid-area: note-a;
+}
+
+
+.pair-b-note {
+  grid-area: note-b;
+}
+
+
+
+/* =========================================================
+   TEXT BELOW CHARTS
 ========================================================= */
 
 .visual-note {
   width: 100%;
 
-  margin: 22px 0 0;
+  margin: 25px 0 0;
 
-  padding-top: 20px;
+  padding-top: 21px;
 
-  border-top: 1px solid #DED3C8;
+  border-top: 1px solid var(--divider);
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1.16rem;
   line-height: 1.75;
@@ -527,20 +509,8 @@ img {
 
 
 .visual-note strong {
-  color: #4A2545;
+  color: var(--heading);
   font-weight: 700;
-}
-
-
-.wide-note {
-  width: min(1120px, 100%);
-  margin-right: auto;
-  margin-left: auto;
-}
-
-
-.bar-note {
-  width: min(920px, 100%);
 }
 
 
@@ -554,7 +524,7 @@ img {
 
   padding-top: 70px;
 
-  border-top: 1px solid #DED3C8;
+  border-top: 1px solid var(--divider);
 }
 
 
@@ -574,7 +544,7 @@ img {
 
   margin: 0 0 50px;
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 1.25rem;
   line-height: 1.7;
@@ -583,7 +553,7 @@ img {
 
 
 /* =========================================================
-   CHART ERROR
+   ERROR MESSAGE
 ========================================================= */
 
 .chart-error {
@@ -591,9 +561,9 @@ img {
 
   padding: 40px;
 
-  border: 1px solid #DED3C8;
+  border: 1px solid var(--divider);
 
-  color: #655A67;
+  color: var(--body-text);
 
   text-align: center;
 }
@@ -607,7 +577,7 @@ img {
 footer {
   margin-top: 30px;
 
-  border-top: 1px solid #DED3C8;
+  border-top: 1px solid var(--divider);
 }
 
 
@@ -621,14 +591,14 @@ footer {
   padding-top: 45px;
   padding-bottom: 55px;
 
-  color: #655A67;
+  color: var(--body-text);
 
   font-size: 0.95rem;
 }
 
 
 .footer-inner strong {
-  color: #4A2545;
+  color: var(--heading);
 }
 
 
@@ -639,8 +609,13 @@ footer {
 
 @media (max-width: 1100px) {
 
-  .page-width {
-    width: min(100% - 48px, 980px);
+  :root {
+    --single-chart-width: 100%;
+  }
+
+
+  .site-width {
+    width: calc(100% - 48px);
   }
 
 
@@ -672,46 +647,32 @@ footer {
 
 
   .story-section {
-    padding: 80px 36px 90px;
+    width: calc(100% - 48px);
+
+    padding: 80px 0 90px;
   }
 
 
   /*
-    Once paired charts stack vertically, they return to their
-    natural height so no blank area remains.
+    Paired charts stack with each note directly beneath
+    its related chart.
   */
 
   .paired-grid {
     grid-template-columns: 1fr;
 
-    gap: 75px;
+    grid-template-areas:
+      "chart-a"
+      "note-a"
+      "chart-b"
+      "note-b";
+
+    column-gap: 0;
   }
 
 
-  .paired-card {
-    display: block;
-  }
-
-
-  .paired-card .chart-stage {
-    height: auto;
-
-    overflow: visible;
-  }
-
-
-  .paired-card .chart-stage > div,
-  .paired-card .chart-stage .vega-embed,
-  .paired-card .chart-stage .vega-embed > div {
-    height: auto;
-  }
-
-
-  .paired-card .chart-stage svg {
-    width: 100% !important;
-    height: auto !important;
-
-    max-height: none;
+  .pair-b-chart {
+    margin-top: 75px;
   }
 
 
@@ -729,7 +690,7 @@ footer {
 
 @media (max-width: 700px) {
 
-  .page-width {
+  .site-width {
     width: calc(100% - 36px);
   }
 
@@ -784,7 +745,9 @@ footer {
 
 
   .story-section {
-    padding: 60px 18px 70px;
+    width: calc(100% - 36px);
+
+    padding: 60px 0 70px;
   }
 
 
@@ -808,13 +771,18 @@ footer {
   }
 
 
-  .visual-note {
-    font-size: 1.04rem;
+  .single-chart {
+    margin-bottom: 65px;
   }
 
 
-  .wide-card {
-    margin-bottom: 60px;
+  .pair-b-chart {
+    margin-top: 60px;
+  }
+
+
+  .visual-note {
+    font-size: 1.04rem;
   }
 
 
