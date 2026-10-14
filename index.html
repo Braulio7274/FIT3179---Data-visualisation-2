@@ -1,636 +1,363 @@
-/* =========================================================
-   COLOUR SYSTEM
-
-   Background:      #F4F0E8
-   Heading:         #173E3B
-   Text:            #526562
-
-   Teal:            #2F7D73
-   Terracotta:      #D4775A
-   Mustard:         #D4A64A
-   Indigo:          #687AA5
-   Sage:            #83A58C
-   Purple:          #927B9E
-
-   Divider/Grid:    #D5D0C6
-========================================================= */
-
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-* {
-  box-sizing: border-box;
-}
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-
-body {
-  margin: 0;
-
-  background: #F4F0E8;
-
-  color: #173E3B;
-
-  font-family: "Inter", Arial, sans-serif;
-
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   MAIN PAGE
-========================================================= */
-
-.page {
-  width: min(1220px, calc(100% - 48px));
-
-  margin: 0 auto;
-
-  padding-bottom: 60px;
-
-  background: #F4F0E8;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-  padding: 38px 24px 28px;
-}
-
-
-.hero h1 {
-  max-width: 950px;
-
-  margin: 0;
-
-  color: #173E3B;
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-
-  font-size: clamp(58px, 8vw, 92px);
-
-  font-weight: 700;
-
-  line-height: 0.95;
-
-  letter-spacing: -1.5px;
-}
-
-
-.hero-subtitle {
-  max-width: 780px;
-
-  margin: 22px 0 0;
-
-  color: #526562;
-
-  font-size: 19px;
-
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   STORY SECTIONS
-========================================================= */
-
-.story-section,
-.intro-section {
-  padding: 36px 24px 28px;
-
-  background: #F4F0E8;
-}
-
-
-.section-header {
-  margin-bottom: 24px;
-}
-
-
-.section-header h2,
-.intro-text h2 {
-  max-width: 1000px;
-
-  margin: 0 0 9px;
-
-  color: #173E3B;
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-
-  font-size: clamp(36px, 4.4vw, 58px);
-
-  font-weight: 700;
-
-  line-height: 1.02;
-
-  letter-spacing: -0.5px;
-}
-
-
-.section-header p,
-.intro-text p {
-  max-width: 780px;
-
-  margin: 0 0 13px;
-
-  color: #526562;
-
-  font-size: 16px;
-
-  line-height: 1.7;
-}
-
-
-/* =========================================================
-   INTRODUCTION
-========================================================= */
-
-.intro-grid {
-  display: grid;
-
-  grid-template-columns: 1.12fr 0.88fr;
-
-  gap: 45px;
-
-  align-items: stretch;
-}
-
-
-.intro-text {
-  min-width: 0;
-}
-
-
-.intro-text strong {
-  color: #173E3B;
-}
-
-
-/* =========================================================
-   INTRO STATS
-========================================================= */
-
-.intro-stats {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  max-width: 650px;
-
-  margin: 28px 0 22px;
-
-  border-top: 1px solid #D5D0C6;
-
-  border-bottom: 1px solid #D5D0C6;
-}
-
-
-.intro-stat {
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  min-height: 100px;
-
-  padding: 15px 18px;
-
-  text-align: center;
-}
-
-
-.intro-stat:not(:last-child) {
-  border-right: 1px solid #D5D0C6;
-}
-
-
-.stat-number {
-  display: block;
-
-  margin-bottom: 4px;
-
-  color: #2F7D73;
-
-  font-size: 26px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-}
-
-
-.stat-label {
-  color: #526562;
-
-  font-size: 12px;
-
-  font-weight: 500;
-
-  line-height: 1.4;
-}
-
-
-.intro-note {
-  max-width: 650px;
-
-  padding: 13px 15px;
-
-  border-left: 3px solid #D4775A;
-
-  background: rgba(212, 119, 90, 0.07);
-
-  color: #526562;
-
-  font-size: 13px !important;
-}
-
-
-.intro-note strong {
-  color: #173E3B;
-}
-
-
-/* =========================================================
-   INTRO IMAGE
-========================================================= */
-
-.intro-image {
-  min-height: 390px;
-}
-
-
-.image-placeholder {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 100%;
-
-  min-height: 390px;
-
-  padding: 35px;
-
-  color: #526562;
-
-  background: #E8E3D9;
-
-  border: 1px solid #D5D0C6;
-
-  text-align: center;
-}
-
-
-.image-placeholder span {
-  margin-bottom: 6px;
-
-  color: #173E3B;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-}
-
-
-.image-placeholder small {
-  color: #71817E;
-
-  font-size: 12px;
-}
-
-
-/* Actual image */
-
-.intro-image img {
-  display: block;
-
-  width: 100%;
-
-  height: 390px;
-
-  object-fit: cover;
-}
-
-
-/* =========================================================
-   CHART LAYOUT
-========================================================= */
-
-.chart-grid {
-  margin-top: 12px;
-}
-
-
-.chart-grid.two-col {
-  display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  align-items: start;
-
-  gap: 30px;
-}
-
-
-.chart-grid.one-col {
-  display: grid;
-
-  grid-template-columns: 1fr;
-}
-
-
-.chart-grid.one-col.narrow-center {
-  display: flex;
-
-  justify-content: center;
-}
-
-
-/* =========================================================
-   CHARTS
-
-   IMPORTANT:
-   No white cards.
-========================================================= */
-
-.chart-panel {
-  min-width: 0;
-
-  padding: 4px 0 0;
-
-  overflow-x: auto;
-
-  background: #F4F0E8;
-}
-
-
-.chart-panel.full-width {
-  width: 100%;
-}
-
-
-.chart-panel .vega-embed {
-  display: flex;
-
-  justify-content: center;
-
-  width: 100%;
-
-  background: #F4F0E8 !important;
-}
-
-
-.chart-panel .vega-embed > div {
-  max-width: 100%;
-
-  background: #F4F0E8 !important;
-}
-
-
-.chart-panel canvas,
-.chart-panel svg {
-  display: block;
-
-  max-width: 100%;
-
-  height: auto;
-
-  background: #F4F0E8 !important;
-}
-
-
-/* =========================================================
-   TAKEAWAYS
-========================================================= */
-
-.insight-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 36px;
-
-  margin-top: 20px;
-
-  padding: 0 0 30px;
-
-  border-bottom: 1px solid #D5D0C6;
-}
-
-
-.insight-grid.single {
-  grid-template-columns: 1fr;
-}
-
-
-.insight-grid p {
-  margin: 0;
-
-  color: #173E3B;
-
-  font-size: 14px;
-
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
-
-.placeholder-panel {
-  min-height: 200px;
-}
-
-
-.coming-soon {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 200px;
-
-  background: #ECE7DD;
-
-  border: 1px dashed #BDB7AB;
-
-  text-align: center;
-}
-
-
-.coming-soon h3 {
-  margin: 0 0 5px;
-
-  color: #173E3B;
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-
-  font-size: 32px;
-}
-
-
-.coming-soon p {
-  margin: 0;
-
-  color: #526562;
-
-  font-size: 14px;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 25px;
-
-  margin: 20px 24px 0;
-
-  padding: 30px 0 10px;
-
-  color: #71817E;
-
-  border-top: 1px solid #D5D0C6;
-
-  font-size: 12px;
-}
-
-
-.footer p {
-  margin: 0;
-}
-
-
-/* =========================================================
-   ERRORS
-========================================================= */
-
-.chart-error {
-  padding: 30px;
-
-  color: #8A4639;
-
-  background: rgba(212, 119, 90, 0.08);
-
-  border: 1px dashed #D4775A;
-
-  font-size: 13px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 980px) {
-
-  .intro-grid,
-  .chart-grid.two-col,
-  .insight-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  .chart-grid.one-col.narrow-center {
-    display: block;
-  }
-
-
-  .intro-image {
-    min-height: 300px;
-  }
-
-
-  .intro-image img,
-  .image-placeholder {
-    height: 300px;
-
-    min-height: 300px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-  .page {
-    width: calc(100% - 24px);
-  }
-
-
-  .hero {
-    padding: 30px 8px 20px;
-  }
-
-
-  .story-section,
-  .intro-section {
-    padding: 28px 8px 20px;
-  }
-
-
-  .hero h1 {
-    font-size: 52px;
-  }
-
-
-  .hero-subtitle {
-    font-size: 16px;
-  }
-
-
-  .section-header p,
-  .intro-text p {
-    font-size: 14px;
-  }
-
-
-  .intro-stats {
-    grid-template-columns: 1fr;
-  }
-
-
-  .intro-stat:not(:last-child) {
-    border-right: 0;
-
-    border-bottom: 1px solid #D5D0C6;
-  }
-
-
-  .footer {
-    flex-direction: column;
-
-    margin-left: 8px;
-
-    margin-right: 8px;
-  }
-
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Cultural Diversity in Australia</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Vega -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+    <header class="hero">
+      <h1>Cultural Diversity in Australia</h1>
+      <p class="hero-subtitle">
+        How migration, language, birthplace and settlement patterns shape Australia’s cultural landscape.
+      </p>
+    </header>
+
+
+    <!-- =========================================================
+         INTRO / DATA EXPLANATION
+    ========================================================== -->
+    <section class="intro-section">
+      <div class="intro-grid">
+
+        <div class="intro-text">
+          <h2>Understanding the Data</h2>
+
+          <p>
+            This visualisation draws primarily on two data sources:
+            <strong>Australian Bureau of Statistics (ABS)</strong> Census data,
+            and <strong>Department of Home Affairs</strong> settlement data.
+          </p>
+
+          <p>
+            ABS data is used to explore birthplace, languages spoken,
+            and geographic patterns of diversity across Australia.
+            Home Affairs settlement data is used to show how recent
+            migration streams distribute across states and territories.
+          </p>
+
+          <div class="intro-stats">
+            <div class="intro-stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">primary data sources</span>
+            </div>
+
+            <div class="intro-stat">
+              <span class="stat-number">8</span>
+              <span class="stat-label">states and territories</span>
+            </div>
+
+            <div class="intro-stat">
+              <span class="stat-number">2016–2025</span>
+              <span class="stat-label">settlement data period</span>
+            </div>
+          </div>
+
+          <p class="intro-note">
+            <strong>Note:</strong> ABS Census data and settlement data measure different things.
+            Census data describes Australia’s resident population, while settlement data tracks migrant arrivals and streams.
+          </p>
+        </div>
+
+        <div class="intro-image">
+          <!-- Replace later with an actual image -->
+          <div class="image-placeholder">
+            <span>IMAGE SPACE</span>
+            <small>Add a multicultural Australia image here</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 1
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Australia’s Diversity Begins with Birthplace and Language</h2>
+        <p>
+          The composition of Australia’s population reflects decades of migration.
+          Birthplace and language data show the scale of major communities and the
+          range of cultures represented across the country.
+        </p>
+      </div>
+
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
+          <div id="treemap"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div id="language-bar"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <p>
+          The treemap highlights the largest overseas-born communities, showing how
+          Australia’s diversity is shaped by both long-established and more recent migration patterns.
+        </p>
+        <p>
+          The ranked language chart complements this by showing the most widely spoken
+          languages other than English, revealing the cultural and linguistic breadth of the population.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 2
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Diversity Is Not Evenly Distributed Across Australia</h2>
+        <p>
+          Cultural diversity varies substantially by location.
+          Some areas have a very high concentration of overseas-born residents,
+          while others remain much less internationally diverse.
+        </p>
+      </div>
+
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
+          <div id="choropleth"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div id="proportional-symbol"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <p>
+          The choropleth map emphasises the proportion of overseas-born residents in each SA2,
+          making it easier to identify areas where diversity forms a large share of the local population.
+        </p>
+        <p>
+          The proportional symbol map instead highlights magnitude, helping show which places
+          have the largest overseas-born populations in absolute terms.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 3
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Language Patterns Reveal Differences Between States</h2>
+        <p>
+          The composition of language communities differs across Australian states.
+          Looking at these differences helps reveal how migration histories and settlement patterns vary regionally.
+        </p>
+      </div>
+
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
+          <div id="heatmap"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div id="butterfly"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <p>
+          The heatmap provides a broad comparison of major language groups across states,
+          allowing dominant and less prominent communities to be compared at a glance.
+        </p>
+        <p>
+          The butterfly chart then focuses more directly on differences between
+          New South Wales and Victoria, showing how even the largest states have distinct linguistic profiles.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 4
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>States Also Differ in Their Overall Diversity Profiles</h2>
+        <p>
+          Diversity is not only visible in individual communities.
+          It can also be compared at the state level to show broader differences in the scale and structure of cultural variation.
+        </p>
+      </div>
+
+      <div class="chart-grid one-col narrow-center">
+        <div class="chart-panel">
+          <div id="dumbbell"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid single">
+        <p>
+          The dumbbell chart supports direct comparison between states, making it easier
+          to see which places stand out on selected diversity measures and where the largest gaps appear.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 5
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Migration Connects Australia to the World</h2>
+        <p>
+          Beyond the resident population, migration data helps reveal how people continue
+          to move into Australia through different channels and toward different destinations.
+        </p>
+      </div>
+
+      <div class="chart-grid one-col">
+        <div class="chart-panel full-width">
+          <div id="flow-map"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid single">
+        <p>
+          The flow map shows how migrant movement links origin locations and Australian destinations,
+          emphasising Australia’s continued role as a connected migration destination.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 6
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Different Migration Streams Reshape the Settlement Pattern</h2>
+        <p>
+          Not all migrants arrive through the same pathway.
+          Skilled, family and humanitarian streams distribute differently across Australia,
+          shaping the demographic profile of each state and territory.
+        </p>
+      </div>
+
+      <div class="chart-grid one-col">
+        <div class="chart-panel full-width">
+          <div id="sankey"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid single">
+        <p>
+          The Sankey diagram shows how migration streams are distributed across Australia,
+          making it easier to compare the relative importance of skilled, family and humanitarian settlement in each state.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         OPTIONAL PLACEHOLDERS FOR REMAINING 2 VISUALISATIONS
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>What Comes Next</h2>
+        <p>
+          Two further visualisations are still to be added. These can be placed into the
+          same narrative structure once finalised.
+        </p>
+      </div>
+
+      <div class="chart-grid two-col">
+        <div class="chart-panel placeholder-panel">
+          <div class="coming-soon">
+            <h3>Visualisation 10</h3>
+            <p>Dot map / geographic extension</p>
+          </div>
+        </div>
+
+        <div class="chart-panel placeholder-panel">
+          <div class="coming-soon">
+            <h3>Visualisation 11</h3>
+            <p>Country of birth × migration stream heatmap</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="footer">
+      <p>
+        Data sources: Australian Bureau of Statistics (ABS) and Department of Home Affairs
+      </p>
+      <p>
+        FIT3179 Data Visualisation 2
+      </p>
+    </footer>
+
+  </main>
+
+
+  <!-- =========================================================
+       VEGA EMBEDS
+  ========================================================== -->
+  <script>
+    const embedOptions = {
+      actions: false,
+      renderer: "svg"
+    };
+
+    function embedChart(element, file) {
+      vegaEmbed(element, file, embedOptions)
+        .catch(error => {
+          console.error("Error loading " + file, error);
+          document.querySelector(element).innerHTML =
+            '<div class="chart-error">Unable to load visualisation.</div>';
+        });
+    }
+
+    embedChart("#treemap", "visualisations/treemap.json");
+    embedChart("#language-bar", "visualisations/languagebarchart.json");
+    embedChart("#choropleth", "visualisations/chloreplethoverseas.json");
+    embedChart("#proportional-symbol", "visualisations/proportionalsymbolmap.json");
+    embedChart("#heatmap", "visualisations/top10heatmap.json");
+    embedChart("#dumbbell", "visualisations/dumbbellchart.json");
+    embedChart("#butterfly", "visualisations/butterflychartstates.json");
+    embedChart("#flow-map", "visualisations/flowmap.json");
+    embedChart("#sankey", "visualisations/sankey.json");
+  </script>
+
+</body>
+</html>
