@@ -3,7 +3,7 @@
   "description": "Heatmap comparing the share of each state or territory population speaking Australia's ten most common non-English languages at home, 2021 Census.",
   "width": 720,
   "height": 430,
-  "background": "white",
+  "background": "#FFF7ED",
   "title": {
     "text": "Which languages stand out across Australia?",
     "subtitle": "Top 10 non-English languages nationally; each cell shows the share of that state or territory population — 2021 Census",
