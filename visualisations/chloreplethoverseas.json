@@ -14,28 +14,45 @@
   "height": 610,
   "background": "#FFF7ED",
   "padding": 20,
-  "autosize": {"type": "pad", "contains": "content"},
+  "autosize": {
+    "type": "pad",
+    "contains": "content"
+  },
   "title": {
     "text": "Where do Australia's overseas-born residents live?",
     "subtitle": [
       "Share of residents born overseas by SA2 | 2021 Census",
-      "Darker blue = higher share. Grey = unavailable or no residents."
+      "Darker blue = higher share."
     ],
     "anchor": "start",
+    "font": "Space Grotesk",
     "fontSize": 22,
+    "fontWeight": 700,
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 12,
+    "subtitleFontWeight": 400,
+    "subtitleColor": "#655A67",
     "subtitlePadding": 8,
     "offset": 14
   },
-  "projection": {"type": "identity", "reflectY": true},
+  "projection": {
+    "type": "identity",
+    "reflectY": true
+  },
   "layer": [
     {
       "data": {
         "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/1/query?where=1%3D1&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=true&returnM=false&returnZ=false&outSR=3577&maxAllowableOffset=100&geometryPrecision=0&orderByFields=objectid&resultOffset=0&resultRecordCount=2000&f=geojson",
-        "format": {"type": "json", "property": "features"}
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "transform": [
-        {"filter": "isValid(datum.geometry) && isValid(datum.properties)"},
+        {
+          "filter": "isValid(datum.geometry) && isValid(datum.properties)"
+        },
         {
           "filter": "datum.geometry.type == 'Polygon' || datum.geometry.type == 'MultiPolygon'"
         },
@@ -59,7 +76,11 @@
               }
             },
             "key": "SA2_CODE_2021",
-            "fields": ["overseas_percent", "overseas_born", "total_population"]
+            "fields": [
+              "overseas_percent",
+              "overseas_born",
+              "total_population"
+            ]
           }
         },
         {
@@ -71,14 +92,22 @@
           "as": "percentage_label"
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.18},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.18
+      },
       "encoding": {
         "color": {
           "condition": {
             "test": "isValid(datum.mapped_percent)",
             "field": "mapped_percent",
             "type": "quantitative",
-            "scale": {"scheme": "blues", "domain": [0, 60], "clamp": true},
+            "scale": {
+              "scheme": "blues",
+              "domain": [0, 60],
+              "clamp": true
+            },
             "legend": {
               "title": "Residents born overseas",
               "orient": "bottom",
@@ -126,10 +155,15 @@
     {
       "data": {
         "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/1/query?where=1%3D1&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=true&returnM=false&returnZ=false&outSR=3577&maxAllowableOffset=100&geometryPrecision=0&orderByFields=objectid&resultOffset=2000&resultRecordCount=2000&f=geojson",
-        "format": {"type": "json", "property": "features"}
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "transform": [
-        {"filter": "isValid(datum.geometry) && isValid(datum.properties)"},
+        {
+          "filter": "isValid(datum.geometry) && isValid(datum.properties)"
+        },
         {
           "filter": "datum.geometry.type == 'Polygon' || datum.geometry.type == 'MultiPolygon'"
         },
@@ -153,7 +187,11 @@
               }
             },
             "key": "SA2_CODE_2021",
-            "fields": ["overseas_percent", "overseas_born", "total_population"]
+            "fields": [
+              "overseas_percent",
+              "overseas_born",
+              "total_population"
+            ]
           }
         },
         {
@@ -165,14 +203,22 @@
           "as": "percentage_label"
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.18},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.18
+      },
       "encoding": {
         "color": {
           "condition": {
             "test": "isValid(datum.mapped_percent)",
             "field": "mapped_percent",
             "type": "quantitative",
-            "scale": {"scheme": "blues", "domain": [0, 60], "clamp": true},
+            "scale": {
+              "scheme": "blues",
+              "domain": [0, 60],
+              "clamp": true
+            },
             "legend": {
               "title": "Residents born overseas",
               "orient": "bottom",
@@ -218,11 +264,38 @@
       }
     }
   ],
-  "resolve": {"scale": {"color": "shared"}, "legend": {"color": "shared"}},
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    },
+    "legend": {
+      "color": "shared"
+    }
+  },
   "config": {
-    "font": "Arial",
-    "view": {"stroke": null},
-    "legend": {"titleFontSize": 12, "labelFontSize": 11, "titleLimit": 350},
-    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 11,
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#4A2545",
+      "titleLimit": 350
+    },
+    "title": {
+      "font": "Space Grotesk",
+      "fontSize": 22,
+      "fontWeight": 700,
+      "color": "#4A2545",
+      "subtitleFont": "Source Sans 3",
+      "subtitleFontSize": 12,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#655A67"
+    }
   }
 }
