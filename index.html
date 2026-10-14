@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
+  <meta charset="UTF-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  >
-
+  />
   <title>Cultural Diversity in Australia</title>
 
-  <!-- Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -26,530 +23,341 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body>
 
-  <main class="dashboard">
+  <main class="page">
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          HERO
-    =================================================== -->
-
+    ========================================================== -->
     <header class="hero">
-
-      <p class="eyebrow">
-        AUSTRALIAN CULTURAL DIVERSITY
+      <h1>Cultural Diversity in Australia</h1>
+      <p class="hero-subtitle">
+        How migration, language, birthplace and settlement patterns shape Australia’s cultural landscape.
       </p>
-
-      <h1>
-        Cultural Diversity in Australia
-      </h1>
-
-      <p class="hero-text">
-        How migration, language and place reveal the cultural
-        landscape of modern Australia.
-      </p>
-
     </header>
 
 
+    <!-- =========================================================
+         INTRO / DATA EXPLANATION
+    ========================================================== -->
+    <section class="intro-section">
+      <div class="intro-grid">
 
-    <!-- ==================================================
-         UNDERSTANDING THE DATA
-    =================================================== -->
+        <div class="intro-text">
+          <h2>Understanding the Data</h2>
 
-    <section class="data-intro">
-
-      <div class="data-intro-grid">
-
-
-        <!-- LEFT: INFORMATION -->
-
-        <div class="data-info">
-
-          <p class="intro-label">
-            UNDERSTANDING THE DATA
+          <p>
+            This visualisation draws primarily on two data sources:
+            <strong>Australian Bureau of Statistics (ABS)</strong> Census data,
+            and <strong>Department of Home Affairs</strong> settlement data.
           </p>
 
-          <h2>
-            Exploring Australia's cultural diversity through two data sources
-          </h2>
-
-
-          <p class="intro-description">
-
-            This visualisation combines data from the
-            <strong>Australian Bureau of Statistics (ABS)</strong>
-            and the
-            <strong>Australian Government Department of Home Affairs</strong>.
-
+          <p>
+            ABS data is used to explore birthplace, languages spoken,
+            and geographic patterns of diversity across Australia.
+            Home Affairs settlement data is used to show how recent
+            migration streams distribute across states and territories.
           </p>
-
-
-          <p class="intro-description">
-
-            ABS data is used to examine country of birth,
-            languages spoken and where culturally diverse communities
-            are located across Australia.
-
-          </p>
-
-
-          <p class="intro-description">
-
-            Department of Home Affairs settlement data is used to explore
-            migration streams and where new settlers established themselves
-            between 2016 and 2025.
-
-          </p>
-
-
-
-          <!-- STATISTICS -->
 
           <div class="intro-stats">
-
-
             <div class="intro-stat">
-
-              <span class="stat-value">
-                2
-              </span>
-
-              <span class="stat-label">
-                Primary data sources
-              </span>
-
+              <span class="stat-number">2</span>
+              <span class="stat-label">primary data sources</span>
             </div>
 
-
             <div class="intro-stat">
-
-              <span class="stat-value">
-                2016–2025
-              </span>
-
-              <span class="stat-label">
-                Settlement period
-              </span>
-
+              <span class="stat-number">8</span>
+              <span class="stat-label">states and territories</span>
             </div>
 
-
             <div class="intro-stat">
-
-              <span class="stat-value">
-                8
-              </span>
-
-              <span class="stat-label">
-                States & territories
-              </span>
-
+              <span class="stat-number">2016–2025</span>
+              <span class="stat-label">settlement data period</span>
             </div>
-
           </div>
 
-
-
-          <!-- NOTE -->
-
           <p class="intro-note">
-
-            <strong>Important:</strong>
-            The two datasets represent different populations and periods.
-            ABS Census data describes Australia's resident population,
-            while Home Affairs data records settlement activity.
-            Their values should therefore not always be compared directly.
-
+            <strong>Note:</strong> ABS Census data and settlement data measure different things.
+            Census data describes Australia’s resident population, while settlement data tracks migrant arrivals and streams.
           </p>
-
         </div>
 
-
-
-        <!-- RIGHT: IMAGE SPACE -->
-
-        <div class="data-image">
-
-          <!--
-            Later, replace the image-placeholder div below with:
-
-            <img
-              src="images/your-image.jpg"
-              alt="Cultural diversity in Australia"
-            >
-          -->
-
-        <img
-          src="Australias-Cultural-Diversity-Can-Offer-Benefits-to-Workplace-Culture.jpg".jpg"
-          alt="Cultural diversity in Australia"
-        >
-
+        <div class="intro-image">
+          <!-- Replace later with an actual image -->
+          <div class="image-placeholder">
+            <span>IMAGE SPACE</span>
+            <small>Add a multicultural Australia image here</small>
+          </div>
         </div>
-
 
       </div>
-
     </section>
 
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          SECTION 1
-    =================================================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          01
-        </span>
-
-
-        <div>
-
-          <h2>
-            Where do Australians come from?
-          </h2>
-
-          <p>
-            Australia is home to people from a wide range of
-            countries and linguistic backgrounds. These visualisations
-            highlight some of the largest communities represented
-            in the population.
-          </p>
-
-        </div>
-
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Australia’s Diversity Begins with Birthplace and Language</h2>
+        <p>
+          The composition of Australia’s population reflects decades of migration.
+          Birthplace and language data show the scale of major communities and the
+          range of cultures represented across the country.
+        </p>
       </div>
 
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
+          <div id="treemap"></div>
+        </div>
 
-      <article class="chart-card feature-card">
+        <div class="chart-panel">
+          <div id="language-bar"></div>
+        </div>
+      </div>
 
-        <div id="treemap"></div>
-
-      </article>
-
-
-      <article class="chart-card medium-card">
-
-        <div id="language-bar"></div>
-
-      </article>
-
+      <div class="insight-grid">
+        <p>
+          The treemap highlights the largest overseas-born communities, showing how
+          Australia’s diversity is shaped by both long-established and more recent migration patterns.
+        </p>
+        <p>
+          The ranked language chart complements this by showing the most widely spoken
+          languages other than English, revealing the cultural and linguistic breadth of the population.
+        </p>
+      </div>
     </section>
 
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          SECTION 2
-    =================================================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          02
-        </span>
-
-
-        <div>
-
-          <h2>
-            Where do culturally diverse communities live?
-          </h2>
-
-          <p>
-            Cultural diversity is not distributed evenly across Australia.
-            These maps show how overseas-born populations vary between
-            different areas.
-          </p>
-
-        </div>
-
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Diversity Is Not Evenly Distributed Across Australia</h2>
+        <p>
+          Cultural diversity varies substantially by location.
+          Some areas have a very high concentration of overseas-born residents,
+          while others remain much less internationally diverse.
+        </p>
       </div>
 
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
+          <div id="choropleth"></div>
+        </div>
 
-      <article class="chart-card large-card">
+        <div class="chart-panel">
+          <div id="proportional-symbol"></div>
+        </div>
+      </div>
 
-        <div id="choropleth"></div>
-
-      </article>
-
-
-      <article class="chart-card large-card">
-
-        <div id="proportional-symbol"></div>
-
-      </article>
-
+      <div class="insight-grid">
+        <p>
+          The choropleth map emphasises the proportion of overseas-born residents in each SA2,
+          making it easier to identify areas where diversity forms a large share of the local population.
+        </p>
+        <p>
+          The proportional symbol map instead highlights magnitude, helping show which places
+          have the largest overseas-born populations in absolute terms.
+        </p>
+      </div>
     </section>
 
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          SECTION 3
-    =================================================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          03
-        </span>
-
-
-        <div>
-
-          <h2>
-            How do states differ?
-          </h2>
-
-          <p>
-            Comparing language communities and broader measures of
-            diversity reveals differences between Australian states
-            and territories.
-          </p>
-
-        </div>
-
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Language Patterns Reveal Differences Between States</h2>
+        <p>
+          The composition of language communities differs across Australian states.
+          Looking at these differences helps reveal how migration histories and settlement patterns vary regionally.
+        </p>
       </div>
 
-
-
-      <div class="comparison-grid">
-
-
-        <article class="chart-card">
-
+      <div class="chart-grid two-col">
+        <div class="chart-panel">
           <div id="heatmap"></div>
+        </div>
 
-        </article>
-
-
-        <article class="chart-card">
-
-          <div id="dumbbell"></div>
-
-        </article>
-
-
+        <div class="chart-panel">
+          <div id="butterfly"></div>
+        </div>
       </div>
 
-
-
-      <article class="chart-card large-card">
-
-        <div id="butterfly"></div>
-
-      </article>
-
+      <div class="insight-grid">
+        <p>
+          The heatmap provides a broad comparison of major language groups across states,
+          allowing dominant and less prominent communities to be compared at a glance.
+        </p>
+        <p>
+          The butterfly chart then focuses more directly on differences between
+          New South Wales and Victoria, showing how even the largest states have distinct linguistic profiles.
+        </p>
+      </div>
     </section>
 
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          SECTION 4
-    =================================================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          04
-        </span>
-
-
-        <div>
-
-          <h2>
-            How does migration connect Australia to the world?
-          </h2>
-
-          <p>
-            Migration connects Australia with countries across the world,
-            creating major flows between origin countries and destinations
-            within Australia.
-          </p>
-
-        </div>
-
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>States Also Differ in Their Overall Diversity Profiles</h2>
+        <p>
+          Diversity is not only visible in individual communities.
+          It can also be compared at the state level to show broader differences in the scale and structure of cultural variation.
+        </p>
       </div>
 
+      <div class="chart-grid one-col narrow-center">
+        <div class="chart-panel">
+          <div id="dumbbell"></div>
+        </div>
+      </div>
 
-      <article class="chart-card large-card">
-
-        <div id="flow-map"></div>
-
-      </article>
-
+      <div class="insight-grid single">
+        <p>
+          The dumbbell chart supports direct comparison between states, making it easier
+          to see which places stand out on selected diversity measures and where the largest gaps appear.
+        </p>
+      </div>
     </section>
 
 
-
-    <!-- ==================================================
+    <!-- =========================================================
          SECTION 5
-    =================================================== -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          05
-        </span>
-
-
-        <div>
-
-          <h2>
-            How do migration streams distribute across Australia?
-          </h2>
-
-          <p>
-            Skilled, family and humanitarian migration streams
-            contribute differently to Australia's states and territories.
-          </p>
-
-        </div>
-
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Migration Connects Australia to the World</h2>
+        <p>
+          Beyond the resident population, migration data helps reveal how people continue
+          to move into Australia through different channels and toward different destinations.
+        </p>
       </div>
 
+      <div class="chart-grid one-col">
+        <div class="chart-panel full-width">
+          <div id="flow-map"></div>
+        </div>
+      </div>
 
-      <article class="chart-card sankey-card">
-
-        <div id="sankey"></div>
-
-      </article>
-
+      <div class="insight-grid single">
+        <p>
+          The flow map shows how migrant movement links origin locations and Australian destinations,
+          emphasising Australia’s continued role as a connected migration destination.
+        </p>
+      </div>
     </section>
 
 
+    <!-- =========================================================
+         SECTION 6
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>Different Migration Streams Reshape the Settlement Pattern</h2>
+        <p>
+          Not all migrants arrive through the same pathway.
+          Skilled, family and humanitarian streams distribute differently across Australia,
+          shaping the demographic profile of each state and territory.
+        </p>
+      </div>
 
-    <!-- ==================================================
+      <div class="chart-grid one-col">
+        <div class="chart-panel full-width">
+          <div id="sankey"></div>
+        </div>
+      </div>
+
+      <div class="insight-grid single">
+        <p>
+          The Sankey diagram shows how migration streams are distributed across Australia,
+          making it easier to compare the relative importance of skilled, family and humanitarian settlement in each state.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         OPTIONAL PLACEHOLDERS FOR REMAINING 2 VISUALISATIONS
+    ========================================================== -->
+    <section class="story-section">
+      <div class="section-header">
+        <h2>What Comes Next</h2>
+        <p>
+          Two further visualisations are still to be added. These can be placed into the
+          same narrative structure once finalised.
+        </p>
+      </div>
+
+      <div class="chart-grid two-col">
+        <div class="chart-panel placeholder-panel">
+          <div class="coming-soon">
+            <h3>Visualisation 10</h3>
+            <p>Dot map / geographic extension</p>
+          </div>
+        </div>
+
+        <div class="chart-panel placeholder-panel">
+          <div class="coming-soon">
+            <h3>Visualisation 11</h3>
+            <p>Country of birth × migration stream heatmap</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
          FOOTER
-    =================================================== -->
-
+    ========================================================== -->
     <footer class="footer">
-
       <p>
-        Data sources: Australian Bureau of Statistics and
-        Australian Government Department of Home Affairs.
+        Data sources: Australian Bureau of Statistics (ABS) and Department of Home Affairs
       </p>
-
       <p>
         FIT3179 Data Visualisation 2
       </p>
-
     </footer>
 
   </main>
 
 
-
-  <!-- ==================================================
-       LOAD VISUALISATIONS
-  =================================================== -->
-
+  <!-- =========================================================
+       VEGA EMBEDS
+  ========================================================== -->
   <script>
-
     const embedOptions = {
       actions: false,
       renderer: "svg"
     };
 
-
     function embedChart(element, file) {
-
-      vegaEmbed(
-        element,
-        file,
-        embedOptions
-      )
-
-      .catch(error => {
-
-        console.error(
-          "Error loading " + file,
-          error
-        );
-
-        document.querySelector(element).innerHTML =
-          '<div class="chart-error">' +
-          'Unable to load visualisation.' +
-          '</div>';
-
-      });
-
+      vegaEmbed(element, file, embedOptions)
+        .catch(error => {
+          console.error("Error loading " + file, error);
+          document.querySelector(element).innerHTML =
+            '<div class="chart-error">Unable to load visualisation.</div>';
+        });
     }
 
-
-
-    embedChart(
-      "#treemap",
-      "visualisations/treemap.json"
-    );
-
-
-    embedChart(
-      "#language-bar",
-      "visualisations/languagebarchart.json"
-    );
-
-
-    embedChart(
-      "#choropleth",
-      "visualisations/chloreplethoverseas.json"
-    );
-
-
-    embedChart(
-      "#proportional-symbol",
-      "visualisations/proportionalsymbolmap.json"
-    );
-
-
-    embedChart(
-      "#heatmap",
-      "visualisations/top10heatmap.json"
-    );
-
-
-    embedChart(
-      "#dumbbell",
-      "visualisations/dumbbellchart.json"
-    );
-
-
-    embedChart(
-      "#butterfly",
-      "visualisations/butterflychartstates.json"
-    );
-
-
-    embedChart(
-      "#flow-map",
-      "visualisations/flowmap.json"
-    );
-
-
-    embedChart(
-      "#sankey",
-      "visualisations/sankey.json"
-    );
-
+    embedChart("#treemap", "visualisations/treemap.json");
+    embedChart("#language-bar", "visualisations/languagebarchart.json");
+    embedChart("#choropleth", "visualisations/chloreplethoverseas.json");
+    embedChart("#proportional-symbol", "visualisations/proportionalsymbolmap.json");
+    embedChart("#heatmap", "visualisations/top10heatmap.json");
+    embedChart("#dumbbell", "visualisations/dumbbellchart.json");
+    embedChart("#butterfly", "visualisations/butterflychartstates.json");
+    embedChart("#flow-map", "visualisations/flowmap.json");
+    embedChart("#sankey", "visualisations/sankey.json");
   </script>
 
-
 </body>
-
 </html>
