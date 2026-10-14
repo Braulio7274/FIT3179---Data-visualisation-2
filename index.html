@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -13,7 +14,8 @@
 
 
   <!-- =========================================================
-       FONTS
+       PAGE FONTS ONLY
+       These do NOT change the Vega visualisations
   ========================================================== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,21 +36,12 @@
        VEGA
   ========================================================== -->
 
-  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 
-  <!-- =========================================================
-       CSS
-  ========================================================== -->
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -69,10 +62,12 @@
         AUSTRALIAN CULTURAL DIVERSITY
       </p>
 
+
       <h1>
         Cultural Diversity<br>
         in Australia
       </h1>
+
 
       <p class="hero-subtitle">
 
@@ -95,7 +90,7 @@
       <div class="intro-grid">
 
 
-        <!-- LEFT -->
+        <!-- LEFT SIDE -->
 
         <div class="intro-text">
 
@@ -131,15 +126,15 @@
 
           <p>
 
-            Home Affairs settlement data is used to examine
-            migration streams and where new settlers established
-            themselves between 2016 and 2025.
+            Home Affairs settlement data is used to examine migration
+            streams and where new settlers established themselves
+            between 2016 and 2025.
 
           </p>
 
 
 
-          <!-- INTRO STATS -->
+          <!-- STATS -->
 
           <div class="intro-stats">
 
@@ -187,6 +182,8 @@
 
 
 
+          <!-- NOTE -->
+
           <div class="intro-note">
 
             <strong>Important:</strong>
@@ -194,8 +191,7 @@
             Census and settlement data describe different populations.
             ABS Census figures describe Australia's resident population,
             while Home Affairs data records migration and settlement
-            activity. Their values should therefore not always be
-            compared directly.
+            activity.
 
           </div>
 
@@ -204,21 +200,20 @@
 
 
 
-        <!-- RIGHT IMAGE -->
+        <!-- RIGHT SIDE IMAGE -->
 
         <div class="intro-image">
 
 
           <!--
-              WHEN YOU HAVE YOUR IMAGE:
+            WHEN YOU HAVE YOUR IMAGE:
 
-              Delete the image-placeholder div below
-              and use:
+            Replace the div below with:
 
-              <img
-                src="images/your-image.jpg"
-                alt="Cultural diversity in Australia"
-              >
+            <img
+              src="images/your-image.jpg"
+              alt="Cultural diversity in Australia"
+            >
           -->
 
 
@@ -229,7 +224,7 @@
             </span>
 
             <small>
-              Add a multicultural Australia image here
+              Add your cultural diversity image here
             </small>
 
           </div>
@@ -290,6 +285,8 @@
 
 
 
+      <!-- CHARTS -->
+
       <div class="chart-grid two-col">
 
 
@@ -310,6 +307,8 @@
       </div>
 
 
+
+      <!-- TAKEAWAYS -->
 
       <div class="insight-grid">
 
@@ -372,8 +371,9 @@
           <p>
 
             The overseas-born population is not distributed evenly.
-            Some communities are concentrated in Australia's largest
-            metropolitan areas, while others are spread more broadly.
+            Some areas have a particularly high share of overseas-born
+            residents, while Australia's largest population centres also
+            contain the greatest absolute numbers.
 
           </p>
 
@@ -421,9 +421,8 @@
         <p>
 
           <strong>Population size.</strong>
-          The proportional-symbol map focuses instead on absolute
-          numbers, revealing where the largest overseas-born populations
-          are located.
+          The proportional-symbol map focuses on absolute numbers,
+          revealing where the largest overseas-born populations live.
 
         </p>
 
@@ -509,7 +508,7 @@
 
           <strong>Language by state.</strong>
           The heatmap reveals which major language communities are
-          particularly prominent in different parts of Australia.
+          particularly prominent across different parts of Australia.
 
         </p>
 
@@ -517,8 +516,8 @@
         <p>
 
           <strong>State comparison.</strong>
-          The dumbbell chart provides a direct comparison between
-          states using broader indicators of cultural diversity.
+          The dumbbell chart provides another direct comparison of
+          cultural diversity between states.
 
         </p>
 
@@ -527,13 +526,15 @@
 
 
 
-      <!-- BUTTERFLY -->
+      <!-- NSW VS VICTORIA -->
 
       <div class="subsection-heading">
+
 
         <h3>
           NSW and Victoria show different language patterns
         </h3>
+
 
         <p>
 
@@ -542,10 +543,13 @@
 
         </p>
 
+
       </div>
 
 
+
       <div class="chart-grid one-col">
+
 
         <article class="chart-panel chart-wide">
 
@@ -553,7 +557,9 @@
 
         </article>
 
+
       </div>
+
 
 
       <div class="insight-grid single">
@@ -562,8 +568,8 @@
         <p>
 
           Comparing New South Wales and Victoria directly makes it
-          easier to see which communities are more strongly represented
-          in each state rather than relying only on national totals.
+          easier to see which language communities are more strongly
+          represented in each state.
 
         </p>
 
@@ -639,8 +645,7 @@
         <p>
 
           The flow map emphasises the geographic connections between
-          migrant origins and settlement destinations across Australia,
-          showing the international scale of contemporary migration.
+          migrant origins and settlement destinations across Australia.
 
         </p>
 
@@ -683,8 +688,8 @@
           <p>
 
             Skilled, family and humanitarian migration do not contribute
-            equally to every state and territory. Their different
-            distributions help shape Australia's settlement patterns.
+            equally to every state and territory. Their distributions
+            help shape Australia's settlement patterns.
 
           </p>
 
@@ -716,8 +721,9 @@
         <p>
 
           The Sankey diagram shows the relationship between migration
-          stream and destination, making both the dominance of skilled
-          migration and differences between states easier to compare.
+          stream and destination, allowing the different settlement
+          patterns of skilled, family and humanitarian migrants to
+          be compared.
 
         </p>
 
@@ -730,7 +736,8 @@
 
 
     <!-- =========================================================
-         SECTION 06 — REMAINING VISUALISATIONS
+         SECTION 06
+         PLACEHOLDERS FOR FINAL 2 CHARTS
     ========================================================== -->
 
     <section class="story-section">
@@ -759,8 +766,8 @@
 
           <p>
 
-            These remaining visualisations will extend the geographic
-            and migration analysis once their final datasets are prepared.
+            The final geographic and migration visualisations will
+            extend the story once their datasets are completed.
 
           </p>
 
@@ -775,42 +782,51 @@
       <div class="chart-grid two-col">
 
 
-        <!-- DOT MAP -->
-
         <article class="future-chart">
+
 
           <span class="future-number">
             10
           </span>
 
+
           <h3>
             Overseas-born dot map
           </h3>
 
+
           <p>
-            Geographic dot-density view of Australia's overseas-born population.
+
+            A geographic dot map showing the distribution of
+            Australia's overseas-born population.
+
           </p>
+
 
         </article>
 
 
 
-        <!-- FINAL HEATMAP -->
-
         <article class="future-chart">
+
 
           <span class="future-number">
             11
           </span>
 
+
           <h3>
             Country × migration stream
           </h3>
 
+
           <p>
-            Comparison of origin countries across skilled,
-            family and humanitarian migration.
+
+            A comparison of migrant origin countries across skilled,
+            family and humanitarian migration streams.
+
           </p>
+
 
         </article>
 
@@ -850,757 +866,13 @@
 
 
   <!-- =========================================================
-       VEGA / VEGA-LITE THEME
+       LOAD VISUALISATIONS
+
+       IMPORTANT:
+       NOTHING HERE CHANGES THEIR COLOURS OR STYLES.
   ========================================================== -->
 
   <script>
-
-
-    /* =========================================================
-       SITE COLOURS
-    ========================================================== */
-
-
-    const THEME = {
-
-      background: "#FFF7ED",
-
-      heading: "#4A2545",
-
-      text: "#655A67",
-
-      coral: "#E76F51",
-
-      teal: "#2A9D8F",
-
-      mustard: "#E9B949",
-
-      berry: "#A44A6F",
-
-      blueGrey: "#577590",
-
-      olive: "#7A8F4D",
-
-      divider: "#DED3C8",
-
-      neutral: "#EEE4DA"
-
-    };
-
-
-    const CATEGORY_PALETTE = [
-
-      THEME.teal,
-      THEME.coral,
-      THEME.mustard,
-      THEME.berry,
-      THEME.blueGrey,
-      THEME.olive
-
-    ];
-
-
-    const MIGRATION_PALETTE = [
-
-      THEME.teal,
-      THEME.coral,
-      THEME.mustard
-
-    ];
-
-
-    const STATE_COMPARISON_PALETTE = [
-
-      THEME.blueGrey,
-      THEME.berry
-
-    ];
-
-
-    const CHOROPLETH_RANGE = [
-
-      "#F2E6E0",
-      "#E8C6B9",
-      "#DFA38F",
-      "#D47D69",
-      "#B65B62",
-      "#7F3D5D"
-
-    ];
-
-
-    const LANGUAGE_HEATMAP_RANGE = [
-
-      "#F4E8ED",
-      "#DDBCCB",
-      "#C58EA6",
-      "#A44A6F",
-      "#71334F"
-
-    ];
-
-
-
-    /* =========================================================
-       GENERAL VEGA CONFIG
-    ========================================================== */
-
-
-    function applyBaseTheme(spec) {
-
-
-      spec.background = THEME.background;
-
-
-      const oldConfig = spec.config || {};
-
-
-      spec.config = {
-
-        ...oldConfig,
-
-        font: "Source Sans 3",
-
-        background: THEME.background,
-
-
-        view: {
-
-          ...(oldConfig.view || {}),
-
-          stroke: null
-
-        },
-
-
-        title: {
-
-          ...(oldConfig.title || {}),
-
-          font: "Space Grotesk",
-
-          fontSize: 20,
-
-          fontWeight: 700,
-
-          color: THEME.heading,
-
-          subtitleFont: "Source Sans 3",
-
-          subtitleFontSize: 12,
-
-          subtitleColor: THEME.text
-
-        },
-
-
-        axis: {
-
-          ...(oldConfig.axis || {}),
-
-          labelFont: "Source Sans 3",
-
-          titleFont: "Source Sans 3",
-
-          labelColor: THEME.text,
-
-          titleColor: THEME.heading,
-
-          gridColor: THEME.divider,
-
-          domainColor: "#BCAEAE",
-
-          tickColor: "#BCAEAE"
-
-        },
-
-
-        legend: {
-
-          ...(oldConfig.legend || {}),
-
-          labelFont: "Source Sans 3",
-
-          titleFont: "Source Sans 3",
-
-          labelColor: THEME.text,
-
-          titleColor: THEME.heading
-
-        },
-
-
-        range: {
-
-          ...(oldConfig.range || {}),
-
-          category: CATEGORY_PALETTE
-
-        }
-
-      };
-
-
-      return spec;
-
-    }
-
-
-
-    /* =========================================================
-       SET COLOUR SCALE
-    ========================================================== */
-
-
-    function setScaleRange(definition, range) {
-
-
-      if (!definition || typeof definition !== "object") {
-        return;
-      }
-
-
-      if (definition.scale !== null) {
-
-        definition.scale = {
-
-          ...(definition.scale || {}),
-
-          range: range
-
-        };
-
-
-        delete definition.scale.scheme;
-
-      }
-
-
-    }
-
-
-
-    /* =========================================================
-       COLOUR ENCODINGS
-    ========================================================== */
-
-
-    function themeColourDefinition(definition, nominalRange, quantitativeRange) {
-
-
-      if (!definition || typeof definition !== "object") {
-        return;
-      }
-
-
-      const type = definition.type;
-
-
-      if (
-        (type === "nominal" || type === "ordinal") &&
-        nominalRange
-      ) {
-
-        setScaleRange(
-          definition,
-          nominalRange
-        );
-
-      }
-
-
-      if (
-        type === "quantitative" &&
-        quantitativeRange
-      ) {
-
-        setScaleRange(
-          definition,
-          quantitativeRange
-        );
-
-      }
-
-
-      if (
-        definition.condition &&
-        typeof definition.condition === "object"
-      ) {
-
-        themeColourDefinition(
-          definition.condition,
-          nominalRange,
-          quantitativeRange
-        );
-
-      }
-
-
-    }
-
-
-
-    /* =========================================================
-       CHANGE MARK COLOUR
-    ========================================================== */
-
-
-    function setMarkColour(
-      node,
-      markTypes,
-      colour
-    ) {
-
-
-      if (!node || !node.mark) {
-        return;
-      }
-
-
-      let markType;
-
-
-      if (typeof node.mark === "string") {
-
-        markType = node.mark;
-
-      }
-
-      else {
-
-        markType = node.mark.type;
-
-      }
-
-
-      if (!markTypes.includes(markType)) {
-        return;
-      }
-
-
-      /*
-        Do not override marks that are already
-        coloured by a field.
-      */
-
-      if (
-        node.encoding &&
-        node.encoding.color
-      ) {
-
-        return;
-      }
-
-
-      if (typeof node.mark === "string") {
-
-        node.mark = {
-
-          type: node.mark,
-
-          color: colour
-
-        };
-
-      }
-
-      else {
-
-        node.mark.color = colour;
-
-      }
-
-
-    }
-
-
-
-    /* =========================================================
-       RECURSIVELY THEME VEGA-LITE
-    ========================================================== */
-
-
-    function themeVegaLiteNode(
-      node,
-      fileName
-    ) {
-
-
-      if (!node || typeof node !== "object") {
-        return;
-      }
-
-
-
-      let nominalRange = CATEGORY_PALETTE;
-
-      let quantitativeRange = null;
-
-
-
-      /* TREEMAP */
-
-      if (
-        fileName.includes("treemap")
-      ) {
-
-        nominalRange = CATEGORY_PALETTE;
-
-      }
-
-
-
-      /* LANGUAGE BAR */
-
-      if (
-        fileName.includes("languagebarchart")
-      ) {
-
-        setMarkColour(
-          node,
-          ["bar"],
-          THEME.berry
-        );
-
-      }
-
-
-
-      /* CHOROPLETH */
-
-      if (
-        fileName.includes("chlorepleth") ||
-        fileName.includes("choropleth")
-      ) {
-
-        quantitativeRange =
-          CHOROPLETH_RANGE;
-
-      }
-
-
-
-      /* PROPORTIONAL SYMBOL MAP */
-
-      if (
-        fileName.includes("proportionalsymbol")
-      ) {
-
-        setMarkColour(
-          node,
-          ["circle", "point"],
-          THEME.teal
-        );
-
-      }
-
-
-
-      /* LANGUAGE HEATMAP */
-
-      if (
-        fileName.includes("top10heatmap")
-      ) {
-
-        quantitativeRange =
-          LANGUAGE_HEATMAP_RANGE;
-
-      }
-
-
-
-      /* NSW VS VIC */
-
-      if (
-        fileName.includes("butterfly")
-      ) {
-
-        nominalRange =
-          STATE_COMPARISON_PALETTE;
-
-      }
-
-
-
-      /* DUMBBELL */
-
-      if (
-        fileName.includes("dumbbell")
-      ) {
-
-        nominalRange = [
-
-          THEME.teal,
-
-          THEME.coral
-
-        ];
-
-      }
-
-
-
-      /* FLOW MAP */
-
-      if (
-        fileName.includes("flowmap")
-      ) {
-
-        setMarkColour(
-          node,
-          ["rule", "line"],
-          THEME.coral
-        );
-
-
-        setMarkColour(
-          node,
-          ["circle", "point"],
-          THEME.teal
-        );
-
-      }
-
-
-
-      /*
-        APPLY COLOUR ENCODINGS
-      */
-
-      if (node.encoding) {
-
-
-        if (node.encoding.color) {
-
-          themeColourDefinition(
-
-            node.encoding.color,
-
-            nominalRange,
-
-            quantitativeRange
-
-          );
-
-        }
-
-
-        if (node.encoding.fill) {
-
-          themeColourDefinition(
-
-            node.encoding.fill,
-
-            nominalRange,
-
-            quantitativeRange
-
-          );
-
-        }
-
-
-        if (node.encoding.stroke) {
-
-          themeColourDefinition(
-
-            node.encoding.stroke,
-
-            nominalRange,
-
-            quantitativeRange
-
-          );
-
-        }
-
-
-      }
-
-
-
-      /* LAYERS */
-
-      if (Array.isArray(node.layer)) {
-
-        node.layer.forEach(
-          child =>
-            themeVegaLiteNode(
-              child,
-              fileName
-            )
-        );
-
-      }
-
-
-
-      /* CONCATENATED CHARTS */
-
-      if (Array.isArray(node.hconcat)) {
-
-        node.hconcat.forEach(
-          child =>
-            themeVegaLiteNode(
-              child,
-              fileName
-            )
-        );
-
-      }
-
-
-      if (Array.isArray(node.vconcat)) {
-
-        node.vconcat.forEach(
-          child =>
-            themeVegaLiteNode(
-              child,
-              fileName
-            )
-        );
-
-      }
-
-
-      if (Array.isArray(node.concat)) {
-
-        node.concat.forEach(
-          child =>
-            themeVegaLiteNode(
-              child,
-              fileName
-            )
-        );
-
-      }
-
-
-
-      /* FACET / REPEAT INNER SPEC */
-
-      if (node.spec) {
-
-        themeVegaLiteNode(
-          node.spec,
-          fileName
-        );
-
-      }
-
-
-    }
-
-
-
-    /* =========================================================
-       THEME VEGA ORDINAL SCALES
-
-       Useful for charts such as custom Sankey specs.
-    ========================================================== */
-
-
-    function themeVegaScales(
-      spec,
-      fileName
-    ) {
-
-
-      if (!Array.isArray(spec.scales)) {
-        return;
-      }
-
-
-      spec.scales.forEach(scale => {
-
-
-        if (
-          scale.type === "ordinal" ||
-          scale.range === "category"
-        ) {
-
-
-          if (
-            fileName.includes("sankey")
-          ) {
-
-            scale.range = [
-
-              ...MIGRATION_PALETTE,
-
-              THEME.blueGrey,
-
-              THEME.berry,
-
-              THEME.olive
-
-            ];
-
-          }
-
-          else {
-
-            scale.range =
-              CATEGORY_PALETTE;
-
-          }
-
-
-        }
-
-
-      });
-
-
-    }
-
-
-
-    /* =========================================================
-       APPLY FULL THEME
-    ========================================================== */
-
-
-    function applyChartTheme(
-      originalSpec,
-      file
-    ) {
-
-
-      const spec =
-        JSON.parse(
-          JSON.stringify(originalSpec)
-        );
-
-
-      const fileName =
-        file.toLowerCase();
-
-
-      applyBaseTheme(spec);
-
-
-      themeVegaLiteNode(
-        spec,
-        fileName
-      );
-
-
-      themeVegaScales(
-        spec,
-        fileName
-      );
-
-
-      return spec;
-
-    }
-
-
-
-    /* =========================================================
-       VEGA EMBED
-    ========================================================== */
 
 
     const embedOptions = {
@@ -1612,69 +884,29 @@
     };
 
 
-    async function embedChart(
+    function embedChart(
       element,
       file
     ) {
 
 
-      const target =
-        document.querySelector(element);
+      vegaEmbed(
+        element,
+        file,
+        embedOptions
+      )
 
 
-      try {
-
-
-        const response =
-          await fetch(file);
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Could not load " + file
-          );
-
-        }
-
-
-        const originalSpec =
-          await response.json();
-
-
-        const themedSpec =
-          applyChartTheme(
-            originalSpec,
-            file
-          );
-
-
-        await vegaEmbed(
-
-          element,
-
-          themedSpec,
-
-          embedOptions
-
-        );
-
-
-      }
-
-      catch (error) {
+      .catch(error => {
 
 
         console.error(
-
           "Error loading " + file,
-
           error
-
         );
 
 
-        target.innerHTML =
+        document.querySelector(element).innerHTML =
 
           '<div class="chart-error">' +
 
@@ -1683,96 +915,78 @@
           '</div>';
 
 
-      }
+      });
 
 
     }
 
 
 
-    /* =========================================================
-       LOAD ALL CURRENT VISUALISATIONS
-    ========================================================== */
-
+    /* SECTION 01 */
 
     embedChart(
-
       "#treemap",
-
       "visualisations/treemap.json"
-
     );
 
 
     embedChart(
-
       "#language-bar",
-
       "visualisations/languagebarchart.json"
-
     );
 
 
-    embedChart(
 
+    /* SECTION 02 */
+
+    embedChart(
       "#choropleth",
-
       "visualisations/chloreplethoverseas.json"
-
     );
 
 
     embedChart(
-
       "#proportional-symbol",
-
       "visualisations/proportionalsymbolmap.json"
-
     );
 
 
-    embedChart(
 
+    /* SECTION 03 */
+
+    embedChart(
       "#heatmap",
-
       "visualisations/top10heatmap.json"
-
     );
 
 
     embedChart(
-
       "#dumbbell",
-
       "visualisations/dumbbellchart.json"
-
     );
 
 
     embedChart(
-
       "#butterfly",
-
       "visualisations/butterflychartstates.json"
-
     );
 
 
-    embedChart(
 
+    /* SECTION 04 */
+
+    embedChart(
       "#flow-map",
-
       "visualisations/flowmap.json"
-
     );
 
 
+
+    /* SECTION 05 */
+
     embedChart(
-
       "#sankey",
-
       "visualisations/sankey.json"
-
     );
 
 
