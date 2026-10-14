@@ -8,8 +8,14 @@
     "text": "How do migration and language diversity compare across Australia?",
     "subtitle": "Share of residents born overseas vs using a language other than English at home — 2021 Census",
     "anchor": "start",
+    "font": "Space Grotesk",
     "fontSize": 20,
+    "fontWeight": 700,
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 12,
+    "subtitleFontWeight": 400,
+    "subtitleColor": "#655A67",
     "subtitlePadding": 8
   },
   "data": {
@@ -27,7 +33,11 @@
   },
   "layer": [
     {
-      "mark": {"type": "rule", "stroke": "#b8bec7", "strokeWidth": 3},
+      "mark": {
+        "type": "rule",
+        "stroke": "#b8bec7",
+        "strokeWidth": 3
+      },
       "encoding": {
         "y": {
           "field": "state",
@@ -42,27 +52,50 @@
             "Northern Territory",
             "Tasmania"
           ],
-          "axis": {"title": null, "labelFontSize": 12, "labelPadding": 8}
+          "axis": {
+            "title": null,
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 12,
+            "labelColor": "#655A67",
+            "labelPadding": 8
+          }
         },
         "x": {
           "field": "other_language_percent",
           "type": "quantitative",
-          "scale": {"domain": [0, 35]},
+          "scale": {
+            "domain": [0, 35]
+          },
           "axis": {
             "title": "Share of state/territory population (%)",
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 12,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67",
             "grid": true,
             "tickCount": 8,
             "labelExpr": "datum.value + '%'"
           }
         },
-        "x2": {"field": "overseas_percent"}
+        "x2": {
+          "field": "overseas_percent"
+        }
       }
     },
     {
       "transform": [
         {
-          "fold": ["overseas_percent", "other_language_percent"],
-          "as": ["metric", "percentage"]
+          "fold": [
+            "overseas_percent",
+            "other_language_percent"
+          ],
+          "as": [
+            "metric",
+            "percentage"
+          ]
         },
         {
           "calculate": "datum.metric == 'overseas_percent' ? 'Born overseas' : 'Uses a language other than English at home'",
@@ -94,14 +127,28 @@
             "Northern Territory",
             "Tasmania"
           ],
-          "axis": {"title": null}
+          "axis": {
+            "title": null,
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 12,
+            "labelColor": "#655A67"
+          }
         },
         "x": {
           "field": "percentage",
           "type": "quantitative",
-          "scale": {"domain": [0, 35]},
+          "scale": {
+            "domain": [0, 35]
+          },
           "axis": {
             "title": "Share of state/territory population (%)",
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 12,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67",
             "labelExpr": "datum.value + '%'"
           }
         },
@@ -113,19 +160,32 @@
               "Born overseas",
               "Uses a language other than English at home"
             ],
-            "range": ["#4472A8", "#D97B29"]
+            "range": [
+              "#4472A8",
+              "#D97B29"
+            ]
           },
           "legend": {
             "title": null,
             "orient": "top",
             "direction": "horizontal",
             "symbolType": "circle",
-            "labelFontSize": 11
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67"
           }
         },
         "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State / territory"},
-          {"field": "metric_label", "type": "nominal", "title": "Measure"},
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "metric_label",
+            "type": "nominal",
+            "title": "Measure"
+          },
           {
             "field": "percentage",
             "type": "quantitative",
@@ -148,16 +208,48 @@
       }
     }
   ],
-  "resolve": {"scale": {"x": "shared", "y": "shared"}},
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
+  },
   "config": {
-    "font": "Arial",
-    "view": {"stroke": null},
-    "axis": {
-      "labelColor": "#374151",
-      "titleColor": "#374151",
-      "gridColor": "#e5e7eb",
-      "domain": false
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
     },
-    "title": {"color": "#17283b", "subtitleColor": "#4b5563"}
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 11,
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#4A2545",
+      "gridColor": "#DED3C8",
+      "gridOpacity": 0.7,
+      "domain": false,
+      "tickColor": "#BDAFA8"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 11,
+      "labelColor": "#655A67",
+      "titleFont": "Source Sans 3",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#4A2545"
+    },
+    "title": {
+      "font": "Space Grotesk",
+      "fontSize": 20,
+      "fontWeight": 700,
+      "color": "#4A2545",
+      "subtitleFont": "Source Sans 3",
+      "subtitleFontSize": 12,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#655A67"
+    }
   }
 }
