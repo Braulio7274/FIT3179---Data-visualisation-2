@@ -28,9 +28,9 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#efefef",
-        "stroke": "#FFF7ED",
-        "strokeWidth": 0.6
+        "fill": "#D6D0C8",
+        "stroke": "#AFA79D",
+        "strokeWidth": 0.7
       }
     },
     {
