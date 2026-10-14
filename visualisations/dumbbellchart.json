@@ -3,7 +3,7 @@
   "description": "Dumbbell chart comparing the share of residents born overseas with the share who use a language other than English at home across Australian states and territories, 2021 Census.",
   "width": 700,
   "height": 380,
-  "background": "white",
+  "background": "#FFF7ED",
   "title": {
     "text": "How do migration and language diversity compare across Australia?",
     "subtitle": "Share of residents born overseas vs using a language other than English at home — 2021 Census",
