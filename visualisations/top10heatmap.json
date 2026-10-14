@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Heatmap comparing the share of each state or territory population speaking Australia's ten most common non-English languages at home, 2021 Census.",
-  "width": 720,
+  "width": 820,
   "height": 430,
   "background": "#FFF7ED",
 
