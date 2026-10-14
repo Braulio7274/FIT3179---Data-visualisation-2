@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -10,18 +11,27 @@
 
   <title>Cultural Diversity in Australia</title>
 
-  <!-- Google Fonts -->
+  <!-- Website fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Vega -->
+  <!-- Vega libraries -->
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Change the version number when you need to bypass caching -->
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 
 
@@ -29,15 +39,15 @@
 
   <!-- ======================================================
        HERO
-       ====================================================== -->
+  ======================================================= -->
 
   <header class="hero">
 
-    <div class="hero-inner">
+    <div class="page-width">
 
-      <div class="eyebrow">
+      <p class="eyebrow">
         AUSTRALIAN CULTURAL DIVERSITY
-      </div>
+      </p>
 
       <h1>
         Cultural Diversity<br>
@@ -56,413 +66,600 @@
 
 
 
-  <!-- ======================================================
-       INTRODUCTION
-       ====================================================== -->
+  <main>
 
-  <section class="intro-section">
 
-    <div class="intro-grid">
+    <!-- ======================================================
+         INTRODUCTION
+    ======================================================= -->
 
-      <div class="intro-copy">
+    <section class="intro-section">
 
-        <div class="eyebrow">
-          UNDERSTANDING THE DATA
+      <div class="page-width intro-grid">
+
+        <div class="intro-copy">
+
+          <p class="eyebrow">
+            UNDERSTANDING THE DATA
+          </p>
+
+          <h2>
+            Two sources reveal different parts of Australia's story
+          </h2>
+
+          <p>
+            Australia's cultural diversity can be explored from two
+            complementary perspectives. The Australian Bureau of Statistics
+            Census provides a detailed snapshot of where people live,
+            where they were born and the languages spoken at home.
+          </p>
+
+          <p>
+            Settlement data from the Department of Home Affairs provides
+            another perspective, showing how migrants arriving through
+            Skilled, Family and Humanitarian streams are distributed
+            throughout Australia.
+          </p>
+
+
+          <div class="stats-row">
+
+            <div class="stat">
+
+              <span class="stat-number">
+                2
+              </span>
+
+              <span class="stat-label">
+                Primary data sources
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <span class="stat-number">
+                8
+              </span>
+
+              <span class="stat-label">
+                States &amp; territories
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <span class="stat-number">
+                2016–2025
+              </span>
+
+              <span class="stat-label">
+                Settlement period
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="intro-note">
+
+            <strong>Important:</strong>
+
+            Census and settlement statistics describe different
+            populations. They should be read together rather than treated
+            as directly equivalent measures.
+
+          </div>
+
         </div>
 
-        <h2>
-          Two sources reveal different parts of Australia's story
+
+        <div class="intro-image">
+
+          <img
+            src="Australias-Cultural-Diversity-Can-Offer-Benefits-to-Workplace-Culture.jpg"
+            alt="Cultural diversity in Australia"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================
+         01 — ORIGINS AND LANGUAGE
+    ======================================================= -->
+
+    <section
+      class="story-section"
+      id="origins"
+    >
+
+      <div class="section-heading">
+
+        <div class="section-meta">
+
+          <span class="section-number">
+            01
+          </span>
+
+          <span class="section-kicker">
+            ORIGINS &amp; LANGUAGE
+          </span>
+
+        </div>
+
+
+        <h2 class="section-title">
+          Australia's diversity begins with where people come from
+          and the languages they speak
         </h2>
 
-        <p>
-          Australia's cultural diversity can be explored from two
-          complementary perspectives. The Australian Bureau of Statistics
-          Census provides a detailed snapshot of where people live,
-          where they were born and the languages spoken at home.
+
+        <p class="section-lead">
+
+          Australia's overseas-born population represents communities
+          from across the world, while the languages spoken at home
+          reveal another layer of cultural diversity.
+
         </p>
-
-        <p>
-          Settlement data from the Department of Home Affairs provides
-          another perspective, showing how migrants arriving through
-          Skilled, Family and Humanitarian streams are distributed
-          throughout Australia.
-        </p>
-
-
-        <div class="stats-row">
-
-          <div class="stat">
-            <div class="stat-number">2</div>
-            <div class="stat-label">
-              Primary data sources
-            </div>
-          </div>
-
-          <div class="stat">
-            <div class="stat-number">8</div>
-            <div class="stat-label">
-              States &amp; territories
-            </div>
-          </div>
-
-          <div class="stat">
-            <div class="stat-number">2016–2025</div>
-            <div class="stat-label">
-              Settlement period
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="intro-note">
-          Census and settlement statistics describe different populations.
-          They should be read together rather than treated as directly
-          equivalent measures.
-        </div>
 
       </div>
 
 
-      <div class="intro-image">
 
-        <img
-          src="Australias-Cultural-Diversity-Can-Offer-Benefits-to-Workplace-Culture.jpg"
-          alt="Cultural diversity in Australia"
-        >
+      <!-- Treemap gets its own row because it is a tall visualisation -->
 
-      </div>
+      <article class="visual-card wide-card">
 
-    </div>
+        <div class="chart-stage chart-stage-auto chart-limit-treemap">
 
-  </section>
-
-
-
-  <!-- ======================================================
-       01 — ORIGINS & LANGUAGE
-       ====================================================== -->
-
-  <section class="story-section" id="origins">
-
-    <div class="section-meta">
-      <span class="section-number">01</span>
-      <span class="section-kicker">ORIGINS &amp; LANGUAGE</span>
-    </div>
-
-    <h2 class="section-title">
-      Australia's diversity begins with where people come from and the languages they speak
-    </h2>
-
-    <p class="section-lead">
-      Australia's overseas-born population represents communities from
-      across the world, while the languages spoken at home reveal another
-      layer of cultural diversity.
-    </p>
-
-
-    <div class="visual-grid">
-
-      <article class="visual-card">
-
-        <div class="chart-panel">
           <div id="treemap"></div>
+
         </div>
 
-        <p class="visual-note">
+
+        <p class="visual-note wide-note">
+
           <strong>Origins.</strong>
+
           The largest overseas-born communities come from several world
-          regions, with Asian and European countries particularly prominent
-          among the largest birthplace groups.
+          regions, with Asian and European countries particularly
+          prominent among the largest birthplace groups.
+
         </p>
 
       </article>
 
 
-      <article class="visual-card">
 
-        <div class="chart-panel">
+      <!-- Bar chart gets its own row because it has a much wider shape -->
+
+      <article class="visual-card wide-card language-card">
+
+        <div class="chart-stage chart-stage-auto chart-limit-bar">
+
           <div id="language-bar"></div>
+
         </div>
 
-        <p class="visual-note">
+
+        <p class="visual-note wide-note bar-note">
+
           <strong>Language.</strong>
+
           Mandarin is the most widely spoken non-English language at home,
-          while a broad range of other languages demonstrates the diversity
-          within Australia's population.
+          while a broad range of other languages demonstrates the
+          diversity within Australia's population.
+
         </p>
 
       </article>
 
-    </div>
-
-  </section>
+    </section>
 
 
 
-  <!-- ======================================================
-       02 — GEOGRAPHY
-       ====================================================== -->
+    <!-- ======================================================
+         02 — GEOGRAPHY
+    ======================================================= -->
 
-  <section
-    class="story-section geography-section"
-    id="geography"
-  >
+    <section
+      class="story-section"
+      id="geography"
+    >
 
-    <div class="section-meta">
-      <span class="section-number">02</span>
-      <span class="section-kicker">GEOGRAPHY</span>
-    </div>
+      <div class="section-heading">
 
-    <h2 class="section-title">
-      Cultural diversity is concentrated differently across Australia
-    </h2>
+        <div class="section-meta">
 
-    <p class="section-lead">
-      The overseas-born population is not distributed evenly.
-      Some areas have a particularly high share of overseas-born
-      residents, while Australia's largest population centres also
-      contain the greatest absolute numbers.
-    </p>
+          <span class="section-number">
+            02
+          </span>
 
+          <span class="section-kicker">
+            GEOGRAPHY
+          </span>
 
-    <div class="visual-grid geography-grid">
-
-      <article class="visual-card">
-
-        <div class="chart-panel geography-chart">
-          <div id="choropleth"></div>
         </div>
 
-        <p class="visual-note">
-          <strong>Population share.</strong>
-          The choropleth highlights areas where overseas-born residents
-          make up a particularly large proportion of the local population.
+
+        <h2 class="section-title">
+          Cultural diversity is concentrated differently across Australia
+        </h2>
+
+
+        <p class="section-lead">
+
+          The overseas-born population is not distributed evenly.
+          Some areas have a particularly high share of overseas-born
+          residents, while Australia's largest population centres also
+          contain the greatest absolute numbers.
+
         </p>
 
-      </article>
-
-
-      <article class="visual-card">
-
-        <div class="chart-panel geography-chart">
-          <div id="proportional-symbol"></div>
-        </div>
-
-        <p class="visual-note">
-          <strong>Population size.</strong>
-          The proportional-symbol map focuses on absolute numbers,
-          revealing where the largest overseas-born populations live.
-        </p>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ======================================================
-       03 — STATE DIFFERENCES
-       ====================================================== -->
-
-  <section
-    class="story-section"
-    id="state-differences"
-  >
-
-    <div class="section-meta">
-      <span class="section-number">03</span>
-      <span class="section-kicker">STATE DIFFERENCES</span>
-    </div>
-
-    <h2 class="section-title">
-      Cultural diversity takes a different form in every state and territory
-    </h2>
-
-    <p class="section-lead">
-      Looking beyond national totals reveals important differences between
-      states in both migration and language. Some states have higher
-      overseas-born populations, while others stand out through particular
-      language communities.
-    </p>
-
-
-    <div class="visual-grid">
-
-      <article class="visual-card">
-
-        <div class="chart-panel">
-          <div id="heatmap"></div>
-        </div>
-
-        <p class="visual-note">
-          <strong>Language concentration.</strong>
-          The same language can represent very different shares of the
-          population depending on the state or territory.
-        </p>
-
-      </article>
-
-
-      <article class="visual-card">
-
-        <div class="chart-panel">
-          <div id="dumbbell"></div>
-        </div>
-
-        <p class="visual-note">
-          <strong>Two measures of diversity.</strong>
-          Being born overseas and speaking a language other than English
-          at home are related measures, but they do not produce identical
-          patterns across Australia.
-        </p>
-
-      </article>
-
-    </div>
-
-
-
-    <div class="subsection">
-
-      <div class="eyebrow">
-        A CLOSER COMPARISON
       </div>
 
-      <h3 class="subsection-title">
-        New South Wales and Victoria show distinct language profiles
-      </h3>
-
-      <p class="subsection-lead">
-        Australia's two most populous states contain many of the same
-        major language communities, but the size of those communities
-        differs considerably.
-      </p>
 
 
-      <article class="visual-card full-width-card">
+      <!--
+        Equal chart stages keep both maps and both explanations aligned.
+      -->
 
-        <div class="chart-panel full-width-chart">
-          <div id="butterfly"></div>
+      <div class="paired-grid paired-grid-maps">
+
+
+        <article class="visual-card paired-card">
+
+          <div class="chart-stage">
+
+            <div id="choropleth"></div>
+
+          </div>
+
+
+          <p class="visual-note">
+
+            <strong>Population share.</strong>
+
+            The choropleth highlights areas where overseas-born
+            residents make up a particularly large proportion of
+            the local population.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="visual-card paired-card">
+
+          <div class="chart-stage">
+
+            <div id="proportional-symbol"></div>
+
+          </div>
+
+
+          <p class="visual-note">
+
+            <strong>Population size.</strong>
+
+            The proportional-symbol map focuses on absolute numbers,
+            revealing where the largest overseas-born populations live.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================
+         03 — STATE DIFFERENCES
+    ======================================================= -->
+
+    <section
+      class="story-section"
+      id="state-differences"
+    >
+
+      <div class="section-heading">
+
+        <div class="section-meta">
+
+          <span class="section-number">
+            03
+          </span>
+
+          <span class="section-kicker">
+            STATE DIFFERENCES
+          </span>
+
         </div>
 
-        <p class="visual-note full-note">
-          <strong>Comparing the states.</strong>
-          The butterfly chart makes it easier to identify languages that
-          are relatively more prominent in New South Wales or Victoria.
+
+        <h2 class="section-title">
+          Cultural diversity takes a different form in every
+          state and territory
+        </h2>
+
+
+        <p class="section-lead">
+
+          Looking beyond national totals reveals important differences
+          between states in both migration and language. Some states
+          have higher overseas-born populations, while others stand
+          out through particular language communities.
+
+        </p>
+
+      </div>
+
+
+
+      <!--
+        The heatmap and dumbbell use equal chart stages so the
+        explanation dividers start at the same height.
+      -->
+
+      <div class="paired-grid paired-grid-states">
+
+
+        <article class="visual-card paired-card">
+
+          <div class="chart-stage">
+
+            <div id="heatmap"></div>
+
+          </div>
+
+
+          <p class="visual-note">
+
+            <strong>Language concentration.</strong>
+
+            The same language can represent very different shares
+            of the population depending on the state or territory.
+
+          </p>
+
+        </article>
+
+
+
+        <article class="visual-card paired-card">
+
+          <div class="chart-stage">
+
+            <div id="dumbbell"></div>
+
+          </div>
+
+
+          <p class="visual-note">
+
+            <strong>Two measures of diversity.</strong>
+
+            Being born overseas and speaking a language other than
+            English at home are related measures, but they do not
+            produce identical patterns across Australia.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+
+      <!-- Closer comparison -->
+
+      <div class="subsection">
+
+        <p class="eyebrow">
+          A CLOSER COMPARISON
+        </p>
+
+        <h3 class="subsection-title">
+          New South Wales and Victoria show distinct language profiles
+        </h3>
+
+        <p class="subsection-lead">
+
+          Australia's two most populous states contain many of the
+          same major language communities, but the size of those
+          communities differs considerably.
+
+        </p>
+
+
+        <article class="visual-card wide-card">
+
+          <div class="chart-stage chart-stage-auto chart-limit-butterfly">
+
+            <div id="butterfly"></div>
+
+          </div>
+
+
+          <p class="visual-note wide-note">
+
+            <strong>Comparing the states.</strong>
+
+            The butterfly chart makes it easier to identify languages
+            that are relatively more prominent in New South Wales
+            or Victoria.
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================
+         04 — GLOBAL CONNECTIONS
+    ======================================================= -->
+
+    <section
+      class="story-section"
+      id="global-connections"
+    >
+
+      <div class="section-heading">
+
+        <div class="section-meta">
+
+          <span class="section-number">
+            04
+          </span>
+
+          <span class="section-kicker">
+            GLOBAL CONNECTIONS
+          </span>
+
+        </div>
+
+
+        <h2 class="section-title">
+          Australia's migration story connects local communities
+          to the world
+        </h2>
+
+
+        <p class="section-lead">
+
+          Recent settlement patterns demonstrate how migration links
+          major origin countries with different Australian states.
+
+        </p>
+
+      </div>
+
+
+      <article class="visual-card wide-card">
+
+        <div class="chart-stage chart-stage-auto chart-limit-flow">
+
+          <div id="flow-map"></div>
+
+        </div>
+
+
+        <p class="visual-note wide-note">
+
+          <strong>Migration flows.</strong>
+
+          Major source countries connect to several Australian
+          destinations, with the largest flows generally directed
+          towards the country's major population centres.
+
         </p>
 
       </article>
 
-    </div>
-
-  </section>
+    </section>
 
 
 
-  <!-- ======================================================
-       04 — GLOBAL CONNECTIONS
-       ====================================================== -->
+    <!-- ======================================================
+         05 — SETTLEMENT STREAMS
+    ======================================================= -->
 
-  <section
-    class="story-section"
-    id="global-connections"
-  >
+    <section
+      class="story-section"
+      id="settlement-streams"
+    >
 
-    <div class="section-meta">
-      <span class="section-number">04</span>
-      <span class="section-kicker">GLOBAL CONNECTIONS</span>
-    </div>
+      <div class="section-heading">
 
-    <h2 class="section-title">
-      Australia's migration story connects local communities to the world
-    </h2>
+        <div class="section-meta">
 
-    <p class="section-lead">
-      Recent settlement patterns demonstrate how migration links major
-      origin countries with different Australian states.
-    </p>
+          <span class="section-number">
+            05
+          </span>
+
+          <span class="section-kicker">
+            SETTLEMENT STREAMS
+          </span>
+
+        </div>
 
 
-    <article class="visual-card full-width-card">
+        <h2 class="section-title">
+          Different migration pathways contribute to Australia's
+          states in different ways
+        </h2>
 
-      <div class="chart-panel full-width-chart flow-chart">
-        <div id="flow-map"></div>
+
+        <p class="section-lead">
+
+          Skilled, Family and Humanitarian migration streams vary
+          greatly in size, and their settlers are distributed
+          differently across Australian states and territories.
+
+        </p>
+
       </div>
 
-      <p class="visual-note full-note">
-        <strong>Migration flows.</strong>
-        Major source countries connect to several Australian destinations,
-        with the largest flows generally directed towards the country's
-        major population centres.
-      </p>
 
-    </article>
+      <article class="visual-card wide-card">
 
-  </section>
+        <div class="chart-stage chart-stage-auto chart-limit-sankey">
+
+          <div id="sankey"></div>
+
+        </div>
 
 
+        <p class="visual-note wide-note">
 
-  <!-- ======================================================
-       05 — SETTLEMENT STREAMS
-       ====================================================== -->
+          <strong>Settlement streams.</strong>
 
-  <section
-    class="story-section"
-    id="settlement-streams"
-  >
+          Skilled migration represents the largest of the three
+          streams, while New South Wales and Victoria receive the
+          greatest overall numbers of permanent settlers.
 
-    <div class="section-meta">
-      <span class="section-number">05</span>
-      <span class="section-kicker">SETTLEMENT STREAMS</span>
-    </div>
+        </p>
 
-    <h2 class="section-title">
-      Different migration pathways contribute to Australia's states in different ways
-    </h2>
+      </article>
 
-    <p class="section-lead">
-      Skilled, Family and Humanitarian migration streams vary greatly
-      in size, and their settlers are distributed differently across
-      Australian states and territories.
-    </p>
+    </section>
 
-
-    <article class="visual-card full-width-card">
-
-      <div class="chart-panel full-width-chart sankey-chart">
-        <div id="sankey"></div>
-      </div>
-
-      <p class="visual-note full-note">
-        <strong>Settlement streams.</strong>
-        Skilled migration represents the largest of the three streams,
-        while New South Wales and Victoria receive the greatest overall
-        numbers of permanent settlers.
-      </p>
-
-    </article>
-
-  </section>
+  </main>
 
 
 
   <!-- ======================================================
        FOOTER
-       ====================================================== -->
+  ======================================================= -->
 
   <footer>
 
-    <div class="footer-inner">
+    <div class="page-width footer-inner">
 
       <div>
         <strong>Cultural Diversity in Australia</strong>
       </div>
 
       <div>
-        Data visualisation project
+        FIT3179 Data Visualisation 2
       </div>
 
     </div>
@@ -473,7 +670,7 @@
 
   <!-- ======================================================
        VEGA EMBEDS
-       ====================================================== -->
+  ======================================================= -->
 
   <script>
 
@@ -508,49 +705,54 @@
     }
 
 
+    /*
+      The version query ensures GitHub Pages does not display
+      an older cached JSON file.
+    */
+
     embedChart(
       "#treemap",
-      "visualisations/treemap.json"
+      "visualisations/treemap.json?v=7"
     );
 
     embedChart(
       "#language-bar",
-      "visualisations/languagebarchart.json"
+      "visualisations/languagebarchart.json?v=7"
     );
 
     embedChart(
       "#choropleth",
-      "visualisations/chloreplethoverseas.json"
+      "visualisations/chloreplethoverseas.json?v=7"
     );
 
     embedChart(
       "#proportional-symbol",
-      "visualisations/proportionalsymbolmap.json"
+      "visualisations/proportionalsymbolmap.json?v=7"
     );
 
     embedChart(
       "#heatmap",
-      "visualisations/top10heatmap.json"
+      "visualisations/top10heatmap.json?v=7"
     );
 
     embedChart(
       "#dumbbell",
-      "visualisations/dumbbellchart.json"
+      "visualisations/dumbbellchart.json?v=7"
     );
 
     embedChart(
       "#butterfly",
-      "visualisations/butterflychartstates.json"
+      "visualisations/butterflychartstates.json?v=7"
     );
 
     embedChart(
       "#flow-map",
-      "visualisations/flowmap.json"
+      "visualisations/flowmap.json?v=7"
     );
 
     embedChart(
       "#sankey",
-      "visualisations/sankey.json"
+      "visualisations/sankey.json?v=7"
     );
 
   </script>
