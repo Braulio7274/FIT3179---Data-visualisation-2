@@ -30,7 +30,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
-  <!-- Change v=9 when forcing another cache refresh -->
   <link
     rel="stylesheet"
     href="style.css?v=9"
@@ -303,8 +302,8 @@
 
           The overseas-born population is not distributed evenly.
           Some areas have a particularly high share of overseas-born
-          residents, while Australia's largest population centres also
-          contain the greatest absolute numbers.
+          residents, while others contain much larger concentrations
+          of overseas-born residents overall.
 
         </p>
 
@@ -312,13 +311,11 @@
 
 
 
-      <!--
-        The two charts occupy the first grid row.
-        The two explanations occupy the second grid row.
-        This keeps the explanation lines perfectly aligned.
-      -->
+      <!-- Choropleth + Hex Bin Map -->
 
       <div class="paired-grid">
+
+        <!-- Choropleth -->
 
         <div class="chart-stage pair-a-chart">
 
@@ -327,12 +324,16 @@
         </div>
 
 
+        <!-- Hex Bin Map -->
+
         <div class="chart-stage pair-b-chart">
 
-          <div id="proportional-symbol"></div>
+          <div id="hexbin-map"></div>
 
         </div>
 
+
+        <!-- Choropleth explanation -->
 
         <p class="visual-note pair-a-note">
 
@@ -344,12 +345,15 @@
         </p>
 
 
+        <!-- Hex bin explanation -->
+
         <p class="visual-note pair-b-note">
 
-          <strong>Population size.</strong>
+          <strong>Spatial concentration.</strong>
 
-          The proportional-symbol map focuses on absolute numbers,
-          revealing where the largest overseas-born populations live.
+          The hex bin map groups nearby SA2 areas into equal-sized
+          geographic bins. Darker hexagons represent larger concentrations
+          of overseas-born residents.
 
         </p>
 
@@ -402,7 +406,7 @@
 
 
 
-      <!-- Heatmap and dumbbell -->
+      <!-- Heatmap + Dumbbell -->
 
       <div class="paired-grid">
 
@@ -684,54 +688,65 @@
     }
 
 
-    /*
-      v=9 forces GitHub Pages and the browser to request the
-      latest version of each JSON file.
-    */
+    /* Origins */
 
     embedChart(
       "#treemap",
-      "visualisations/treemap.json?v=9"
+      "visualisations/treemap.json?v=10"
     );
+
 
     embedChart(
       "#language-bar",
-      "visualisations/languagebarchart.json?v=9"
+      "visualisations/languagebarchart.json?v=10"
     );
+
+
+    /* Geography */
 
     embedChart(
       "#choropleth",
-      "visualisations/chloreplethoverseas.json?v=9"
+      "visualisations/chloreplethoverseas.json?v=10"
     );
 
+
     embedChart(
-      "#proportional-symbol",
-      "visualisations/proportionalsymbolmap.json?v=9"
+      "#hexbin-map",
+      "visualisations/hexbinmap.json?v=10"
     );
+
+
+    /* State differences */
 
     embedChart(
       "#heatmap",
-      "visualisations/top10heatmap.json?v=9"
+      "visualisations/top10heatmap.json?v=10"
     );
+
 
     embedChart(
       "#dumbbell",
-      "visualisations/dumbbellchart.json?v=9"
+      "visualisations/dumbbellchart.json?v=10"
     );
+
 
     embedChart(
       "#butterfly",
-      "visualisations/butterflychartstates.json?v=9"
+      "visualisations/butterflychartstates.json?v=10"
     );
+
+
+    /* Migration */
 
     embedChart(
       "#flow-map",
-      "visualisations/flowmap.json?v=9"
+      "visualisations/flowmap.json?v=10"
     );
+
 
     embedChart(
       "#sankey",
-      "visualisations/sankey.json?v=9"
+      "visualisations/sankey.json?v=10"
     );
 
   </script>
