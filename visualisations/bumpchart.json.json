@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Bump chart ranking Australian states and territories by the proportion of permanent settlers in the Skilled migration stream from 2016 to 2025.",
+  "width": 980,
+  "height": 540,
+  "background": "#FFF7ED",
+  "padding": {"left": 20, "right": 190, "top": 15, "bottom": 15},
+  "title": {
+    "text": "Which states have the highest proportion of Skilled migration?",
+    "subtitle": [
+      "States ranked by Skilled migrants as a share of permanent settlers, 2016–2025",
+      "Rank 1 represents the highest Skilled migration share in that year."
+    ],
+    "anchor": "start",
+    "font": "Space Grotesk",
+    "fontSize": 22,
+    "fontWeight": 700,
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#655A67",
+    "subtitlePadding": 8,
+    "offset": 15
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_settlement_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number",
+        "Settlers": "number",
+        "Humanitarian": "number",
+        "Family": "number",
+        "Skilled": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "isValid(datum.Settlers) && datum.Settlers > 0 && isValid(datum.Skilled)"
+    },
+    {
+      "calculate": "(datum.Skilled / datum.Settlers) * 100",
+      "as": "SkilledShare"
+    },
+    {
+      "window": [{"op": "rank", "as": "Rank"}],
+      "sort": [{"field": "SkilledShare", "order": "descending"}],
+      "groupby": ["Year"]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "labelAngle": 0,
+        "labelFont": "Source Sans 3",
+        "labelFontSize": 12,
+        "labelColor": "#655A67",
+        "titleFont": "Source Sans 3",
+        "titleFontSize": 13,
+        "titleFontWeight": 600,
+        "titleColor": "#4A2545",
+        "domainColor": "#DED3C8",
+        "tickColor": "#DED3C8",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "Rank",
+      "type": "quantitative",
+      "scale": {"domain": [1, 8], "reverse": true},
+      "axis": {
+        "title": "Rank",
+        "values": [1, 2, 3, 4, 5, 6, 7, 8],
+        "labelExpr": "'#' + datum.value",
+        "labelFont": "Source Sans 3",
+        "labelFontSize": 12,
+        "labelColor": "#655A67",
+        "titleFont": "Source Sans 3",
+        "titleFontSize": 13,
+        "titleFontWeight": 600,
+        "titleColor": "#4A2545",
+        "domain": false,
+        "ticks": false,
+        "grid": true,
+        "gridColor": "#DED3C8",
+        "gridOpacity": 0.8
+      }
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "Western Australia",
+          "South Australia",
+          "Australian Capital Territory",
+          "Tasmania",
+          "Northern Territory"
+        ],
+        "range": [
+          "#315B7D",
+          "#43A829",
+          "#D97A34",
+          "#735A93",
+          "#E0568A",
+          "#2A9D8F",
+          "#B08968",
+          "#6B7280"
+        ]
+      },
+      "legend": null
+    },
+    "detail": {"field": "State"}
+  },
+  "layer": [
+    {"mark": {"type": "line", "strokeWidth": 3}},
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 115,
+        "stroke": "#FFF7ED",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State / territory"},
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {
+            "field": "Rank",
+            "type": "quantitative",
+            "title": "Rank",
+            "format": ".0f"
+          },
+          {
+            "field": "SkilledShare",
+            "type": "quantitative",
+            "title": "Skilled share",
+            "format": ".1f"
+          },
+          {
+            "field": "Skilled",
+            "type": "quantitative",
+            "title": "Skilled settlers",
+            "format": ","
+          },
+          {
+            "field": "Settlers",
+            "type": "quantitative",
+            "title": "Total settlers",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == 2025"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 11,
+        "font": "Source Sans 3",
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {"text": {"field": "State"}}
+    }
+  ],
+  "config": {"font": "Source Sans 3", "view": {"stroke": null}}
+}
