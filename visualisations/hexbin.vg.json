@@ -1,0 +1,278 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Hexagonal bin map of overseas-born residents using SA2 centroid locations, 2021 Census.",
+  "width": 900,
+  "height": 620,
+  "padding": 20,
+  "autosize": "pad",
+  "background": "#FFF7ED",
+  "title": {
+    "text": "Where are Australia's overseas-born populations concentrated?",
+    "subtitle": [
+      "SA2 areas grouped into hexagonal spatial bins | 2021 Census",
+      "Darker hexagons represent larger overseas-born populations."
+    ],
+    "anchor": "start",
+    "font": "Space Grotesk",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "color": "#4A2545",
+    "subtitleFont": "Source Sans 3",
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#655A67",
+    "subtitlePadding": 8,
+    "offset": 14
+  },
+  "signals": [{"name": "hexSize", "value": 16}],
+  "projections": [
+    {
+      "name": "ausProjection",
+      "type": "identity",
+      "reflectY": true,
+      "scale": 0.00015,
+      "translate": [440, -130]
+    }
+  ],
+  "data": [
+    {
+      "name": "states",
+      "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer/1/query?where=state_code_2021%3C%3E%279%27&outFields=state_code_2021%2Cstate_name_2021&returnGeometry=true&outSR=3577&f=geojson&maxAllowableOffset=1000&geometryPrecision=0",
+      "format": {"type": "json", "property": "features"},
+      "transform": [{"type": "filter", "expr": "isValid(datum.geometry)"}]
+    },
+    {
+      "name": "overseas",
+      "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/sa2_overseas_born.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "SA2_CODE_2021": "string",
+          "overseas_born": "number",
+          "overseas_percent": "number",
+          "total_population": "number"
+        },
+        "delimiter": ","
+      }
+    },
+    {
+      "name": "centroids_1",
+      "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/0/query?where=state_code_2021%3C%3E%279%27&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=false&returnCentroid=true&outSR=3577&orderByFields=objectid&resultOffset=0&resultRecordCount=2000&f=json",
+      "format": {"type": "json", "property": "features"},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum.centroid) && isValid(datum.attributes)"
+        },
+        {
+          "type": "formula",
+          "as": "sa2_code",
+          "expr": "toString(datum.attributes.sa2_code_2021)"
+        },
+        {
+          "type": "formula",
+          "as": "sa2_name",
+          "expr": "toString(datum.attributes.sa2_name_2021)"
+        },
+        {
+          "type": "formula",
+          "as": "map_x",
+          "expr": "toNumber(datum.centroid.x)"
+        },
+        {"type": "formula", "as": "map_y", "expr": "toNumber(datum.centroid.y)"}
+      ]
+    },
+    {
+      "name": "centroids_2",
+      "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/FeatureServer/0/query?where=state_code_2021%3C%3E%279%27&outFields=sa2_code_2021%2Csa2_name_2021%2Cstate_name_2021&returnGeometry=false&returnCentroid=true&outSR=3577&orderByFields=objectid&resultOffset=2000&resultRecordCount=2000&f=json",
+      "format": {"type": "json", "property": "features"},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum.centroid) && isValid(datum.attributes)"
+        },
+        {
+          "type": "formula",
+          "as": "sa2_code",
+          "expr": "toString(datum.attributes.sa2_code_2021)"
+        },
+        {
+          "type": "formula",
+          "as": "sa2_name",
+          "expr": "toString(datum.attributes.sa2_name_2021)"
+        },
+        {
+          "type": "formula",
+          "as": "map_x",
+          "expr": "toNumber(datum.centroid.x)"
+        },
+        {"type": "formula", "as": "map_y", "expr": "toNumber(datum.centroid.y)"}
+      ]
+    },
+    {
+      "name": "points",
+      "source": ["centroids_1", "centroids_2"],
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "indexof(lower(datum.sa2_name), 'lord howe') < 0"
+        },
+        {
+          "type": "lookup",
+          "from": "overseas",
+          "key": "SA2_CODE_2021",
+          "fields": ["sa2_code"],
+          "values": ["overseas_born", "overseas_percent", "total_population"],
+          "as": ["overseas_born", "overseas_percent", "total_population"]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum.overseas_born) && datum.overseas_born > 0"
+        },
+        {"type": "formula", "as": "px", "expr": "440 + 0.00015 * datum.map_x"},
+        {"type": "formula", "as": "py", "expr": "-130 - 0.00015 * datum.map_y"},
+        {
+          "type": "filter",
+          "expr": "datum.px >= 0 && datum.px <= width && datum.py >= 0 && datum.py <= height"
+        },
+        {
+          "type": "formula",
+          "as": "q_float",
+          "expr": "(sqrt(3) / 3 * datum.px - 1 / 3 * datum.py) / hexSize"
+        },
+        {
+          "type": "formula",
+          "as": "r_float",
+          "expr": "(2 / 3 * datum.py) / hexSize"
+        },
+        {"type": "formula", "as": "cube_x", "expr": "datum.q_float"},
+        {"type": "formula", "as": "cube_z", "expr": "datum.r_float"},
+        {
+          "type": "formula",
+          "as": "cube_y",
+          "expr": "-datum.cube_x - datum.cube_z"
+        },
+        {"type": "formula", "as": "round_x", "expr": "round(datum.cube_x)"},
+        {"type": "formula", "as": "round_y", "expr": "round(datum.cube_y)"},
+        {"type": "formula", "as": "round_z", "expr": "round(datum.cube_z)"},
+        {
+          "type": "formula",
+          "as": "x_diff",
+          "expr": "abs(datum.round_x - datum.cube_x)"
+        },
+        {
+          "type": "formula",
+          "as": "y_diff",
+          "expr": "abs(datum.round_y - datum.cube_y)"
+        },
+        {
+          "type": "formula",
+          "as": "z_diff",
+          "expr": "abs(datum.round_z - datum.cube_z)"
+        },
+        {
+          "type": "formula",
+          "as": "hex_q",
+          "expr": "datum.x_diff > datum.y_diff && datum.x_diff > datum.z_diff ? -datum.round_y - datum.round_z : datum.round_x"
+        },
+        {
+          "type": "formula",
+          "as": "hex_r",
+          "expr": "datum.z_diff > datum.x_diff && datum.z_diff > datum.y_diff ? -datum.round_x - datum.round_y : datum.round_z"
+        }
+      ]
+    },
+    {
+      "name": "hexes",
+      "source": "points",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["hex_q", "hex_r"],
+          "fields": ["overseas_born", null],
+          "ops": ["sum", "count"],
+          "as": ["total_overseas", "sa2_count"]
+        },
+        {
+          "type": "formula",
+          "as": "cx",
+          "expr": "hexSize * sqrt(3) * (datum.hex_q + datum.hex_r / 2)"
+        },
+        {"type": "formula", "as": "cy", "expr": "hexSize * 1.5 * datum.hex_r"},
+        {
+          "type": "filter",
+          "expr": "datum.cx >= 0 && datum.cx <= width && datum.cy >= 0 && datum.cy <= height"
+        },
+        {
+          "type": "formula",
+          "as": "hexPath",
+          "expr": "'M' + datum.cx + ',' + (datum.cy - hexSize) + 'L' + (datum.cx + 0.8660254 * hexSize) + ',' + (datum.cy - 0.5 * hexSize) + 'L' + (datum.cx + 0.8660254 * hexSize) + ',' + (datum.cy + 0.5 * hexSize) + 'L' + datum.cx + ',' + (datum.cy + hexSize) + 'L' + (datum.cx - 0.8660254 * hexSize) + ',' + (datum.cy + 0.5 * hexSize) + 'L' + (datum.cx - 0.8660254 * hexSize) + ',' + (datum.cy - 0.5 * hexSize) + 'Z'"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "hexColor",
+      "type": "sqrt",
+      "domain": {"data": "hexes", "field": "total_overseas"},
+      "range": {"scheme": "blues"},
+      "zero": true,
+      "nice": true
+    }
+  ],
+  "legends": [
+    {
+      "fill": "hexColor",
+      "title": "Overseas-born residents",
+      "orient": "none",
+      "legendX": 40,
+      "legendY": 530,
+      "direction": "horizontal",
+      "gradientLength": 240,
+      "gradientThickness": 12,
+      "format": "~s",
+      "titleFont": "Source Sans 3",
+      "titleFontSize": 12,
+      "titleFontWeight": "bold",
+      "titleColor": "#4A2545",
+      "labelFont": "Source Sans 3",
+      "labelFontSize": 11,
+      "labelColor": "#655A67",
+      "titleLimit": 250,
+      "labelLimit": 80
+    }
+  ],
+  "marks": [
+    {
+      "type": "shape",
+      "from": {"data": "states"},
+      "transform": [{"type": "geoshape", "projection": "ausProjection"}],
+      "encode": {
+        "enter": {
+          "fill": {"value": "#EFE9E1"},
+          "stroke": {"value": "#AFA79D"},
+          "strokeWidth": {"value": 0.8}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {"data": "hexes"},
+      "encode": {
+        "enter": {
+          "path": {"field": "hexPath"},
+          "fill": {"scale": "hexColor", "field": "total_overseas"},
+          "stroke": {"value": "#FFF7ED"},
+          "strokeWidth": {"value": 1.2},
+          "tooltip": {
+            "signal": "{'Overseas-born residents': format(datum.total_overseas, ','), 'SA2 areas represented': datum.sa2_count}"
+          }
+        },
+        "update": {"fillOpacity": {"value": 0.82}},
+        "hover": {"fillOpacity": {"value": 1}, "strokeWidth": {"value": 2}}
+      }
+    }
+  ],
+  "config": {"font": "Source Sans 3"}
+}
