@@ -1,7 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 980,
+  "description": "Selected major settler flows to Australian states with improved legend formatting and tooltips.",
+  "width": 930,
   "height": 620,
+  "padding": 12,
   "background": "#FFF7ED",
 
   "title": {
@@ -19,14 +21,15 @@
     "subtitleFontSize": 12,
     "subtitleFontWeight": 400,
     "subtitleColor": "#655A67",
-    "subtitlePadding": 6
+    "subtitlePadding": 8,
+    "offset": 16
   },
 
   "projection": {
     "type": "equalEarth",
     "center": [100, 12],
-    "scale": 265,
-    "translate": [490, 320]
+    "scale": 278,
+    "translate": [455, 322]
   },
 
   "layer": [
@@ -38,7 +41,6 @@
           "feature": "countries"
         }
       },
-
       "mark": {
         "type": "geoshape",
         "fill": "#D6D0C8",
@@ -51,61 +53,62 @@
       "data": {
         "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
       },
-
+      "transform": [
+        {
+          "calculate": "datum.origin_country + '-' + datum.destination_state",
+          "as": "flow_id"
+        }
+      ],
       "mark": {
         "type": "line",
-        "opacity": 0.5,
+        "opacity": 0.52,
         "strokeCap": "round"
       },
-
       "encoding": {
         "detail": {
           "field": "flow_id"
         },
-
         "strokeDash": {
           "field": "flow_rank",
           "type": "ordinal",
           "legend": null
         },
-
         "order": {
           "field": "point_order",
           "type": "ordinal"
         },
-
         "longitude": {
           "field": "lon",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "lat",
           "type": "quantitative"
         },
-
         "size": {
           "field": "settlers",
           "type": "quantitative",
-
           "scale": {
             "range": [1, 9]
           },
-
           "legend": {
             "title": "Settlers",
-            "format": ","
+            "orient": "right",
+            "offset": 12,
+            "values": [0, 50000, 100000, 150000],
+            "labelExpr": "datum.value == 0 ? '0' : format(datum.value/1000, '.0f') + 'k'",
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 12,
+            "titleFontWeight": 700,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67"
           }
         },
-
         "color": {
           "field": "destination_state",
           "type": "nominal",
-
-          "legend": {
-            "title": "Destination state"
-          },
-
           "scale": {
             "domain": [
               "Victoria",
@@ -113,61 +116,63 @@
               "Queensland",
               "Western Australia"
             ],
-
             "range": [
               "#1b9e77",
               "#7570b3",
               "#d95f02",
               "#66a61e"
             ]
+          },
+          "legend": {
+            "title": "Destination state",
+            "orient": "right",
+            "offset": 12,
+            "labelLimit": 220,
+            "titleLimit": 220,
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 12,
+            "titleFontWeight": 700,
+            "titleColor": "#4A2545",
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelColor": "#655A67"
           }
         },
-
         "tooltip": [
           {
             "field": "origin_label",
+            "type": "nominal",
             "title": "Origin country"
           },
-
           {
             "field": "destination_state",
+            "type": "nominal",
             "title": "Destination state"
           },
-
           {
             "field": "settlers",
-            "title": "Settlers",
             "type": "quantitative",
+            "title": "Settlers",
             "format": ","
           },
-
           {
             "field": "country_total",
-            "title": "Total settlers from origin",
             "type": "quantitative",
+            "title": "Total settlers from origin",
             "format": ","
           }
         ]
-      },
-
-      "transform": [
-        {
-          "calculate": "datum.origin_country + '-' + datum.destination_state",
-          "as": "flow_id"
-        }
-      ]
+      }
     },
 
     {
       "data": {
         "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
       },
-
       "transform": [
         {
           "filter": "datum.point_type === 'origin'"
         },
-
         {
           "aggregate": [
             {
@@ -175,107 +180,84 @@
               "field": "lon",
               "as": "lon"
             },
-
             {
               "op": "max",
               "field": "lat",
               "as": "lat"
+            },
+            {
+              "op": "max",
+              "field": "country_total",
+              "as": "country_total"
             }
           ],
-
-          "groupby": [
-            "origin_country",
-            "origin_label"
-          ]
+          "groupby": ["origin_country", "origin_label"]
         }
       ],
-
       "mark": {
         "type": "point",
         "filled": true,
         "shape": "circle",
-        "size": 80,
+        "size": 85,
         "color": "#a54c49",
         "stroke": "white",
         "strokeWidth": 1.1
       },
-
       "encoding": {
         "longitude": {
           "field": "lon",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        }
+        },
+        "tooltip": [
+          {
+            "field": "origin_label",
+            "type": "nominal",
+            "title": "Origin country"
+          },
+          {
+            "field": "country_total",
+            "type": "quantitative",
+            "title": "Total settlers from origin",
+            "format": ","
+          }
+        ]
       }
     },
 
     {
       "data": {
         "values": [
-          {
-            "name": "United Kingdom",
-            "lon": -3.436,
-            "lat": 55.3781
-          },
-
-          {
-            "name": "Pakistan",
-            "lon": 69.3451,
-            "lat": 30.3753
-          },
-
-          {
-            "name": "Nepal",
-            "lon": 84.124,
-            "lat": 28.3949
-          },
-
-          {
-            "name": "India",
-            "lon": 78.9629,
-            "lat": 22.5937
-          },
-
-          {
-            "name": "China",
-            "lon": 104.1954,
-            "lat": 35.8617
-          },
-
-          {
-            "name": "Philippines",
-            "lon": 121.774,
-            "lat": 12.8797
-          }
+          { "name": "United Kingdom", "lon": -3.436, "lat": 55.3781 },
+          { "name": "Pakistan", "lon": 69.3451, "lat": 30.3753 },
+          { "name": "Nepal", "lon": 84.124, "lat": 28.3949 },
+          { "name": "India", "lon": 78.9629, "lat": 22.5937 },
+          { "name": "China", "lon": 104.1954, "lat": 35.8617 },
+          { "name": "Philippines", "lon": 121.774, "lat": 12.8797 }
         ]
       },
-
       "mark": {
         "type": "text",
         "font": "Source Sans 3",
         "fontSize": 11,
-        "fontWeight": "bold",
+        "fontWeight": 600,
         "color": "#7f1d1d",
         "dx": 6,
         "dy": -6,
         "align": "left"
       },
-
       "encoding": {
         "longitude": {
           "field": "lon",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "lat",
           "type": "quantitative"
         },
-
         "text": {
           "field": "name"
         }
@@ -286,12 +268,10 @@
       "data": {
         "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/settler_flow_paths_simple.csv"
       },
-
       "transform": [
         {
           "filter": "datum.point_type === 'destination'"
         },
-
         {
           "aggregate": [
             {
@@ -299,46 +279,36 @@
               "field": "lon",
               "as": "lon"
             },
-
             {
               "op": "max",
               "field": "lat",
               "as": "lat"
             }
           ],
-
-          "groupby": [
-            "destination_state",
-            "destination_abbr"
-          ]
+          "groupby": ["destination_state", "destination_abbr"]
         }
       ],
-
       "mark": {
         "type": "point",
         "filled": true,
         "shape": "diamond",
-        "size": 130,
+        "size": 135,
         "stroke": "white",
         "strokeWidth": 1.1
       },
-
       "encoding": {
         "longitude": {
           "field": "lon",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "lat",
           "type": "quantitative"
         },
-
         "color": {
           "field": "destination_state",
           "type": "nominal",
           "legend": null,
-
           "scale": {
             "domain": [
               "Victoria",
@@ -346,7 +316,6 @@
               "Queensland",
               "Western Australia"
             ],
-
             "range": [
               "#1b9e77",
               "#7570b3",
@@ -354,61 +323,50 @@
               "#66a61e"
             ]
           }
-        }
+        },
+        "tooltip": [
+          {
+            "field": "destination_state",
+            "type": "nominal",
+            "title": "Destination state"
+          },
+          {
+            "field": "destination_abbr",
+            "type": "nominal",
+            "title": "Abbreviation"
+          }
+        ]
       }
     },
 
     {
       "data": {
         "values": [
-          {
-            "abbr": "WA",
-            "lon": 115.8605,
-            "lat": -31.9505
-          },
-
-          {
-            "abbr": "VIC",
-            "lon": 144.9631,
-            "lat": -37.8136
-          },
-
-          {
-            "abbr": "NSW",
-            "lon": 151.2093,
-            "lat": -33.8688
-          },
-
-          {
-            "abbr": "QLD",
-            "lon": 153.026,
-            "lat": -27.4705
-          }
+          { "abbr": "WA", "lon": 115.8605, "lat": -31.9505 },
+          { "abbr": "VIC", "lon": 144.9631, "lat": -37.8136 },
+          { "abbr": "NSW", "lon": 151.2093, "lat": -33.8688 },
+          { "abbr": "QLD", "lon": 153.026, "lat": -27.4705 }
         ]
       },
-
       "mark": {
         "type": "text",
         "font": "Source Sans 3",
         "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#222",
+        "fontWeight": 600,
+        "color": "#4A2545",
         "dx": 8,
         "dy": 8,
         "align": "left"
       },
-
       "encoding": {
         "longitude": {
           "field": "lon",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "lat",
           "type": "quantitative"
         },
-
         "text": {
           "field": "abbr"
         }
@@ -418,28 +376,23 @@
 
   "config": {
     "font": "Source Sans 3",
-
     "view": {
       "stroke": null
     },
-
     "legend": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelColor": "#655A67",
-
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
-      "titleFontWeight": 600,
+      "titleFontWeight": 700,
       "titleColor": "#4A2545"
     },
-
     "title": {
       "font": "Space Grotesk",
       "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
-
       "subtitleFont": "Source Sans 3",
       "subtitleFontSize": 12,
       "subtitleFontWeight": 400,
