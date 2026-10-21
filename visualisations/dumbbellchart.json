@@ -1,23 +1,27 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Dumbbell chart comparing the share of residents born overseas with the share who use a language other than English at home across Australian states and territories, 2021 Census.",
+
   "width": 700,
   "height": 380,
   "background": "#FFF7ED",
+
   "title": {
     "text": "How do migration and language diversity compare across Australia?",
     "subtitle": "Share of residents born overseas vs using a language other than English at home — 2021 Census",
     "anchor": "start",
     "font": "Space Grotesk",
-    "fontSize": 20,
+    "fontSize": 22,
     "fontWeight": 700,
     "color": "#4A2545",
     "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 12,
     "subtitleFontWeight": 400,
     "subtitleColor": "#655A67",
-    "subtitlePadding": 8
+    "subtitlePadding": 8,
+    "offset": 20
   },
+
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_diversity_dumbbell.csv",
     "format": {
@@ -31,11 +35,12 @@
       }
     }
   },
+
   "layer": [
     {
       "mark": {
         "type": "rule",
-        "stroke": "#b8bec7",
+        "stroke": "#B8BEC7",
         "strokeWidth": 3
       },
       "encoding": {
@@ -56,6 +61,7 @@
             "title": null,
             "labelFont": "Source Sans 3",
             "labelFontSize": 12,
+            "labelFontWeight": 500,
             "labelColor": "#655A67",
             "labelPadding": 8
           }
@@ -74,10 +80,15 @@
             "titleColor": "#4A2545",
             "labelFont": "Source Sans 3",
             "labelFontSize": 11,
+            "labelFontWeight": 400,
             "labelColor": "#655A67",
             "grid": true,
+            "gridColor": "#DED3C8",
+            "gridOpacity": 0.7,
             "tickCount": 8,
-            "labelExpr": "datum.value + '%'"
+            "labelExpr": "datum.value + '%'",
+            "domain": false,
+            "tickColor": "#BDAFA8"
           }
         },
         "x2": {
@@ -88,14 +99,8 @@
     {
       "transform": [
         {
-          "fold": [
-            "overseas_percent",
-            "other_language_percent"
-          ],
-          "as": [
-            "metric",
-            "percentage"
-          ]
+          "fold": ["overseas_percent", "other_language_percent"],
+          "as": ["metric", "percentage"]
         },
         {
           "calculate": "datum.metric == 'overseas_percent' ? 'Born overseas' : 'Uses a language other than English at home'",
@@ -127,12 +132,7 @@
             "Northern Territory",
             "Tasmania"
           ],
-          "axis": {
-            "title": null,
-            "labelFont": "Source Sans 3",
-            "labelFontSize": 12,
-            "labelColor": "#655A67"
-          }
+          "axis": null
         },
         "x": {
           "field": "percentage",
@@ -140,17 +140,7 @@
           "scale": {
             "domain": [0, 35]
           },
-          "axis": {
-            "title": "Share of state/territory population (%)",
-            "titleFont": "Source Sans 3",
-            "titleFontSize": 12,
-            "titleFontWeight": 600,
-            "titleColor": "#4A2545",
-            "labelFont": "Source Sans 3",
-            "labelFontSize": 11,
-            "labelColor": "#655A67",
-            "labelExpr": "datum.value + '%'"
-          }
+          "axis": null
         },
         "color": {
           "field": "metric_label",
@@ -172,6 +162,7 @@
             "symbolType": "circle",
             "labelFont": "Source Sans 3",
             "labelFontSize": 11,
+            "labelFontWeight": 400,
             "labelColor": "#655A67"
           }
         },
@@ -208,20 +199,25 @@
       }
     }
   ],
+
   "resolve": {
     "scale": {
       "x": "shared",
       "y": "shared"
     }
   },
+
   "config": {
     "font": "Source Sans 3",
+
     "view": {
       "stroke": null
     },
+
     "axis": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
+      "labelFontWeight": 400,
       "labelColor": "#655A67",
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
@@ -232,18 +228,21 @@
       "domain": false,
       "tickColor": "#BDAFA8"
     },
+
     "legend": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
+      "labelFontWeight": 400,
       "labelColor": "#655A67",
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 600,
       "titleColor": "#4A2545"
     },
+
     "title": {
       "font": "Space Grotesk",
-      "fontSize": 20,
+      "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
       "subtitleFont": "Source Sans 3",
