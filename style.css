@@ -1069,58 +1069,45 @@ img {
    FOOTER
 ========================================================= */
 
-footer {
-  margin-top: 20px;
+/* =========================================================
+   FOOTER
+========================================================= */
 
-  border-top:
-    1px
-    solid
-    var(--divider);
-}
+.project-footer {
+  width: 100%;
 
-
-.footer-inner {
-  display: flex;
-
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 48px;
+  margin-top: 70px;
 
   padding:
-    44px
+    32px
+    5%
+    42px;
+
+  border-top: 1px solid var(--divider);
+
+  background: #F8F8F3;
+
+  color: #333333;
+
+  font-family: "Source Sans 3", Arial, sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+.project-footer p {
+  margin:
     0
-    55px;
-
-  color: var(--body-text);
-
-  font-size: 0.94rem;
+    0
+    16px;
 }
 
 
-.footer-inner > div {
-  display: grid;
-
-  gap: 4px;
+.project-footer p:last-child {
+  margin-bottom: 0;
 }
-
-
-.footer-inner strong {
-  color: var(--heading);
-
-  font-family: var(--font-heading);
-}
-
-
-.footer-inner p {
-  max-width: 520px;
-
-  margin: 0;
-
-  text-align: right;
-}
-
-
 
 /* =========================================================
    TABLET
