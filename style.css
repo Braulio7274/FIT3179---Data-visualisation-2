@@ -194,9 +194,9 @@ img {
 
 .intro-section {
   padding:
-    70px
+    55px
     0
-    105px;
+    78px;
 }
 
 
@@ -371,9 +371,9 @@ img {
   margin-inline: auto;
 
   padding:
-    clamp(82px, 7vw, 112px)
+    clamp(56px, 5vw, 78px)
     0
-    clamp(92px, 8vw, 124px);
+    clamp(64px, 5.5vw, 88px);
 }
 
 
@@ -390,9 +390,9 @@ img {
 
   margin-bottom:
     clamp(
-      48px,
-      5vw,
-      72px
+      34px,
+      3.5vw,
+      50px
     );
 }
 
@@ -481,9 +481,9 @@ img {
 
   gap:
     clamp(
-      82px,
-      8vw,
-      118px
+      54px,
+      5vw,
+      78px
     );
 }
 
@@ -734,16 +734,16 @@ img {
 .subsection {
   margin-top:
     clamp(
-      90px,
-      8vw,
-      125px
+      58px,
+      5vw,
+      82px
     );
 
   padding-top:
     clamp(
-      60px,
-      6vw,
-      78px
+      40px,
+      4vw,
+      56px
     );
 
   border-top:
@@ -839,7 +839,7 @@ img {
 .conclusion-copy {
   max-width: 1150px;
 
-  margin-bottom: 95px;
+  margin-bottom: 62px;
 }
 
 
@@ -878,7 +878,7 @@ img {
 
   align-items: center;
 
-  padding-top: 70px;
+  padding-top: 48px;
 
   border-top: 1px solid var(--divider);
 }
@@ -1076,7 +1076,7 @@ img {
 .project-footer {
   width: 100%;
 
-  margin-top: 70px;
+  margin-top: 35px;
 
   padding:
     32px
@@ -1234,9 +1234,9 @@ img {
 
   .story-section {
     padding:
-      62px
+      48px
       0
-      76px;
+      58px;
   }
 
 
@@ -1256,12 +1256,12 @@ img {
 
 
   .stacked-visuals {
-    gap: 70px;
+    gap: 50px;
   }
 
 
   .paired-visuals {
-    gap: 68px;
+    gap: 50px;
   }
 
 
@@ -1274,8 +1274,8 @@ img {
 
 
   .subsection {
-    margin-top: 75px;
-    padding-top: 50px;
+    margin-top: 52px;
+    padding-top: 38px;
   }
 
 
