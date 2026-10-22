@@ -17,9 +17,7 @@
 
   "title": {
     "text": "Which languages stand out across Australia?",
-
-    "subtitle": "Top 10 non-English languages nationally; each cell shows the share of that state or territory population — 2021 Census",
-
+    
     "anchor": "start",
 
     "font": "Space Grotesk",
@@ -103,7 +101,7 @@
         "labelColor": "#655A67",
 
         "labelPadding": 8,
-        "labelLimit": 150,
+        "labelLimit": 300,
 
         "ticks": false,
         "domain": false
