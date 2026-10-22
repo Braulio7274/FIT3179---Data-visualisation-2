@@ -191,20 +191,6 @@
             "field": "percentage_label",
             "type": "nominal",
             "title": "Born overseas"
-          },
-
-          {
-            "field": "overseas_born",
-            "type": "quantitative",
-            "title": "Overseas-born residents",
-            "format": ",.0f"
-          },
-
-          {
-            "field": "total_population",
-            "type": "quantitative",
-            "title": "Total residents",
-            "format": ",.0f"
           }
         ]
       }
@@ -351,20 +337,6 @@
             "field": "percentage_label",
             "type": "nominal",
             "title": "Born overseas"
-          },
-
-          {
-            "field": "overseas_born",
-            "type": "quantitative",
-            "title": "Overseas-born residents",
-            "format": ",.0f"
-          },
-
-          {
-            "field": "total_population",
-            "type": "quantitative",
-            "title": "Total residents",
-            "format": ",.0f"
           }
         ]
       }
