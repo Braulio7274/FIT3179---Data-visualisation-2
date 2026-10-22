@@ -8,6 +8,12 @@
 
   "background": "#FFF7ED",
 
+  "padding": {
+    "left": 10,
+    "right": 160,
+    "top": 10,
+    "bottom": 10
+  },
 
   "title": {
     "text": "Which languages stand out across Australia?",
@@ -30,7 +36,6 @@
     "offset": 20
   },
 
-
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/language_state_heatmap.csv",
 
@@ -47,9 +52,7 @@
     }
   },
 
-
   "encoding": {
-
     "x": {
       "field": "state",
       "type": "ordinal",
@@ -82,7 +85,6 @@
       }
     },
 
-
     "y": {
       "field": "language",
       "type": "ordinal",
@@ -101,17 +103,15 @@
         "labelColor": "#655A67",
 
         "labelPadding": 8,
+        "labelLimit": 150,
 
         "ticks": false,
         "domain": false
       }
     }
-
   },
 
-
   "layer": [
-
     {
       "mark": {
         "type": "rect",
@@ -122,9 +122,7 @@
         "cornerRadius": 3
       },
 
-
       "encoding": {
-
         "color": {
           "field": "share_pct",
           "type": "quantitative",
@@ -140,31 +138,36 @@
             "clamp": true
           },
 
-
           "legend": {
             "title": "Share of state population",
+
+            "orient": "right",
+            "offset": 16,
 
             "format": ".1f",
 
             "labelExpr": "datum.label + '%'",
 
             "gradientLength": 240,
+            "gradientThickness": 14,
 
             "titleFont": "Source Sans 3",
             "titleFontSize": 12,
             "titleFontWeight": 700,
             "titleColor": "#4A2545",
 
+            "titleLimit": 260,
+
             "labelFont": "Source Sans 3",
             "labelFontSize": 11,
             "labelFontWeight": 400,
-            "labelColor": "#655A67"
+            "labelColor": "#655A67",
+
+            "labelLimit": 100
           }
         },
 
-
         "tooltip": [
-
           {
             "field": "language",
             "type": "nominal",
@@ -197,11 +200,9 @@
             "title": "National rank",
             "format": ".0f"
           }
-
         ]
       }
     },
-
 
     {
       "mark": {
@@ -212,14 +213,11 @@
         "fontWeight": 600
       },
 
-
       "encoding": {
-
         "text": {
           "field": "share_label",
           "type": "nominal"
         },
-
 
         "color": {
           "condition": {
@@ -229,22 +227,16 @@
 
           "value": "#4A2545"
         }
-
       }
     }
-
   ],
 
-
   "config": {
-
     "font": "Source Sans 3",
-
 
     "view": {
       "stroke": null
     },
-
 
     "axis": {
       "labelFont": "Source Sans 3",
@@ -260,19 +252,21 @@
       "grid": false
     },
 
-
     "legend": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
 
+      "labelLimit": 100,
+
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
-      "titleColor": "#4A2545"
-    },
+      "titleColor": "#4A2545",
 
+      "titleLimit": 260
+    },
 
     "title": {
       "font": "Space Grotesk",
@@ -285,6 +279,5 @@
       "subtitleFontWeight": 400,
       "subtitleColor": "#655A67"
     }
-
   }
 }
