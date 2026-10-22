@@ -827,7 +827,243 @@ img {
   font-family: var(--font-body) !important;
 }
 
+/* =========================================================
+   CONCLUSION
+========================================================= */
 
+.conclusion-section {
+  padding-bottom: 120px;
+}
+
+
+.conclusion-copy {
+  max-width: 1150px;
+
+  margin-bottom: 95px;
+}
+
+
+.conclusion-copy p {
+  margin: 0;
+
+  color: var(--body-text);
+
+  font-size: clamp(
+    1.25rem,
+    1.6vw,
+    1.48rem
+  );
+
+  line-height: 1.8;
+}
+
+
+
+/* =========================================================
+   LIMITATIONS
+========================================================= */
+
+.limitations-block {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(380px, 0.85fr);
+
+  gap: clamp(
+    60px,
+    7vw,
+    110px
+  );
+
+  align-items: center;
+
+  padding-top: 70px;
+
+  border-top: 1px solid var(--divider);
+}
+
+
+.limitations-copy {
+  max-width: 760px;
+}
+
+
+.limitations-copy .eyebrow {
+  margin-bottom: 16px;
+}
+
+
+.limitations-title {
+  margin:
+    0
+    0
+    28px;
+
+  color: var(--heading);
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
+  font-size: clamp(
+    2rem,
+    3vw,
+    3.1rem
+  );
+
+  font-weight: 700;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.03em;
+}
+
+
+.limitations-copy > p:not(.eyebrow) {
+  margin:
+    0
+    0
+    20px;
+
+  color: var(--body-text);
+
+  font-size: 1.1rem;
+
+  line-height: 1.75;
+}
+
+
+
+/* =========================================================
+   LIMITATIONS IMAGE PLACEHOLDER
+========================================================= */
+
+.limitations-image {
+  width: 100%;
+}
+
+
+.image-placeholder {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 430px;
+
+  padding: 40px;
+
+  border:
+    1px
+    solid
+    var(--divider);
+
+  background:
+    rgba(
+      222,
+      211,
+      200,
+      0.16
+    );
+
+  text-align: center;
+}
+
+
+.placeholder-label {
+  margin-bottom: 8px;
+
+  color: var(--accent-coral);
+
+  font-family: "Space Grotesk", Arial, sans-serif;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.placeholder-text {
+  color: var(--body-text);
+
+  font-family: "Source Sans 3", Arial, sans-serif;
+
+  font-size: 1rem;
+}
+
+
+
+/* =========================================================
+   CONCLUSION RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .limitations-block {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  .limitations-copy {
+    max-width: 850px;
+  }
+
+
+  .limitations-image {
+    max-width: 750px;
+  }
+
+
+  .image-placeholder {
+    min-height: 360px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .conclusion-section {
+    padding-bottom: 80px;
+  }
+
+
+  .conclusion-copy {
+    margin-bottom: 65px;
+  }
+
+
+  .conclusion-copy p {
+    font-size: 1.1rem;
+  }
+
+
+  .limitations-block {
+    padding-top: 50px;
+  }
+
+
+  .limitations-title {
+    font-size: 2rem;
+  }
+
+
+  .limitations-copy > p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+
+  .image-placeholder {
+    min-height: 280px;
+  }
+
+}
 
 /* =========================================================
    FOOTER
