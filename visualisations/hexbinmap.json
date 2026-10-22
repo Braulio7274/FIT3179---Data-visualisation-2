@@ -16,11 +16,6 @@
   "title": {
     "text": "Where are Australia's overseas-born populations concentrated?",
 
-    "subtitle": [
-      "SA2 areas grouped into hexagonal spatial bins | 2021 Census",
-      "Darker hexagons represent larger overseas-born populations."
-    ],
-
     "anchor": "start",
 
     "font": "Space Grotesk",
