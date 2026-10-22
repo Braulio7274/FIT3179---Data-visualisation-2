@@ -7,14 +7,8 @@
 
   "padding": 20,
 
-
   "title": {
     "text": "How do language communities differ between New South Wales and Victoria?",
-
-    "subtitle": [
-      "Top 10 non-English languages nationally | Share of each state population speaking the language at home",
-      "2021 Census"
-    ],
 
     "anchor": "start",
 
@@ -32,7 +26,6 @@
     "offset": 20
   },
 
-
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/nsw_victoria_language_butterfly.csv",
 
@@ -49,9 +42,18 @@
     }
   },
 
+  "transform": [
+    {
+      "calculate": "format(datum.nsw_percent, '.2f') + '%'",
+      "as": "nsw_label"
+    },
+    {
+      "calculate": "format(datum.victoria_percent, '.2f') + '%'",
+      "as": "victoria_label"
+    }
+  ],
 
   "hconcat": [
-
     {
       "width": 330,
       "height": 420,
@@ -69,9 +71,7 @@
         "offset": 12
       },
 
-
       "layer": [
-
         {
           "mark": {
             "type": "bar",
@@ -81,9 +81,7 @@
             "cornerRadiusEnd": 2
           },
 
-
           "encoding": {
-
             "y": {
               "field": "language",
               "type": "nominal",
@@ -95,7 +93,6 @@
 
               "axis": null
             },
-
 
             "x": {
               "field": "nsw_percent",
@@ -144,9 +141,7 @@
               }
             },
 
-
             "tooltip": [
-
               {
                 "field": "language",
                 "type": "nominal",
@@ -166,11 +161,9 @@
                 "title": "NSW share (%)",
                 "format": ".2f"
               }
-
             ]
           }
         },
-
 
         {
           "mark": {
@@ -188,9 +181,7 @@
             "color": "#655A67"
           },
 
-
           "encoding": {
-
             "y": {
               "field": "language",
               "type": "nominal",
@@ -202,7 +193,6 @@
 
               "axis": null
             },
-
 
             "x": {
               "field": "nsw_percent",
@@ -218,19 +208,14 @@
               }
             },
 
-
             "text": {
-              "field": "nsw_percent",
-              "type": "quantitative",
-              "format": ".2f"
+              "field": "nsw_label",
+              "type": "nominal"
             }
-
           }
         }
-
       ]
     },
-
 
     {
       "width": 115,
@@ -249,7 +234,6 @@
         "offset": 12
       },
 
-
       "mark": {
         "type": "text",
 
@@ -263,9 +247,7 @@
         "color": "#4A2545"
       },
 
-
       "encoding": {
-
         "y": {
           "field": "language",
           "type": "nominal",
@@ -278,15 +260,12 @@
           "axis": null
         },
 
-
         "text": {
           "field": "language",
           "type": "nominal"
         }
-
       }
     },
-
 
     {
       "width": 330,
@@ -305,9 +284,7 @@
         "offset": 12
       },
 
-
       "layer": [
-
         {
           "mark": {
             "type": "bar",
@@ -317,9 +294,7 @@
             "cornerRadiusEnd": 2
           },
 
-
           "encoding": {
-
             "y": {
               "field": "language",
               "type": "nominal",
@@ -331,7 +306,6 @@
 
               "axis": null
             },
-
 
             "x": {
               "field": "victoria_percent",
@@ -378,9 +352,7 @@
               }
             },
 
-
             "tooltip": [
-
               {
                 "field": "language",
                 "type": "nominal",
@@ -400,11 +372,9 @@
                 "title": "Victoria share (%)",
                 "format": ".2f"
               }
-
             ]
           }
         },
-
 
         {
           "mark": {
@@ -422,9 +392,7 @@
             "color": "#655A67"
           },
 
-
           "encoding": {
-
             "y": {
               "field": "language",
               "type": "nominal",
@@ -436,7 +404,6 @@
 
               "axis": null
             },
-
 
             "x": {
               "field": "victoria_percent",
@@ -450,24 +417,17 @@
               }
             },
 
-
             "text": {
-              "field": "victoria_percent",
-              "type": "quantitative",
-              "format": ".2f"
+              "field": "victoria_label",
+              "type": "nominal"
             }
-
           }
         }
-
       ]
     }
-
   ],
 
-
   "spacing": 4,
-
 
   "resolve": {
     "scale": {
@@ -475,16 +435,12 @@
     }
   },
 
-
   "config": {
-
     "font": "Source Sans 3",
-
 
     "view": {
       "stroke": null
     },
-
 
     "axis": {
       "labelFont": "Source Sans 3",
@@ -504,7 +460,6 @@
       "tickColor": "#BDAFA8"
     },
 
-
     "title": {
       "font": "Space Grotesk",
       "fontSize": 22,
@@ -517,7 +472,6 @@
       "subtitleColor": "#655A67"
     },
 
-
     "header": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
@@ -529,6 +483,5 @@
       "titleFontWeight": 700,
       "titleColor": "#4A2545"
     }
-
   }
 }
