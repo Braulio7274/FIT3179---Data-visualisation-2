@@ -20,11 +20,6 @@
   "title": {
     "text": "Where are Australia's migration streams concentrated?",
 
-    "subtitle": [
-      "Share of each migration stream currently recorded in each state or territory",
-      "Permanent settlement records, 2016–2025"
-    ],
-
     "anchor": "start",
 
     "font": "Space Grotesk",
@@ -116,25 +111,19 @@
 
         {
           "type": "formula",
-
           "as": "SkilledShare",
-
           "expr": "datum.AustraliaSkilled > 0 ? datum.SkilledTotal / datum.AustraliaSkilled * 100 : 0"
         },
 
         {
           "type": "formula",
-
           "as": "FamilyShare",
-
           "expr": "datum.AustraliaFamily > 0 ? datum.FamilyTotal / datum.AustraliaFamily * 100 : 0"
         },
 
         {
           "type": "formula",
-
           "as": "HumanitarianShare",
-
           "expr": "datum.AustraliaHumanitarian > 0 ? datum.HumanitarianTotal / datum.AustraliaHumanitarian * 100 : 0"
         }
       ]
@@ -153,7 +142,6 @@
       "transform": [
         {
           "type": "filter",
-
           "expr": "datum.properties.STATE_NAME != 'Other Territories'"
         },
 
@@ -161,7 +149,6 @@
           "type": "lookup",
 
           "from": "state_totals",
-
           "key": "State",
 
           "fields": [
@@ -732,6 +719,14 @@
         "update": {
           "fillOpacity": {
             "value": 1
+          },
+
+          "stroke": {
+            "value": "#FFF7ED"
+          },
+
+          "strokeWidth": {
+            "value": 1.4
           }
         },
 
@@ -788,6 +783,14 @@
         "update": {
           "fillOpacity": {
             "value": 1
+          },
+
+          "stroke": {
+            "value": "#FFF7ED"
+          },
+
+          "strokeWidth": {
+            "value": 1.4
           }
         },
 
@@ -844,6 +847,14 @@
         "update": {
           "fillOpacity": {
             "value": 1
+          },
+
+          "stroke": {
+            "value": "#FFF7ED"
+          },
+
+          "strokeWidth": {
+            "value": 1.4
           }
         },
 
