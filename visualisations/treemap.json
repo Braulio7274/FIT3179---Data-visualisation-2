@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v6.json",
 
-  "description": "2021 Census treemap of the 20 largest overseas birthplace groups. World regions are ranked by the sum of the displayed countries/places, not all birthplaces in each region.",
 
   "width": 1000,
   "height": 900,
@@ -22,12 +21,8 @@
 
 
   "title": {
-    "text": "Australia's largest overseas-born communities",
+    "text": "Where do Australia’s largest overseas-born communities come from?",
 
-    "subtitle": [
-      "2021 Census | 20 largest overseas birthplaces, grouped by world region.",
-      "Regions ranked by totals shown; countries/places ranked within their region."
-    ],
 
     "anchor": "start",
 
@@ -704,9 +699,6 @@
             "signal": "height + 16"
           },
 
-          "text": {
-            "value": "Region totals include only the 20 birthplaces shown, not all overseas-born residents from each region."
-          },
 
           "baseline": {
             "value": "top"
@@ -743,10 +735,6 @@
 
           "y": {
             "signal": "height + 34"
-          },
-
-          "text": {
-            "value": "Source: Australian Bureau of Statistics, 2021 Census General Community Profile, G09. Counts are people."
           },
 
           "baseline": {
