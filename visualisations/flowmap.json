@@ -1,17 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Selected major settler flows to Australian states with improved legend formatting and tooltips.",
-  "width": 930,
+  "width": 980,
   "height": 620,
-  "padding": 12,
   "background": "#FFF7ED",
 
   "title": {
-    "text": "Selected major settler flows to Australian states",
-    "subtitle": [
-      "Top 6 origin countries (excluding Australia) and their top 2 destination states, aggregated across Skilled, Family and Humanitarian streams, 2016–2025.",
-      "Line width shows the number of settlers."
-    ],
+    "text": "Where are migrants coming from and where are they settling?",
     "anchor": "start",
     "font": "Space Grotesk",
     "fontSize": 22,
@@ -21,15 +15,14 @@
     "subtitleFontSize": 12,
     "subtitleFontWeight": 400,
     "subtitleColor": "#655A67",
-    "subtitlePadding": 8,
-    "offset": 16
+    "subtitlePadding": 6
   },
 
   "projection": {
     "type": "equalEarth",
     "center": [100, 12],
-    "scale": 278,
-    "translate": [455, 322]
+    "scale": 265,
+    "translate": [490, 320]
   },
 
   "layer": [
@@ -61,17 +54,12 @@
       ],
       "mark": {
         "type": "line",
-        "opacity": 0.52,
+        "opacity": 0.5,
         "strokeCap": "round"
       },
       "encoding": {
         "detail": {
           "field": "flow_id"
-        },
-        "strokeDash": {
-          "field": "flow_rank",
-          "type": "ordinal",
-          "legend": null
         },
         "order": {
           "field": "point_order",
@@ -93,10 +81,12 @@
           },
           "legend": {
             "title": "Settlers",
-            "orient": "right",
-            "offset": 12,
+            "orient": "none",
+            "legendX": 760,
+            "legendY": 210,
+            "direction": "vertical",
             "values": [0, 50000, 100000, 150000],
-            "labelExpr": "datum.value == 0 ? '0' : format(datum.value/1000, '.0f') + 'k'",
+            "labelExpr": "datum.value == 0 ? '0' : datum.value == 50000 ? '50k' : datum.value == 100000 ? '100k' : datum.value == 150000 ? '150k' : format(datum.value, ',')",
             "titleFont": "Source Sans 3",
             "titleFontSize": 12,
             "titleFontWeight": 700,
@@ -125,10 +115,11 @@
           },
           "legend": {
             "title": "Destination state",
-            "orient": "right",
-            "offset": 12,
-            "labelLimit": 220,
-            "titleLimit": 220,
+            "orient": "none",
+            "legendX": 760,
+            "legendY": 115,
+            "direction": "vertical",
+            "labelLimit": 180,
             "titleFont": "Source Sans 3",
             "titleFontSize": 12,
             "titleFontWeight": 700,
@@ -184,21 +175,19 @@
               "op": "max",
               "field": "lat",
               "as": "lat"
-            },
-            {
-              "op": "max",
-              "field": "country_total",
-              "as": "country_total"
             }
           ],
-          "groupby": ["origin_country", "origin_label"]
+          "groupby": [
+            "origin_country",
+            "origin_label"
+          ]
         }
       ],
       "mark": {
         "type": "point",
         "filled": true,
         "shape": "circle",
-        "size": 85,
+        "size": 80,
         "color": "#a54c49",
         "stroke": "white",
         "strokeWidth": 1.1
@@ -211,39 +200,50 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        },
-        "tooltip": [
-          {
-            "field": "origin_label",
-            "type": "nominal",
-            "title": "Origin country"
-          },
-          {
-            "field": "country_total",
-            "type": "quantitative",
-            "title": "Total settlers from origin",
-            "format": ","
-          }
-        ]
+        }
       }
     },
 
     {
       "data": {
         "values": [
-          { "name": "United Kingdom", "lon": -3.436, "lat": 55.3781 },
-          { "name": "Pakistan", "lon": 69.3451, "lat": 30.3753 },
-          { "name": "Nepal", "lon": 84.124, "lat": 28.3949 },
-          { "name": "India", "lon": 78.9629, "lat": 22.5937 },
-          { "name": "China", "lon": 104.1954, "lat": 35.8617 },
-          { "name": "Philippines", "lon": 121.774, "lat": 12.8797 }
+          {
+            "name": "United Kingdom",
+            "lon": -3.436,
+            "lat": 55.3781
+          },
+          {
+            "name": "Pakistan",
+            "lon": 69.3451,
+            "lat": 30.3753
+          },
+          {
+            "name": "Nepal",
+            "lon": 84.124,
+            "lat": 28.3949
+          },
+          {
+            "name": "India",
+            "lon": 78.9629,
+            "lat": 22.5937
+          },
+          {
+            "name": "China",
+            "lon": 104.1954,
+            "lat": 35.8617
+          },
+          {
+            "name": "Philippines",
+            "lon": 121.774,
+            "lat": 12.8797
+          }
         ]
       },
       "mark": {
         "type": "text",
         "font": "Source Sans 3",
         "fontSize": 11,
-        "fontWeight": 600,
+        "fontWeight": "bold",
         "color": "#7f1d1d",
         "dx": 6,
         "dy": -6,
@@ -285,14 +285,17 @@
               "as": "lat"
             }
           ],
-          "groupby": ["destination_state", "destination_abbr"]
+          "groupby": [
+            "destination_state",
+            "destination_abbr"
+          ]
         }
       ],
       "mark": {
         "type": "point",
         "filled": true,
         "shape": "diamond",
-        "size": 135,
+        "size": 130,
         "stroke": "white",
         "strokeWidth": 1.1
       },
@@ -323,37 +326,41 @@
               "#66a61e"
             ]
           }
-        },
-        "tooltip": [
-          {
-            "field": "destination_state",
-            "type": "nominal",
-            "title": "Destination state"
-          },
-          {
-            "field": "destination_abbr",
-            "type": "nominal",
-            "title": "Abbreviation"
-          }
-        ]
+        }
       }
     },
 
     {
       "data": {
         "values": [
-          { "abbr": "WA", "lon": 115.8605, "lat": -31.9505 },
-          { "abbr": "VIC", "lon": 144.9631, "lat": -37.8136 },
-          { "abbr": "NSW", "lon": 151.2093, "lat": -33.8688 },
-          { "abbr": "QLD", "lon": 153.026, "lat": -27.4705 }
+          {
+            "abbr": "WA",
+            "lon": 115.8605,
+            "lat": -31.9505
+          },
+          {
+            "abbr": "VIC",
+            "lon": 144.9631,
+            "lat": -37.8136
+          },
+          {
+            "abbr": "NSW",
+            "lon": 151.2093,
+            "lat": -33.8688
+          },
+          {
+            "abbr": "QLD",
+            "lon": 153.026,
+            "lat": -27.4705
+          }
         ]
       },
       "mark": {
         "type": "text",
         "font": "Source Sans 3",
         "fontSize": 11,
-        "fontWeight": 600,
-        "color": "#4A2545",
+        "fontWeight": "bold",
+        "color": "#222",
         "dx": 8,
         "dy": 8,
         "align": "left"
@@ -385,7 +392,7 @@
       "labelColor": "#655A67",
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
-      "titleFontWeight": 700,
+      "titleFontWeight": 600,
       "titleColor": "#4A2545"
     },
     "title": {
