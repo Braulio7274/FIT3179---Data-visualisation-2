@@ -1,31 +1,45 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
   "description": "Dumbbell chart comparing the share of residents born overseas with the share who use a language other than English at home across Australian states and territories, 2021 Census.",
 
-  "width": 700,
-  "height": 380,
+  "width": 900,
+  "height": 500,
+
   "background": "#FFF7ED",
+
+  "padding": {
+    "left": 20,
+    "right": 30,
+    "top": 10,
+    "bottom": 20
+  },
 
   "title": {
     "text": "How do migration and language diversity compare across Australia?",
-    "subtitle": "Share of residents born overseas vs using a language other than English at home — 2021 Census",
+
     "anchor": "start",
+
     "font": "Space Grotesk",
     "fontSize": 22,
     "fontWeight": 700,
     "color": "#4A2545",
+
     "subtitleFont": "Source Sans 3",
     "subtitleFontSize": 12,
     "subtitleFontWeight": 400,
     "subtitleColor": "#655A67",
+
     "subtitlePadding": 8,
     "offset": 20
   },
 
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_diversity_dumbbell.csv",
+
     "format": {
       "type": "csv",
+
       "parse": {
         "overseas_percent": "number",
         "other_language_percent": "number",
@@ -36,166 +50,353 @@
     }
   },
 
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+
+      "sort": [
+        "Western Australia",
+        "Victoria",
+        "New South Wales",
+        "Australian Capital Territory",
+        "South Australia",
+        "Queensland",
+        "Northern Territory",
+        "Tasmania"
+      ],
+
+      "axis": {
+        "title": null,
+
+        "labelFont": "Source Sans 3",
+        "labelFontSize": 12,
+        "labelFontWeight": 500,
+        "labelColor": "#655A67",
+
+        "labelPadding": 10,
+        "labelLimit": 220,
+
+        "ticks": false,
+        "domain": false
+      }
+    }
+  },
+
   "layer": [
     {
       "mark": {
         "type": "rule",
+
         "stroke": "#B8BEC7",
         "strokeWidth": 3
       },
+
       "encoding": {
-        "y": {
-          "field": "state",
-          "type": "nominal",
-          "sort": [
-            "Western Australia",
-            "Victoria",
-            "New South Wales",
-            "Australian Capital Territory",
-            "South Australia",
-            "Queensland",
-            "Northern Territory",
-            "Tasmania"
-          ],
-          "axis": {
-            "title": null,
-            "labelFont": "Source Sans 3",
-            "labelFontSize": 12,
-            "labelFontWeight": 500,
-            "labelColor": "#655A67",
-            "labelPadding": 8
-          }
-        },
         "x": {
           "field": "other_language_percent",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 35]
+            "domain": [
+              0,
+              35
+            ]
           },
+
           "axis": {
             "title": "Share of state/territory population (%)",
-            "titleFont": "Source Sans 3",
-            "titleFontSize": 12,
-            "titleFontWeight": 600,
-            "titleColor": "#4A2545",
+
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              35
+            ],
+
+            "labelExpr": "datum.value + '%'",
+
             "labelFont": "Source Sans 3",
             "labelFontSize": 11,
             "labelFontWeight": 400,
             "labelColor": "#655A67",
+
+            "labelPadding": 7,
+
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 13,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+
+            "titlePadding": 14,
+
             "grid": true,
             "gridColor": "#DED3C8",
-            "gridOpacity": 0.7,
-            "tickCount": 8,
-            "labelExpr": "datum.value + '%'",
+            "gridOpacity": 0.55,
+
             "domain": false,
-            "tickColor": "#BDAFA8"
+            "ticks": false
           }
         },
+
         "x2": {
           "field": "overseas_percent"
         }
       }
     },
+
     {
       "transform": [
         {
-          "fold": ["overseas_percent", "other_language_percent"],
-          "as": ["metric", "percentage"]
+          "fold": [
+            "overseas_percent",
+            "other_language_percent"
+          ],
+
+          "as": [
+            "metric",
+            "percentage"
+          ]
         },
+
         {
           "calculate": "datum.metric == 'overseas_percent' ? 'Born overseas' : 'Uses a language other than English at home'",
+
           "as": "metric_label"
         },
+
         {
           "calculate": "datum.metric == 'overseas_percent' ? datum.overseas_born : datum.uses_other_language",
+
           "as": "people"
         }
       ],
+
       "mark": {
         "type": "point",
+
         "filled": true,
-        "size": 150,
-        "stroke": "white",
-        "strokeWidth": 1.2
+
+        "size": 165,
+
+        "stroke": "#FFF7ED",
+        "strokeWidth": 1.5
       },
+
       "encoding": {
-        "y": {
-          "field": "state",
-          "type": "nominal",
-          "sort": [
-            "Western Australia",
-            "Victoria",
-            "New South Wales",
-            "Australian Capital Territory",
-            "South Australia",
-            "Queensland",
-            "Northern Territory",
-            "Tasmania"
-          ],
-          "axis": null
-        },
         "x": {
           "field": "percentage",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 35]
+            "domain": [
+              0,
+              35
+            ]
           },
-          "axis": null
+
+          "axis": {
+            "title": "Share of state/territory population (%)",
+
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              35
+            ],
+
+            "labelExpr": "datum.value + '%'",
+
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "labelFontWeight": 400,
+            "labelColor": "#655A67",
+
+            "labelPadding": 7,
+
+            "titleFont": "Source Sans 3",
+            "titleFontSize": 13,
+            "titleFontWeight": 600,
+            "titleColor": "#4A2545",
+
+            "titlePadding": 14,
+
+            "grid": true,
+            "gridColor": "#DED3C8",
+            "gridOpacity": 0.55,
+
+            "domain": false,
+            "ticks": false
+          }
         },
+
         "color": {
           "field": "metric_label",
           "type": "nominal",
+
           "scale": {
             "domain": [
               "Born overseas",
               "Uses a language other than English at home"
             ],
+
             "range": [
               "#4472A8",
               "#D97B29"
             ]
           },
+
           "legend": {
             "title": null,
+
             "orient": "top",
             "direction": "horizontal",
+
+            "columns": 2,
+
+            "columnPadding": 30,
+
             "symbolType": "circle",
+            "symbolSize": 90,
+
+            "symbolOffset": 7,
+
             "labelFont": "Source Sans 3",
             "labelFontSize": 11,
             "labelFontWeight": 400,
-            "labelColor": "#655A67"
+            "labelColor": "#655A67",
+
+            "labelLimit": 420,
+
+            "offset": 12
           }
         },
+
         "tooltip": [
           {
             "field": "state",
             "type": "nominal",
             "title": "State / territory"
           },
+
           {
             "field": "metric_label",
             "type": "nominal",
             "title": "Measure"
           },
+
           {
             "field": "percentage",
             "type": "quantitative",
-            "title": "Share of population",
+            "title": "Share of population (%)",
             "format": ".1f"
           },
+
           {
             "field": "people",
             "type": "quantitative",
             "title": "People",
             "format": ","
-          },
-          {
-            "field": "total_population",
-            "type": "quantitative",
-            "title": "Population",
-            "format": ","
           }
         ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state == 'Western Australia'"
+        },
+
+        {
+          "calculate": "(datum.overseas_percent + datum.other_language_percent) / 2",
+
+          "as": "annotation_x"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+
+        "text": "Large gap between the two measures",
+
+        "align": "center",
+        "baseline": "bottom",
+
+        "dy": -16,
+
+        "font": "Source Sans 3",
+        "fontSize": 11,
+        "fontWeight": 700,
+
+        "color": "#4A2545"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "annotation_x",
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [
+              0,
+              35
+            ]
+          }
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state == 'Northern Territory'"
+        },
+
+        {
+          "calculate": "(datum.overseas_percent + datum.other_language_percent) / 2",
+
+          "as": "annotation_x"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+
+        "text": "Language share is higher here",
+
+        "align": "center",
+        "baseline": "bottom",
+
+        "dy": -16,
+
+        "font": "Source Sans 3",
+        "fontSize": 11,
+        "fontWeight": 700,
+
+        "color": "#4A2545"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "annotation_x",
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [
+              0,
+              35
+            ]
+          }
+        }
       }
     }
   ],
@@ -219,14 +420,17 @@
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
+
       "titleFont": "Source Sans 3",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#4A2545",
+
       "gridColor": "#DED3C8",
-      "gridOpacity": 0.7,
+      "gridOpacity": 0.55,
+
       "domain": false,
-      "tickColor": "#BDAFA8"
+      "ticks": false
     },
 
     "legend": {
@@ -234,9 +438,12 @@
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
+
+      "labelLimit": 420,
+
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
-      "titleFontWeight": 600,
+      "titleFontWeight": 700,
       "titleColor": "#4A2545"
     },
 
@@ -245,6 +452,7 @@
       "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
+
       "subtitleFont": "Source Sans 3",
       "subtitleFontSize": 12,
       "subtitleFontWeight": 400,
