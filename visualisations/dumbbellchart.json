@@ -75,7 +75,7 @@
         "labelColor": "#655A67",
 
         "labelPadding": 10,
-        "labelLimit": 220,
+        "labelLimit": 400,
 
         "ticks": false,
         "domain": false
@@ -274,7 +274,7 @@
             "labelFontWeight": 400,
             "labelColor": "#655A67",
 
-            "labelLimit": 420,
+            "labelLimit": 800,
 
             "offset": 12
           }
