@@ -426,35 +426,36 @@
   "legends": [
     {
       "fill": "hexColor",
-
+  
       "title": "Overseas-born residents",
-
+  
       "orient": "none",
-
+  
       "legendX": 40,
       "legendY": 530,
-
+  
       "direction": "horizontal",
-
-      "gradientLength": 240,
+  
+      "gradientLength": 260,
       "gradientThickness": 12,
-
+  
       "format": "~s",
-
+  
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
       "titleColor": "#4A2545",
-
+  
+      "titleLimit": 400,
+  
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
-      "titleLimit": 250,
-      "labelLimit": 80
+  
+      "labelLimit": 120
     }
-  ],
+  ]
 
 
   "marks": [
