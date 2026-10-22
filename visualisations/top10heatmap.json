@@ -101,7 +101,7 @@
         "labelColor": "#655A67",
 
         "labelPadding": 8,
-        "labelLimit": 300,
+        "labelLimit": 500,
 
         "ticks": false,
         "domain": false
