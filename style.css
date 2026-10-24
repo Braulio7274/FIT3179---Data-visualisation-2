@@ -827,6 +827,7 @@ img {
   font-family: var(--font-body) !important;
 }
 
+
 /* =========================================================
    CONCLUSION
 ========================================================= */
@@ -1065,9 +1066,7 @@ img {
 
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+
 
 /* =========================================================
    FOOTER
@@ -1108,6 +1107,8 @@ img {
 .project-footer p:last-child {
   margin-bottom: 0;
 }
+
+
 
 /* =========================================================
    TABLET
@@ -1305,6 +1306,30 @@ img {
 
   .footer-inner p {
     text-align: left;
+  }
+
+}
+
+
+
+/* =========================================================
+   REMOVE HORIZONTAL DIVIDER LINES
+========================================================= */
+
+.story-section + .story-section,
+.viz-note,
+.subsection,
+.limitations-block,
+.project-footer,
+.stats-row {
+  border-top: none;
+}
+
+
+@media (max-width: 700px) {
+
+  .stat {
+    border-bottom: none;
   }
 
 }
