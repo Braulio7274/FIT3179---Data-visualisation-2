@@ -194,9 +194,9 @@ img {
 
 .intro-section {
   padding:
-    30px
+    24px
     0
-    78px;
+    60px;
 }
 
 
@@ -371,9 +371,9 @@ img {
   margin-inline: auto;
 
   padding:
-    clamp(56px, 5vw, 78px)
+    clamp(42px, 4vw, 58px)
     0
-    clamp(64px, 5.5vw, 88px);
+    clamp(48px, 4.5vw, 66px);
 }
 
 
@@ -390,9 +390,9 @@ img {
 
   margin-bottom:
     clamp(
-      34px,
-      3.5vw,
-      50px
+      28px,
+      3vw,
+      40px
     );
 }
 
@@ -481,9 +481,9 @@ img {
 
   gap:
     clamp(
-      54px,
-      5vw,
-      78px
+      42px,
+      4vw,
+      58px
     );
 }
 
@@ -734,16 +734,16 @@ img {
 .subsection {
   margin-top:
     clamp(
-      58px,
-      5vw,
-      82px
+      44px,
+      4vw,
+      60px
     );
 
   padding-top:
     clamp(
-      40px,
-      4vw,
-      56px
+      32px,
+      3vw,
+      44px
     );
 
   border-top:
@@ -832,14 +832,14 @@ img {
 ========================================================= */
 
 .conclusion-section {
-  padding-bottom: 120px;
+  padding-bottom: 78px;
 }
 
 
 .conclusion-copy {
   max-width: 1150px;
 
-  margin-bottom: 62px;
+  margin-bottom: 46px;
 }
 
 
@@ -878,7 +878,7 @@ img {
 
   align-items: center;
 
-  padding-top: 48px;
+  padding-top: 38px;
 
   border-top: 1px solid var(--divider);
 }
@@ -1030,12 +1030,12 @@ img {
 @media (max-width: 700px) {
 
   .conclusion-section {
-    padding-bottom: 80px;
+    padding-bottom: 55px;
   }
 
 
   .conclusion-copy {
-    margin-bottom: 65px;
+    margin-bottom: 45px;
   }
 
 
@@ -1045,7 +1045,7 @@ img {
 
 
   .limitations-block {
-    padding-top: 50px;
+    padding-top: 35px;
   }
 
 
@@ -1076,12 +1076,12 @@ img {
 .project-footer {
   width: 100%;
 
-  margin-top: 35px;
+  margin-top: 20px;
 
   padding:
-    32px
+    24px
     5%
-    42px;
+    32px;
 
   border-top: 1px solid var(--divider);
 
@@ -1148,7 +1148,7 @@ img {
 
 
   .section-heading {
-    margin-bottom: 50px;
+    margin-bottom: 38px;
   }
 
 }
@@ -1169,9 +1169,9 @@ img {
 
   .hero {
     padding:
-      70px
+      58px
       0
-      62px;
+      28px;
   }
 
 
@@ -1189,9 +1189,9 @@ img {
 
   .intro-section {
     padding:
-      48px
+      24px
       0
-      68px;
+      52px;
   }
 
 
@@ -1234,9 +1234,9 @@ img {
 
   .story-section {
     padding:
-      48px
+      38px
       0
-      58px;
+      44px;
   }
 
 
@@ -1256,12 +1256,12 @@ img {
 
 
   .stacked-visuals {
-    gap: 50px;
+    gap: 40px;
   }
 
 
   .paired-visuals {
-    gap: 50px;
+    gap: 40px;
   }
 
 
@@ -1274,8 +1274,8 @@ img {
 
 
   .subsection {
-    margin-top: 52px;
-    padding-top: 38px;
+    margin-top: 42px;
+    padding-top: 30px;
   }
 
 
