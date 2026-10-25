@@ -623,6 +623,12 @@ img {
 }
 
 
+.viz--streamgraph {
+  --viz-max: 1080px;
+  --loading-height: 520px;
+}
+
+
 .viz--sankey {
   --viz-max: 1080px;
   --loading-height: 700px;
