@@ -1369,12 +1369,12 @@ img {
 
 /* Tighten spacing for Sankey visualisation */
 .viz--sankey .chart-title {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .viz--sankey .viz-frame {
-  margin-top: -24px;
-  margin-bottom: -28px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .viz--sankey .viz-note {
