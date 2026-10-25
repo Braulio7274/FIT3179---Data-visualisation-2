@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega/v6.json",
   "description": "Small-multiple maps comparing how Australia's Skilled, Family and Humanitarian migration streams are distributed across states and territories.",
   "width": 1120,
-  "height": 510,
+  "height": 440,
   "padding": {
     "left": 20,
     "right": 20,
@@ -252,7 +252,7 @@
       "scale": 355,
       "translate": [
         225,
-        230
+        190
       ]
     },
     {
@@ -265,7 +265,7 @@
       "scale": 355,
       "translate": [
         560,
-        230
+        190
       ]
     },
     {
@@ -278,7 +278,7 @@
       "scale": 355,
       "translate": [
         895,
-        230
+        190
       ]
     }
   ],
@@ -335,7 +335,7 @@
       "title": "Share of Skilled stream",
       "orient": "none",
       "legendX": 112,
-      "legendY": 408,
+      "legendY": 340,
       "direction": "horizontal",
       "gradientLength": 225,
       "gradientThickness": 11,
@@ -363,7 +363,7 @@
       "title": "Share of Family stream",
       "orient": "none",
       "legendX": 447,
-      "legendY": 408,
+      "legendY": 340,
       "direction": "horizontal",
       "gradientLength": 225,
       "gradientThickness": 11,
@@ -391,7 +391,7 @@
       "title": "Share of Humanitarian stream",
       "orient": "none",
       "legendX": 782,
-      "legendY": 408,
+      "legendY": 340,
       "direction": "horizontal",
       "gradientLength": 225,
       "gradientThickness": 11,
@@ -424,7 +424,7 @@
             "value": 225
           },
           "y": {
-            "value": 65
+            "value": 35
           },
           "text": {
             "value": "Skilled"
@@ -455,7 +455,7 @@
             "value": 560
           },
           "y": {
-            "value": 65
+            "value": 35
           },
           "text": {
             "value": "Family"
@@ -486,7 +486,7 @@
             "value": 895
           },
           "y": {
-            "value": 65
+            "value": 35
           },
           "text": {
             "value": "Humanitarian"
