@@ -1400,3 +1400,8 @@ img {
 .project-footer {
   border-top: 1px solid var(--divider);
 }
+
+/* Shift dumbbell chart left */
+#dumbbell .vega-embed {
+  transform: translateX(-70px);
+}
