@@ -251,7 +251,7 @@
       ],
       "scale": 355,
       "translate": [
-        175,
+        225,
         230
       ]
     },
@@ -277,7 +277,7 @@
       ],
       "scale": 355,
       "translate": [
-        945,
+        895,
         230
       ]
     }
@@ -334,7 +334,7 @@
       "fill": "skilledColor",
       "title": "Share of Skilled stream",
       "orient": "none",
-      "legendX": 62,
+      "legendX": 112,
       "legendY": 408,
       "direction": "horizontal",
       "gradientLength": 225,
@@ -390,7 +390,7 @@
       "fill": "humanitarianColor",
       "title": "Share of Humanitarian stream",
       "orient": "none",
-      "legendX": 832,
+      "legendX": 782,
       "legendY": 408,
       "direction": "horizontal",
       "gradientLength": 225,
@@ -421,7 +421,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 175
+            "value": 225
           },
           "y": {
             "value": 65
@@ -483,7 +483,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 945
+            "value": 895
           },
           "y": {
             "value": 65
