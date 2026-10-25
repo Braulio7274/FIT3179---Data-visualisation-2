@@ -1,37 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-
   "description": "Butterfly chart comparing the share of the population speaking the ten most common non-English languages at home in New South Wales and Victoria, 2021 Census.",
-
   "background": "#FFF7ED",
-
   "padding": 20,
-
-  "title": {
-    "text": "How do language communities differ between New South Wales and Victoria?",
-
-    "anchor": "start",
-
-    "font": "Space Grotesk",
-    "fontSize": 22,
-    "fontWeight": 700,
-    "color": "#4A2545",
-
-    "subtitleFont": "Source Sans 3",
-    "subtitleFontSize": 12,
-    "subtitleFontWeight": 400,
-    "subtitleColor": "#655A67",
-
-    "subtitlePadding": 8,
-    "offset": 20
-  },
-
   "data": {
     "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/nsw_victoria_language_butterfly.csv",
-
     "format": {
       "type": "csv",
-
       "parse": {
         "rank": "number",
         "nsw_speakers": "number",
@@ -41,7 +16,6 @@
       }
     }
   },
-
   "transform": [
     {
       "calculate": "format(datum.nsw_percent, '.2f') + '%'",
@@ -52,64 +26,48 @@
       "as": "victoria_label"
     }
   ],
-
   "hconcat": [
     {
       "width": 330,
       "height": 420,
-
       "title": {
         "text": "New South Wales",
-
         "font": "Space Grotesk",
         "fontSize": 17,
         "fontWeight": 700,
         "color": "#4A2545",
-
         "anchor": "middle",
-
         "offset": 12
       },
-
       "layer": [
         {
           "mark": {
             "type": "bar",
-
             "color": "#4C78A8",
-
             "cornerRadiusEnd": 2
           },
-
           "encoding": {
             "y": {
               "field": "language",
               "type": "nominal",
-
               "sort": {
                 "field": "rank",
                 "order": "ascending"
               },
-
               "axis": null
             },
-
             "x": {
               "field": "nsw_percent",
               "type": "quantitative",
-
               "scale": {
                 "domain": [
                   0,
                   4
                 ],
-
                 "reverse": true
               },
-
               "axis": {
                 "title": "Share of state population (%)",
-
                 "values": [
                   0,
                   1,
@@ -117,44 +75,35 @@
                   3,
                   4
                 ],
-
                 "labelExpr": "datum.value + '%'",
-
                 "titleFont": "Source Sans 3",
                 "titleFontSize": 12,
                 "titleFontWeight": 600,
                 "titleColor": "#4A2545",
-
                 "titlePadding": 12,
-
                 "labelFont": "Source Sans 3",
                 "labelFontSize": 11,
                 "labelFontWeight": 400,
                 "labelColor": "#655A67",
-
                 "grid": true,
                 "gridColor": "#DED3C8",
                 "gridOpacity": 0.7,
-
                 "domainColor": "#BDAFA8",
                 "tickColor": "#BDAFA8"
               }
             },
-
             "tooltip": [
               {
                 "field": "language",
                 "type": "nominal",
                 "title": "Language"
               },
-
               {
                 "field": "nsw_speakers",
                 "type": "quantitative",
                 "title": "NSW speakers",
                 "format": ",.0f"
               },
-
               {
                 "field": "nsw_percent",
                 "type": "quantitative",
@@ -164,50 +113,38 @@
             ]
           }
         },
-
         {
           "mark": {
             "type": "text",
-
             "align": "right",
             "baseline": "middle",
-
             "dx": -5,
-
             "font": "Source Sans 3",
             "fontSize": 11,
             "fontWeight": 600,
-
             "color": "#655A67"
           },
-
           "encoding": {
             "y": {
               "field": "language",
               "type": "nominal",
-
               "sort": {
                 "field": "rank",
                 "order": "ascending"
               },
-
               "axis": null
             },
-
             "x": {
               "field": "nsw_percent",
               "type": "quantitative",
-
               "scale": {
                 "domain": [
                   0,
                   4
                 ],
-
                 "reverse": true
               }
             },
-
             "text": {
               "field": "nsw_label",
               "type": "nominal"
@@ -216,111 +153,83 @@
         }
       ]
     },
-
     {
       "width": 115,
       "height": 420,
-
       "title": {
         "text": "Language",
-
         "font": "Space Grotesk",
         "fontSize": 17,
         "fontWeight": 700,
         "color": "#4A2545",
-
         "anchor": "middle",
-
         "offset": 12
       },
-
       "mark": {
         "type": "text",
-
         "font": "Source Sans 3",
         "fontSize": 12,
         "fontWeight": 600,
-
         "align": "center",
         "baseline": "middle",
-
         "color": "#4A2545"
       },
-
       "encoding": {
         "y": {
           "field": "language",
           "type": "nominal",
-
           "sort": {
             "field": "rank",
             "order": "ascending"
           },
-
           "axis": null
         },
-
         "text": {
           "field": "language",
           "type": "nominal"
         }
       }
     },
-
     {
       "width": 330,
       "height": 420,
-
       "title": {
         "text": "Victoria",
-
         "font": "Space Grotesk",
         "fontSize": 17,
         "fontWeight": 700,
         "color": "#4A2545",
-
         "anchor": "middle",
-
         "offset": 12
       },
-
       "layer": [
         {
           "mark": {
             "type": "bar",
-
             "color": "#F58518",
-
             "cornerRadiusEnd": 2
           },
-
           "encoding": {
             "y": {
               "field": "language",
               "type": "nominal",
-
               "sort": {
                 "field": "rank",
                 "order": "ascending"
               },
-
               "axis": null
             },
-
             "x": {
               "field": "victoria_percent",
               "type": "quantitative",
-
               "scale": {
                 "domain": [
                   0,
                   4
                 ]
               },
-
               "axis": {
                 "title": "Share of state population (%)",
-
                 "values": [
                   0,
                   1,
@@ -328,44 +237,35 @@
                   3,
                   4
                 ],
-
                 "labelExpr": "datum.value + '%'",
-
                 "titleFont": "Source Sans 3",
                 "titleFontSize": 12,
                 "titleFontWeight": 600,
                 "titleColor": "#4A2545",
-
                 "titlePadding": 12,
-
                 "labelFont": "Source Sans 3",
                 "labelFontSize": 11,
                 "labelFontWeight": 400,
                 "labelColor": "#655A67",
-
                 "grid": true,
                 "gridColor": "#DED3C8",
                 "gridOpacity": 0.7,
-
                 "domainColor": "#BDAFA8",
                 "tickColor": "#BDAFA8"
               }
             },
-
             "tooltip": [
               {
                 "field": "language",
                 "type": "nominal",
                 "title": "Language"
               },
-
               {
                 "field": "victoria_speakers",
                 "type": "quantitative",
                 "title": "Victoria speakers",
                 "format": ",.0f"
               },
-
               {
                 "field": "victoria_percent",
                 "type": "quantitative",
@@ -375,40 +275,30 @@
             ]
           }
         },
-
         {
           "mark": {
             "type": "text",
-
             "align": "left",
             "baseline": "middle",
-
             "dx": 5,
-
             "font": "Source Sans 3",
             "fontSize": 11,
             "fontWeight": 600,
-
             "color": "#655A67"
           },
-
           "encoding": {
             "y": {
               "field": "language",
               "type": "nominal",
-
               "sort": {
                 "field": "rank",
                 "order": "ascending"
               },
-
               "axis": null
             },
-
             "x": {
               "field": "victoria_percent",
               "type": "quantitative",
-
               "scale": {
                 "domain": [
                   0,
@@ -416,7 +306,6 @@
                 ]
               }
             },
-
             "text": {
               "field": "victoria_label",
               "type": "nominal"
@@ -426,58 +315,46 @@
       ]
     }
   ],
-
   "spacing": 4,
-
   "resolve": {
     "scale": {
       "y": "shared"
     }
   },
-
   "config": {
     "font": "Source Sans 3",
-
     "view": {
       "stroke": null
     },
-
     "axis": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 600,
       "titleColor": "#4A2545",
-
       "gridColor": "#DED3C8",
       "gridOpacity": 0.7,
-
       "domainColor": "#BDAFA8",
       "tickColor": "#BDAFA8"
     },
-
     "title": {
       "font": "Space Grotesk",
       "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
-
       "subtitleFont": "Source Sans 3",
       "subtitleFontSize": 12,
       "subtitleFontWeight": 400,
       "subtitleColor": "#655A67"
     },
-
     "header": {
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
       "titleFont": "Space Grotesk",
       "titleFontSize": 17,
       "titleFontWeight": 700,
