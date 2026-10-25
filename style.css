@@ -1339,7 +1339,7 @@ img {
 ========================================================= */
 
 .paired-visuals .viz-frame {
-  height: 650px;
+  height: 520px;
 
   display: flex;
   align-items: flex-start;
