@@ -48,7 +48,7 @@
 
   <link
     rel="stylesheet"
-    href="style.css?v=34"
+    href="style.css?v=35"
   >
 
 </head>
@@ -666,28 +666,58 @@
       </header>
 
 
-      <figure class="viz-card viz--bump">
+      <div class="stacked-visuals">
 
-        <h3 class="chart-title">Which states have the highest proportion of Skilled migration?</h3>
 
-        <div class="viz-frame">
+        <figure class="viz-card viz--bump">
 
-          <div
-            id="bump-chart"
-            class="chart-mount"
-            data-spec="visualisations/bumpchart.json"
-            aria-label="Bump chart ranking states by the proportion of settlers in the Skilled migration stream"
-          ></div>
+          <h3 class="chart-title">Which states have the highest proportion of Skilled migration?</h3>
 
-        </div>
+          <div class="viz-frame">
 
-        <figcaption class="viz-note">
+            <div
+              id="bump-chart"
+              class="chart-mount"
+              data-spec="visualisations/bumpchart.json"
+              aria-label="Bump chart ranking states by the proportion of settlers in the Skilled migration stream"
+            ></div>
 
-          The ranking of states by Skilled migration share changes throughout 2016–2025 rather than remaining fixed. Crossovers between the lines show states moving above and below one another as Skilled migrants account for different proportions of their annual permanent settlement.
+          </div>
 
-        </figcaption>
+          <figcaption class="viz-note">
 
-      </figure>
+            The ranking of states by Skilled migration share changes throughout 2016–2025 rather than remaining fixed. Crossovers between the lines show states moving above and below one another as Skilled migrants account for different proportions of their annual permanent settlement.
+
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="viz-card viz--streamgraph">
+
+          <h3 class="chart-title">How have Australia's migration streams changed over time?</h3>
+
+          <div class="viz-frame">
+
+            <div
+              id="streamgraph"
+              class="chart-mount"
+              data-spec="visualisations/streamgraph.json"
+              aria-label="Streamgraph showing annual Skilled, Family and Humanitarian migration volumes from 2016 to 2025"
+            ></div>
+
+          </div>
+
+          <figcaption class="viz-note">
+
+            The streamgraph compares the national volume of Skilled, Family and Humanitarian settlement from 2016 to 2025. Changes in the thickness of each band show how the size and balance of the three migration pathways shift across the decade.
+
+          </figcaption>
+
+        </figure>
+
+
+      </div>
 
     </section>
 
@@ -934,7 +964,7 @@
       an older cached copy.
     */
 
-    const ASSET_VERSION = "37";
+    const ASSET_VERSION = "38";
 
 
     const embedOptions = {
