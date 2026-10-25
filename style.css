@@ -468,6 +468,32 @@ img {
 
 
 /* =========================================================
+   CHART TITLES
+========================================================= */
+
+.chart-title {
+  width: min(
+    100%,
+    var(--viz-max, 100%)
+  );
+
+  margin:
+    0
+    auto
+    16px;
+
+  color: var(--heading);
+
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+
+/* =========================================================
    VISUALISATION LAYOUTS
 ========================================================= */
 
@@ -671,12 +697,10 @@ img {
 .chart-mount svg {
   display: block;
 
-  width: auto !important;
+  width: 100% !important;
   height: auto !important;
 
   max-width: 100% !important;
-
-  margin-inline: auto;
 }
 
 
