@@ -104,7 +104,10 @@
             "labelColor": "#655A67",
             "tickColor": "#DED3C8",
             "domainColor": "#DED3C8",
-            "grid": false
+            "grid": true,
+            "gridColor": "#DED3C8",
+            "gridOpacity": 0.7,
+            "gridWidth": 1
           }
         },
         "y": {
