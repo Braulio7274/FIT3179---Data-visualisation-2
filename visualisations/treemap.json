@@ -1,194 +1,124 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v6.json",
-
-
   "width": 1000,
   "height": 900,
-
   "padding": 16,
-
   "autosize": "pad",
-
   "background": "#FFF7ED",
-
-
   "signals": [
     {
       "name": "headerHeight",
       "value": 40
     }
   ],
-
-
-  "title": {
-    "text": "Where do Australia’s largest overseas-born communities come from?",
-
-
-    "anchor": "start",
-
-    "font": "Space Grotesk",
-    "fontSize": 22,
-    "fontWeight": 700,
-    "color": "#4A2545",
-
-    "subtitleFont": "Source Sans 3",
-    "subtitleFontSize": 12,
-    "subtitleFontWeight": "normal",
-    "subtitleColor": "#655A67",
-
-    "subtitlePadding": 8,
-    "offset": 20
-  },
-
-
   "data": [
     {
       "name": "births",
-
       "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/country_birth.csv",
-
       "format": {
         "type": "csv",
-
         "parse": {
           "population": "number"
         },
-
         "delimiter": ","
       },
-
       "transform": [
         {
           "type": "window",
-
           "groupby": [
             "region"
           ],
-
           "sort": {
             "field": [
               "population",
               "country"
             ],
-
             "order": [
               "descending",
               "ascending"
             ]
           },
-
           "ops": [
             "row_number"
           ],
-
           "as": [
             "country_rank"
           ]
         }
       ]
     },
-
-
     {
       "name": "region_totals",
-
       "source": "births",
-
       "transform": [
         {
           "type": "aggregate",
-
           "groupby": [
             "region"
           ],
-
           "fields": [
             "population"
           ],
-
           "ops": [
             "sum"
           ],
-
           "as": [
             "region_total"
           ]
         },
-
         {
           "type": "window",
-
           "sort": {
             "field": [
               "region_total",
               "region"
             ],
-
             "order": [
               "descending",
               "ascending"
             ]
           },
-
           "ops": [
             "row_number"
           ],
-
           "as": [
             "region_rank"
           ]
         }
       ]
     },
-
-
     {
       "name": "tree",
-
       "source": "births",
-
       "transform": [
         {
           "type": "nest",
-
           "keys": [
             "region"
           ],
-
           "generate": true
         },
-
         {
           "type": "treemap",
-
           "field": "population",
-
           "sort": {
             "field": "value",
             "order": "descending"
           },
-
           "method": "squarify",
-
           "ratio": 1,
-
           "round": true,
-
           "paddingInner": 6,
-
           "paddingTop": {
             "signal": "headerHeight"
           },
-
           "paddingRight": 6,
           "paddingBottom": 6,
           "paddingLeft": 6,
-
           "size": [
             {
               "signal": "width"
             },
-
             {
               "signal": "height + headerHeight"
             }
@@ -196,47 +126,35 @@
         }
       ]
     },
-
-
     {
       "name": "regions",
-
       "source": "tree",
-
       "transform": [
         {
           "type": "filter",
           "expr": "datum.depth == 1"
         },
-
         {
           "type": "lookup",
-
           "from": "region_totals",
-
           "key": "region",
-
           "fields": [
             "key"
           ],
-
           "values": [
             "region_rank",
             "region_total"
           ],
-
           "as": [
             "region_rank",
             "region_total"
           ]
         },
-
         {
           "type": "formula",
           "as": "top",
           "expr": "datum.y0 - headerHeight"
         },
-
         {
           "type": "formula",
           "as": "bottom",
@@ -244,57 +162,41 @@
         }
       ]
     },
-
-
     {
       "name": "countries",
-
       "source": "tree",
-
       "transform": [
         {
           "type": "filter",
           "expr": "datum.depth == 2"
         },
-
         {
           "type": "formula",
-
           "as": "name_lines",
-
           "expr": "length('#' + datum.country_rank + ' ' + datum.country) * 8 <= datum.x1 - datum.x0 - 16 ? ['#' + datum.country_rank + ' ' + datum.country] : (indexof(datum.country, ' ') < 0 ? ['#' + datum.country_rank, datum.country] : ['#' + datum.country_rank + ' ' + substring(datum.country, 0, indexof(datum.country, ' ')), substring(datum.country, indexof(datum.country, ' ') + 1)])"
         },
-
         {
           "type": "formula",
           "as": "top",
           "expr": "datum.y0 - headerHeight"
         },
-
         {
           "type": "formula",
           "as": "bottom",
           "expr": "datum.y1 - headerHeight"
         },
-
         {
           "type": "formula",
-
           "as": "label_top",
-
           "expr": "(datum.top + datum.bottom) / 2 - (length(datum.name_lines) * 16 + 17) / 2"
         }
       ]
     }
   ],
-
-
   "scales": [
     {
       "name": "regionColor",
-
       "type": "ordinal",
-
       "domain": [
         "Asia",
         "Europe",
@@ -302,7 +204,6 @@
         "Africa",
         "Americas"
       ],
-
       "range": [
         "#456A94",
         "#A65F28",
@@ -312,449 +213,331 @@
       ]
     }
   ],
-
-
   "marks": [
-
     {
       "name": "region_backgrounds",
-
       "type": "rect",
-
       "from": {
         "data": "regions"
       },
-
       "encode": {
         "update": {
           "x": {
             "field": "x0"
           },
-
           "x2": {
             "field": "x1"
           },
-
           "y": {
             "field": "top"
           },
-
           "y2": {
             "field": "bottom"
           },
-
           "fill": {
             "scale": "regionColor",
             "field": "key"
           },
-
           "fillOpacity": {
             "value": 0.14
           },
-
           "tooltip": {
             "signal": "{'World region': datum.key, 'Region rank': datum.region_rank, 'Population among displayed birthplaces': format(datum.region_total, ',')}"
           }
         }
       }
     },
-
-
     {
       "name": "region_headers",
-
       "type": "rect",
-
       "from": {
         "data": "regions"
       },
-
       "encode": {
         "update": {
           "x": {
             "field": "x0"
           },
-
           "x2": {
             "field": "x1"
           },
-
           "y": {
             "field": "top"
           },
-
           "height": {
             "signal": "headerHeight - 3"
           },
-
           "fill": {
             "scale": "regionColor",
             "field": "key"
           },
-
           "tooltip": {
             "signal": "{'World region': datum.key, 'Region rank': datum.region_rank, 'Population among displayed birthplaces': format(datum.region_total, ',')}"
           }
         }
       }
     },
-
-
     {
       "name": "country_tiles",
-
       "type": "rect",
-
       "from": {
         "data": "countries"
       },
-
       "encode": {
         "update": {
           "x": {
             "field": "x0"
           },
-
           "x2": {
             "field": "x1"
           },
-
           "y": {
             "field": "top"
           },
-
           "y2": {
             "field": "bottom"
           },
-
           "fill": {
             "scale": "regionColor",
             "field": "region"
           },
-
           "fillOpacity": {
             "value": 1
           },
-
           "stroke": {
             "value": "white"
           },
-
           "strokeWidth": {
             "value": 1
           },
-
           "tooltip": {
             "signal": "{'Country/place of birth': datum.country, 'World region': datum.region, 'Rank within region': datum.country_rank, 'Australian residents': format(datum.population, ',')}"
           }
         },
-
         "hover": {
           "fillOpacity": {
             "value": 0.85
           },
-
           "strokeWidth": {
             "value": 2
           }
         }
       }
     },
-
-
     {
       "name": "region_names",
-
       "type": "text",
-
       "interactive": false,
-
       "from": {
         "data": "regions"
       },
-
       "encode": {
         "update": {
           "font": {
             "value": "Space Grotesk"
           },
-
           "x": {
             "signal": "datum.x0 + 10"
           },
-
           "y": {
             "signal": "datum.top + 4"
           },
-
           "text": {
             "signal": "'#' + datum.region_rank + ' ' + datum.key"
           },
-
           "align": {
             "value": "left"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 17
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "white"
           }
         }
       }
     },
-
-
     {
       "name": "region_counts",
-
       "type": "text",
-
       "interactive": false,
-
       "from": {
         "data": "regions"
       },
-
       "encode": {
         "update": {
           "font": {
             "value": "Source Sans 3"
           },
-
           "x": {
             "signal": "datum.x0 + 10"
           },
-
           "y": {
             "signal": "datum.top + 24"
           },
-
           "text": {
             "signal": "format(datum.region_total, ',') + ' people'"
           },
-
           "align": {
             "value": "left"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 500
           },
-
           "fill": {
             "value": "white"
           }
         }
       }
     },
-
-
     {
       "name": "country_names",
-
       "type": "text",
-
       "interactive": false,
-
       "from": {
         "data": "countries"
       },
-
       "encode": {
         "update": {
           "font": {
             "value": "Source Sans 3"
           },
-
           "x": {
             "signal": "(datum.x0 + datum.x1) / 2"
           },
-
           "y": {
             "field": "label_top"
           },
-
           "text": {
             "field": "name_lines"
           },
-
           "align": {
             "value": "center"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 13
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "lineHeight": {
             "value": 16
           },
-
           "fill": {
             "value": "white"
           }
         }
       }
     },
-
-
     {
       "name": "country_counts",
-
       "type": "text",
-
       "interactive": false,
-
       "from": {
         "data": "countries"
       },
-
       "encode": {
         "update": {
           "font": {
             "value": "Source Sans 3"
           },
-
           "x": {
             "signal": "(datum.x0 + datum.x1) / 2"
           },
-
           "y": {
             "signal": "datum.label_top + length(datum.name_lines) * 16 + 5"
           },
-
           "text": {
             "signal": "format(datum.population, ',')"
           },
-
           "align": {
             "value": "center"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 500
           },
-
           "fill": {
             "value": "white"
           }
         }
       }
     },
-
-
     {
       "name": "scope_note",
-
       "type": "text",
-
       "interactive": false,
-
       "encode": {
         "update": {
           "font": {
             "value": "Source Sans 3"
           },
-
           "x": {
             "value": 6
           },
-
           "y": {
             "signal": "height + 16"
           },
-
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fill": {
             "value": "#655A67"
           }
         }
       }
     },
-
-
     {
       "name": "source_note",
-
       "type": "text",
-
       "interactive": false,
-
       "encode": {
         "update": {
           "font": {
             "value": "Source Sans 3"
           },
-
           "x": {
             "value": 6
           },
-
           "y": {
             "signal": "height + 34"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fill": {
             "value": "#655A67"
           }
         }
       }
     }
-
   ],
-
-
   "config": {
     "font": "Source Sans 3"
   }
