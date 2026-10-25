@@ -567,13 +567,13 @@ img {
 
 .viz--treemap {
   --viz-max: 1080px;
-  --loading-height: 820px;
+  --loading-height: 700px;
 }
 
 
 .viz--language-bar {
-  --viz-max: 960px;
-  --loading-height: 530px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
@@ -584,32 +584,32 @@ img {
 
 
 .viz--butterfly {
-  --viz-max: 1120px;
-  --loading-height: 560px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
 .viz--flow {
-  --viz-max: 1240px;
-  --loading-height: 620px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
 .viz--bump {
-  --viz-max: 1200px;
-  --loading-height: 600px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
 .viz--small-multiples {
-  --viz-max: 1280px;
-  --loading-height: 570px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
 .viz--sankey {
-  --viz-max: 1260px;
-  --loading-height: 650px;
+  --viz-max: 1080px;
+  --loading-height: 700px;
 }
 
 
