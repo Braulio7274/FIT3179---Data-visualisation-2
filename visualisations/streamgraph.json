@@ -1,0 +1,161 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Streamgraph showing annual national totals for Skilled, Family and Humanitarian permanent settlement streams in Australia from 2016 to 2025.",
+  "width": 980,
+  "height": 420,
+  "background": "#FFF7ED",
+  "padding": {
+    "left": 10,
+    "right": 10,
+    "top": 20,
+    "bottom": 10
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_settlement_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number",
+        "Skilled": "number",
+        "Family": "number",
+        "Humanitarian": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "Skilled",
+          "as": "Skilled"
+        },
+        {
+          "op": "sum",
+          "field": "Family",
+          "as": "Family"
+        },
+        {
+          "op": "sum",
+          "field": "Humanitarian",
+          "as": "Humanitarian"
+        }
+      ],
+      "groupby": [
+        "Year"
+      ]
+    },
+    {
+      "fold": [
+        "Skilled",
+        "Family",
+        "Humanitarian"
+      ],
+      "as": [
+        "Migration stream",
+        "Settlers"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "opacity": 0.9,
+    "stroke": "#FFF7ED",
+    "strokeWidth": 1.2
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFont": "Source Sans 3",
+        "labelFontSize": 12,
+        "labelColor": "#655A67",
+        "tickColor": "#DED3C8",
+        "domainColor": "#DED3C8",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "Settlers",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "Migration stream",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Skilled",
+          "Family",
+          "Humanitarian"
+        ],
+        "range": [
+          "#315B7D",
+          "#43A829",
+          "#D97A34"
+        ]
+      },
+      "legend": {
+        "title": null,
+        "orient": "top",
+        "direction": "horizontal",
+        "labelFont": "Source Sans 3",
+        "labelFontSize": 12,
+        "labelColor": "#655A67",
+        "symbolType": "square",
+        "symbolSize": 120,
+        "columnPadding": 24
+      }
+    },
+    "order": {
+      "field": "Migration stream",
+      "sort": [
+        "Skilled",
+        "Family",
+        "Humanitarian"
+      ]
+    },
+    "tooltip": [
+      {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "Migration stream",
+        "type": "nominal",
+        "title": "Migration stream"
+      },
+      {
+        "field": "Settlers",
+        "type": "quantitative",
+        "title": "Settlers",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "titleFont": "Source Sans 3",
+      "labelFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "labelColor": "#655A67"
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  }
+}
