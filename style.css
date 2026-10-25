@@ -1394,3 +1394,9 @@ img {
   transform: translateY(-55px);
   z-index: 2;
 }
+
+/* Divider below streamgraph footnote */
+.viz--streamgraph .viz-note {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--divider);
+}
