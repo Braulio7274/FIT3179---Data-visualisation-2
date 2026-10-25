@@ -1,46 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-
   "width": 1080,
   "height": 620,
-
   "padding": {
     "left": 20,
     "right": 20,
     "top": 20,
     "bottom": 20
   },
-
   "background": "#FFF7ED",
-
-  "title": {
-    "text": "How do migration streams distribute across Australia?",
-
-    "anchor": "start",
-
-    "font": "Space Grotesk",
-    "fontSize": 22,
-    "fontWeight": 700,
-    "color": "#4A2545",
-
-    "subtitleFont": "Source Sans 3",
-    "subtitleFontSize": 12,
-    "subtitleFontWeight": 400,
-    "subtitleColor": "#655A67",
-
-    "subtitlePadding": 8,
-    "offset": 20
-  },
-
   "data": [
     {
       "name": "links",
-
       "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/migration_stream_state_sankey.csv",
-
       "format": {
         "type": "csv",
-
         "parse": {
           "settlers": "number",
           "stream_total": "number",
@@ -48,14 +22,11 @@
           "stream_share_pct": "number",
           "state_share_pct": "number"
         },
-
         "delimiter": ","
       }
     },
-
     {
       "name": "nodes",
-
       "values": [
         {
           "kind": "stream",
@@ -69,7 +40,6 @@
           "label_y": 220,
           "fill": "#315B7D"
         },
-
         {
           "kind": "stream",
           "name": "Family",
@@ -82,7 +52,6 @@
           "label_y": 429,
           "fill": "#43A829"
         },
-
         {
           "kind": "stream",
           "name": "Humanitarian",
@@ -95,7 +64,6 @@
           "label_y": 520,
           "fill": "#D97A34"
         },
-
         {
           "kind": "state",
           "name": "New South Wales",
@@ -108,7 +76,6 @@
           "label_y": 151,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Victoria",
@@ -121,7 +88,6 @@
           "label_y": 287,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Queensland",
@@ -134,7 +100,6 @@
           "label_y": 389,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Western Australia",
@@ -147,7 +112,6 @@
           "label_y": 449,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "South Australia",
@@ -160,7 +124,6 @@
           "label_y": 494,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Australian Capital Territory",
@@ -173,7 +136,6 @@
           "label_y": 528,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Tasmania",
@@ -186,7 +148,6 @@
           "label_y": 558,
           "fill": "#6B7280"
         },
-
         {
           "kind": "state",
           "name": "Northern Territory",
@@ -201,12 +162,9 @@
         }
       ]
     },
-
     {
       "name": "state_nodes",
-
       "source": "nodes",
-
       "transform": [
         {
           "type": "filter",
@@ -214,12 +172,9 @@
         }
       ]
     },
-
     {
       "name": "stream_nodes",
-
       "source": "nodes",
-
       "transform": [
         {
           "type": "filter",
@@ -228,50 +183,39 @@
       ]
     }
   ],
-
   "marks": [
     {
       "type": "path",
-
       "from": {
         "data": "links"
       },
-
       "zindex": 0,
-
       "encode": {
         "enter": {
           "path": {
             "field": "path"
           },
-
           "fill": {
             "field": "color"
           },
-
           "stroke": {
             "value": "#ffffff"
           },
-
           "strokeWidth": {
             "value": 0.35
           },
-
           "strokeOpacity": {
             "value": 0.18
           },
-
           "tooltip": {
             "signal": "{'Migration stream': datum.stream, 'State / territory': datum.state, 'Settlers': format(datum.settlers, ','), 'Share of stream': format(datum.stream_share_pct, '.1f') + '%', 'Share of state settlers': format(datum.state_share_pct, '.1f') + '%'}"
           }
         },
-
         "update": {
           "fillOpacity": {
             "value": 0.58
           }
         },
-
         "hover": {
           "fillOpacity": {
             "value": 0.88
@@ -279,370 +223,280 @@
         }
       }
     },
-
     {
       "type": "rect",
-
       "from": {
         "data": "nodes"
       },
-
       "zindex": 2,
-
       "encode": {
         "enter": {
           "x": {
             "field": "x"
           },
-
           "x2": {
             "field": "x2"
           },
-
           "y": {
             "field": "y"
           },
-
           "y2": {
             "field": "y2"
           },
-
           "fill": {
             "field": "fill"
           },
-
           "cornerRadius": {
             "value": 2
           },
-
           "tooltip": {
             "signal": "{'Category': datum.name, 'Settlers': format(datum.total, ',')}"
           }
         }
       }
     },
-
     {
       "type": "rule",
-
       "from": {
         "data": "state_nodes"
       },
-
       "interactive": false,
-
       "zindex": 1,
-
       "encode": {
         "enter": {
           "x": {
             "signal": "datum.x2 + 4"
           },
-
           "x2": {
             "value": 798
           },
-
           "y": {
             "signal": "(datum.y + datum.y2) / 2"
           },
-
           "y2": {
             "field": "label_y"
           },
-
           "stroke": {
             "value": "#CBD0D6"
           },
-
           "strokeWidth": {
             "value": 1
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "stream_nodes"
       },
-
       "zindex": 3,
-
       "encode": {
         "enter": {
           "x": {
             "field": "label_x"
           },
-
           "y": {
             "field": "label_y"
           },
-
           "text": {
             "field": "name"
           },
-
           "align": {
             "value": "right"
           },
-
           "baseline": {
             "value": "bottom"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 12
           },
-
           "fontWeight": {
             "value": 600
           },
-
           "fill": {
             "value": "#4A2545"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "stream_nodes"
       },
-
       "interactive": false,
-
       "zindex": 3,
-
       "encode": {
         "enter": {
           "x": {
             "field": "label_x"
           },
-
           "y": {
             "signal": "datum.label_y + 4"
           },
-
           "text": {
             "signal": "format(datum.total, ',')"
           },
-
           "align": {
             "value": "right"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 400
           },
-
           "fill": {
             "value": "#655A67"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "state_nodes"
       },
-
       "zindex": 3,
-
       "encode": {
         "enter": {
           "x": {
             "field": "label_x"
           },
-
           "y": {
             "field": "label_y"
           },
-
           "text": {
             "field": "name"
           },
-
           "align": {
             "value": "left"
           },
-
           "baseline": {
             "value": "bottom"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 12
           },
-
           "fontWeight": {
             "value": 600
           },
-
           "fill": {
             "value": "#4A2545"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "state_nodes"
       },
-
       "interactive": false,
-
       "zindex": 3,
-
       "encode": {
         "enter": {
           "x": {
             "field": "label_x"
           },
-
           "y": {
             "signal": "datum.label_y + 4"
           },
-
           "text": {
             "signal": "format(datum.total, ',')"
           },
-
           "align": {
             "value": "left"
           },
-
           "baseline": {
             "value": "top"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 400
           },
-
           "fill": {
             "value": "#655A67"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "interactive": false,
-
       "encode": {
         "enter": {
           "x": {
             "value": 186
           },
-
           "y": {
             "value": 60
           },
-
           "text": {
             "value": "MIGRATION STREAM"
           },
-
           "align": {
             "value": "center"
           },
-
           "font": {
             "value": "Space Grotesk"
           },
-
           "fontSize": {
             "value": 12
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "#655A67"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "interactive": false,
-
       "encode": {
         "enter": {
           "x": {
             "value": 756
           },
-
           "y": {
             "value": 60
           },
-
           "text": {
             "value": "CURRENT STATE / TERRITORY"
           },
-
           "align": {
             "value": "center"
           },
-
           "font": {
             "value": "Space Grotesk"
           },
-
           "fontSize": {
             "value": 12
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "#655A67"
           }
@@ -650,16 +504,13 @@
       }
     }
   ],
-
   "config": {
     "font": "Source Sans 3",
-
     "title": {
       "font": "Space Grotesk",
       "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
-
       "subtitleFont": "Source Sans 3",
       "subtitleFontSize": 12,
       "subtitleFontWeight": 400,
