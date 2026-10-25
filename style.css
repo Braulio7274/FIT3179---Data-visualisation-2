@@ -1380,3 +1380,8 @@ img {
 .viz--sankey .viz-note {
   margin-top: 4px;
 }
+
+/* Tighten spacing below treemap */
+.viz--treemap .viz-note {
+  margin-top: 4px;
+}
