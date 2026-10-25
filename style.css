@@ -1357,3 +1357,12 @@ img {
     height: auto;
   }
 }
+
+/* Tighten spacing for migration stream small multiples */
+.viz--small-multiples .chart-title {
+  margin-bottom: 6px;
+}
+
+.viz--small-multiples .viz-note {
+  margin-top: 4px;
+}
