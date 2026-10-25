@@ -1333,3 +1333,21 @@ img {
   }
 
 }
+
+/* =========================================================
+   ALIGN PAIRED VISUALISATION CAPTIONS
+========================================================= */
+
+.paired-visuals .viz-frame {
+  height: 650px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (max-width: 1120px) {
+  .paired-visuals .viz-frame {
+    height: auto;
+  }
+}
