@@ -117,7 +117,7 @@ img {
   padding:
     clamp(78px, 8vw, 126px)
     0
-    35px;
+    25px;
 }
 
 
@@ -194,9 +194,9 @@ img {
 
 .intro-section {
   padding:
-    24px
+    20px
     0
-    60px;
+    50px;
 }
 
 
@@ -371,9 +371,9 @@ img {
   margin-inline: auto;
 
   padding:
-    clamp(42px, 4vw, 58px)
+    30px
     0
-    clamp(48px, 4.5vw, 66px);
+    36px;
 }
 
 
@@ -388,12 +388,7 @@ img {
 .section-heading {
   max-width: 1180px;
 
-  margin-bottom:
-    clamp(
-      28px,
-      3vw,
-      40px
-    );
+  margin-bottom: 22px;
 }
 
 
@@ -479,12 +474,7 @@ img {
 .stacked-visuals {
   display: grid;
 
-  gap:
-    clamp(
-      42px,
-      4vw,
-      58px
-    );
+  gap: 30px;
 }
 
 
@@ -530,11 +520,11 @@ img {
   );
 
   margin:
-    24px
+    14px
     auto
     0;
 
-  padding-top: 21px;
+  padding-top: 0;
 
   border-top:
     1px
@@ -732,19 +722,9 @@ img {
 ========================================================= */
 
 .subsection {
-  margin-top:
-    clamp(
-      44px,
-      4vw,
-      60px
-    );
+  margin-top: 32px;
 
-  padding-top:
-    clamp(
-      32px,
-      3vw,
-      44px
-    );
+  padding-top: 0;
 
   border-top:
     1px
@@ -781,7 +761,7 @@ img {
   margin:
     0
     0
-    52px;
+    28px;
 
   color: var(--body-text);
 
@@ -840,7 +820,7 @@ img {
 .conclusion-copy {
   max-width: 1150px;
 
-  margin-bottom: 46px;
+  margin-bottom: 30px;
 }
 
 
@@ -879,7 +859,7 @@ img {
 
   align-items: center;
 
-  padding-top: 38px;
+  padding-top: 0;
 
   border-top: 1px solid var(--divider);
 }
@@ -1036,7 +1016,7 @@ img {
 
 
   .conclusion-copy {
-    margin-bottom: 45px;
+    margin-bottom: 28px;
   }
 
 
@@ -1046,7 +1026,7 @@ img {
 
 
   .limitations-block {
-    padding-top: 35px;
+    padding-top: 0;
   }
 
 
@@ -1075,7 +1055,7 @@ img {
 .project-footer {
   width: 100%;
 
-  margin-top: 20px;
+  margin-top: 0;
 
   padding:
     24px
@@ -1172,7 +1152,7 @@ img {
     padding:
       58px
       0
-      28px;
+      22px;
   }
 
 
@@ -1190,9 +1170,9 @@ img {
 
   .intro-section {
     padding:
-      24px
+      18px
       0
-      52px;
+      42px;
   }
 
 
@@ -1235,9 +1215,9 @@ img {
 
   .story-section {
     padding:
-      38px
+      28px
       0
-      44px;
+      34px;
   }
 
 
@@ -1257,7 +1237,7 @@ img {
 
 
   .stacked-visuals {
-    gap: 40px;
+    gap: 28px;
   }
 
 
@@ -1275,8 +1255,8 @@ img {
 
 
   .subsection {
-    margin-top: 42px;
-    padding-top: 30px;
+    margin-top: 30px;
+    padding-top: 0;
   }
 
 
@@ -1286,7 +1266,7 @@ img {
 
 
   .subsection-lead {
-    margin-bottom: 42px;
+    margin-bottom: 26px;
 
     font-size: 1.06rem;
   }
