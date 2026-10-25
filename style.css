@@ -1395,3 +1395,8 @@ img {
   z-index: 2;
 }
 
+
+/* Divider above footer/source block */
+.project-footer {
+  border-top: 1px solid var(--divider);
+}
