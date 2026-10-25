@@ -1,50 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v6.json",
-
   "description": "Small-multiple maps comparing how Australia's Skilled, Family and Humanitarian migration streams are distributed across states and territories.",
-
   "width": 1120,
   "height": 510,
-
   "padding": {
     "left": 20,
     "right": 20,
     "top": 20,
     "bottom": 20
   },
-
   "autosize": "pad",
-
   "background": "#FFF7ED",
-
-  "title": {
-    "text": "Where are Australia's migration streams concentrated?",
-
-    "anchor": "start",
-
-    "font": "Space Grotesk",
-    "fontSize": 22,
-    "fontWeight": 700,
-    "color": "#4A2545",
-
-    "subtitleFont": "Source Sans 3",
-    "subtitleFontSize": 12,
-    "subtitleFontWeight": 400,
-    "subtitleColor": "#655A67",
-
-    "subtitlePadding": 8,
-    "offset": 20
-  },
-
   "data": [
     {
       "name": "settlement",
-
       "url": "https://raw.githubusercontent.com/Braulio7274/FIT3179---Data-visualisation-2/refs/heads/main/state_settlement_year.csv",
-
       "format": {
         "type": "csv",
-
         "parse": {
           "Year": "number",
           "Settlers": "number",
@@ -54,73 +26,59 @@
         }
       }
     },
-
     {
       "name": "state_totals",
-
       "source": "settlement",
-
       "transform": [
         {
           "type": "aggregate",
-
           "groupby": [
             "State"
           ],
-
           "fields": [
             "Skilled",
             "Family",
             "Humanitarian"
           ],
-
           "ops": [
             "sum",
             "sum",
             "sum"
           ],
-
           "as": [
             "SkilledTotal",
             "FamilyTotal",
             "HumanitarianTotal"
           ]
         },
-
         {
           "type": "joinaggregate",
-
           "fields": [
             "SkilledTotal",
             "FamilyTotal",
             "HumanitarianTotal"
           ],
-
           "ops": [
             "sum",
             "sum",
             "sum"
           ],
-
           "as": [
             "AustraliaSkilled",
             "AustraliaFamily",
             "AustraliaHumanitarian"
           ]
         },
-
         {
           "type": "formula",
           "as": "SkilledShare",
           "expr": "datum.AustraliaSkilled > 0 ? datum.SkilledTotal / datum.AustraliaSkilled * 100 : 0"
         },
-
         {
           "type": "formula",
           "as": "FamilyShare",
           "expr": "datum.AustraliaFamily > 0 ? datum.FamilyTotal / datum.AustraliaFamily * 100 : 0"
         },
-
         {
           "type": "formula",
           "as": "HumanitarianShare",
@@ -128,33 +86,25 @@
         }
       ]
     },
-
     {
       "name": "states",
-
       "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
-
       "format": {
         "type": "json",
         "property": "features"
       },
-
       "transform": [
         {
           "type": "filter",
           "expr": "datum.properties.STATE_NAME != 'Other Territories'"
         },
-
         {
           "type": "lookup",
-
           "from": "state_totals",
           "key": "State",
-
           "fields": [
             "properties.STATE_NAME"
           ],
-
           "values": [
             "SkilledShare",
             "FamilyShare",
@@ -163,7 +113,6 @@
             "FamilyTotal",
             "HumanitarianTotal"
           ],
-
           "as": [
             "SkilledShare",
             "FamilyShare",
@@ -172,15 +121,12 @@
             "FamilyTotal",
             "HumanitarianTotal"
           ],
-
           "default": 0
         }
       ]
     },
-
     {
       "name": "state_labels",
-
       "values": [
         {
           "abbr": "WA",
@@ -189,7 +135,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "NT",
           "lon": 133.2,
@@ -197,7 +142,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "SA",
           "lon": 135.2,
@@ -205,7 +149,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "QLD",
           "lon": 144.4,
@@ -213,7 +156,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "NSW",
           "lon": 147.1,
@@ -221,7 +163,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "VIC",
           "lon": 144.8,
@@ -229,7 +170,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "TAS",
           "lon": 146.6,
@@ -237,7 +177,6 @@
           "dx": 0,
           "dy": 0
         },
-
         {
           "abbr": "ACT",
           "lon": 149.1,
@@ -247,23 +186,17 @@
         }
       ]
     },
-
     {
       "name": "skilled_labels",
-
       "source": "state_labels",
-
       "transform": [
         {
           "type": "geopoint",
-
           "projection": "skilledProjection",
-
           "fields": [
             "lon",
             "lat"
           ],
-
           "as": [
             "x",
             "y"
@@ -271,23 +204,17 @@
         }
       ]
     },
-
     {
       "name": "family_labels",
-
       "source": "state_labels",
-
       "transform": [
         {
           "type": "geopoint",
-
           "projection": "familyProjection",
-
           "fields": [
             "lon",
             "lat"
           ],
-
           "as": [
             "x",
             "y"
@@ -295,23 +222,17 @@
         }
       ]
     },
-
     {
       "name": "humanitarian_labels",
-
       "source": "state_labels",
-
       "transform": [
         {
           "type": "geopoint",
-
           "projection": "humanitarianProjection",
-
           "fields": [
             "lon",
             "lat"
           ],
-
           "as": [
             "x",
             "y"
@@ -320,141 +241,104 @@
       ]
     }
   ],
-
   "projections": [
     {
       "name": "skilledProjection",
-
       "type": "mercator",
-
       "center": [
         134,
         -28
       ],
-
       "scale": 355,
-
       "translate": [
         175,
         230
       ]
     },
-
     {
       "name": "familyProjection",
-
       "type": "mercator",
-
       "center": [
         134,
         -28
       ],
-
       "scale": 355,
-
       "translate": [
         560,
         230
       ]
     },
-
     {
       "name": "humanitarianProjection",
-
       "type": "mercator",
-
       "center": [
         134,
         -28
       ],
-
       "scale": 355,
-
       "translate": [
         945,
         230
       ]
     }
   ],
-
   "scales": [
     {
       "name": "skilledColor",
-
       "type": "linear",
-
       "domain": [
         0,
         40
       ],
-
       "range": [
         "#EDF4F8",
         "#315B7D"
       ],
-
       "zero": true,
       "nice": false,
       "clamp": true
     },
-
     {
       "name": "familyColor",
-
       "type": "linear",
-
       "domain": [
         0,
         40
       ],
-
       "range": [
         "#EDF6EA",
         "#43A829"
       ],
-
       "zero": true,
       "nice": false,
       "clamp": true
     },
-
     {
       "name": "humanitarianColor",
-
       "type": "linear",
-
       "domain": [
         0,
         40
       ],
-
       "range": [
         "#FAEEE5",
         "#D97A34"
       ],
-
       "zero": true,
       "nice": false,
       "clamp": true
     }
   ],
-
   "legends": [
     {
       "fill": "skilledColor",
-
       "title": "Share of Skilled stream",
-
       "orient": "none",
-
       "legendX": 62,
       "legendY": 408,
-
       "direction": "horizontal",
-
       "gradientLength": 225,
       "gradientThickness": 11,
-
       "values": [
         0,
         10,
@@ -462,39 +346,27 @@
         30,
         40
       ],
-
       "format": ".0f",
-
       "labelExpr": "datum.label + '%'",
-
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
       "titleColor": "#4A2545",
-
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
       "titleLimit": 240
     },
-
     {
       "fill": "familyColor",
-
       "title": "Share of Family stream",
-
       "orient": "none",
-
       "legendX": 447,
       "legendY": 408,
-
       "direction": "horizontal",
-
       "gradientLength": 225,
       "gradientThickness": 11,
-
       "values": [
         0,
         10,
@@ -502,39 +374,27 @@
         30,
         40
       ],
-
       "format": ".0f",
-
       "labelExpr": "datum.label + '%'",
-
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
       "titleColor": "#4A2545",
-
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
       "titleLimit": 240
     },
-
     {
       "fill": "humanitarianColor",
-
       "title": "Share of Humanitarian stream",
-
       "orient": "none",
-
       "legendX": 832,
       "legendY": 408,
-
       "direction": "horizontal",
-
       "gradientLength": 225,
       "gradientThickness": 11,
-
       "values": [
         0,
         10,
@@ -542,505 +402,392 @@
         30,
         40
       ],
-
       "format": ".0f",
-
       "labelExpr": "datum.label + '%'",
-
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
       "titleColor": "#4A2545",
-
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
       "labelColor": "#655A67",
-
       "titleLimit": 250
     }
   ],
-
   "marks": [
     {
       "type": "text",
-
       "encode": {
         "enter": {
           "x": {
             "value": 175
           },
-
           "y": {
             "value": 65
           },
-
           "text": {
             "value": "Skilled"
           },
-
           "align": {
             "value": "center"
           },
-
           "font": {
             "value": "Space Grotesk"
           },
-
           "fontSize": {
             "value": 17
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "#315B7D"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "encode": {
         "enter": {
           "x": {
             "value": 560
           },
-
           "y": {
             "value": 65
           },
-
           "text": {
             "value": "Family"
           },
-
           "align": {
             "value": "center"
           },
-
           "font": {
             "value": "Space Grotesk"
           },
-
           "fontSize": {
             "value": 17
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "#43A829"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "encode": {
         "enter": {
           "x": {
             "value": 945
           },
-
           "y": {
             "value": 65
           },
-
           "text": {
             "value": "Humanitarian"
           },
-
           "align": {
             "value": "center"
           },
-
           "font": {
             "value": "Space Grotesk"
           },
-
           "fontSize": {
             "value": 17
           },
-
           "fontWeight": {
             "value": 700
           },
-
           "fill": {
             "value": "#D97A34"
           }
         }
       }
     },
-
     {
       "type": "shape",
-
       "from": {
         "data": "states"
       },
-
       "transform": [
         {
           "type": "geoshape",
           "projection": "skilledProjection"
         }
       ],
-
       "encode": {
         "enter": {
           "fill": {
             "scale": "skilledColor",
             "field": "SkilledShare"
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           },
-
           "tooltip": {
             "signal": "{'State / territory': datum.properties.STATE_NAME, 'Share of Skilled stream': format(datum.SkilledShare, '.1f') + '%', 'Skilled settlers': format(datum.SkilledTotal, ',')}"
           }
         },
-
         "update": {
           "fillOpacity": {
             "value": 1
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           }
         },
-
         "hover": {
           "fillOpacity": {
             "value": 0.72
           },
-
           "stroke": {
             "value": "#4A2545"
           },
-
           "strokeWidth": {
             "value": 2
           }
         }
       }
     },
-
     {
       "type": "shape",
-
       "from": {
         "data": "states"
       },
-
       "transform": [
         {
           "type": "geoshape",
           "projection": "familyProjection"
         }
       ],
-
       "encode": {
         "enter": {
           "fill": {
             "scale": "familyColor",
             "field": "FamilyShare"
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           },
-
           "tooltip": {
             "signal": "{'State / territory': datum.properties.STATE_NAME, 'Share of Family stream': format(datum.FamilyShare, '.1f') + '%', 'Family settlers': format(datum.FamilyTotal, ',')}"
           }
         },
-
         "update": {
           "fillOpacity": {
             "value": 1
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           }
         },
-
         "hover": {
           "fillOpacity": {
             "value": 0.72
           },
-
           "stroke": {
             "value": "#4A2545"
           },
-
           "strokeWidth": {
             "value": 2
           }
         }
       }
     },
-
     {
       "type": "shape",
-
       "from": {
         "data": "states"
       },
-
       "transform": [
         {
           "type": "geoshape",
           "projection": "humanitarianProjection"
         }
       ],
-
       "encode": {
         "enter": {
           "fill": {
             "scale": "humanitarianColor",
             "field": "HumanitarianShare"
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           },
-
           "tooltip": {
             "signal": "{'State / territory': datum.properties.STATE_NAME, 'Share of Humanitarian stream': format(datum.HumanitarianShare, '.1f') + '%', 'Humanitarian settlers': format(datum.HumanitarianTotal, ',')}"
           }
         },
-
         "update": {
           "fillOpacity": {
             "value": 1
           },
-
           "stroke": {
             "value": "#FFF7ED"
           },
-
           "strokeWidth": {
             "value": 1.4
           }
         },
-
         "hover": {
           "fillOpacity": {
             "value": 0.72
           },
-
           "stroke": {
             "value": "#4A2545"
           },
-
           "strokeWidth": {
             "value": 2
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "skilled_labels"
       },
-
       "interactive": false,
-
       "encode": {
         "enter": {
           "x": {
             "field": "x"
           },
-
           "y": {
             "field": "y"
           },
-
           "dx": {
             "field": "dx"
           },
-
           "dy": {
             "field": "dy"
           },
-
           "text": {
             "field": "abbr"
           },
-
           "align": {
             "value": "center"
           },
-
           "baseline": {
             "value": "middle"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 600
           },
-
           "fill": {
             "value": "#4A2545"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "family_labels"
       },
-
       "interactive": false,
-
       "encode": {
         "enter": {
           "x": {
             "field": "x"
           },
-
           "y": {
             "field": "y"
           },
-
           "dx": {
             "field": "dx"
           },
-
           "dy": {
             "field": "dy"
           },
-
           "text": {
             "field": "abbr"
           },
-
           "align": {
             "value": "center"
           },
-
           "baseline": {
             "value": "middle"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 600
           },
-
           "fill": {
             "value": "#4A2545"
           }
         }
       }
     },
-
     {
       "type": "text",
-
       "from": {
         "data": "humanitarian_labels"
       },
-
       "interactive": false,
-
       "encode": {
         "enter": {
           "x": {
             "field": "x"
           },
-
           "y": {
             "field": "y"
           },
-
           "dx": {
             "field": "dx"
           },
-
           "dy": {
             "field": "dy"
           },
-
           "text": {
             "field": "abbr"
           },
-
           "align": {
             "value": "center"
           },
-
           "baseline": {
             "value": "middle"
           },
-
           "font": {
             "value": "Source Sans 3"
           },
-
           "fontSize": {
             "value": 11
           },
-
           "fontWeight": {
             "value": 600
           },
-
           "fill": {
             "value": "#4A2545"
           }
@@ -1048,28 +795,23 @@
       }
     }
   ],
-
   "config": {
     "font": "Source Sans 3",
-
     "title": {
       "font": "Space Grotesk",
       "fontSize": 22,
       "fontWeight": 700,
       "color": "#4A2545",
-
       "subtitleFont": "Source Sans 3",
       "subtitleFontSize": 12,
       "subtitleFontWeight": 400,
       "subtitleColor": "#655A67"
     },
-
     "legend": {
       "titleFont": "Source Sans 3",
       "titleFontSize": 12,
       "titleFontWeight": 700,
       "titleColor": "#4A2545",
-
       "labelFont": "Source Sans 3",
       "labelFontSize": 11,
       "labelFontWeight": 400,
