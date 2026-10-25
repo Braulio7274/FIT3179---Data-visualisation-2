@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Streamgraph showing annual national totals for Skilled, Family and Humanitarian permanent settlement streams in Australia from 2016 to 2025.",
+  "description": "Streamgraph showing annual national totals for Skilled, Family and Humanitarian permanent settlement streams in Australia from 2016 to 2025, with direct labels inside the bands.",
   "width": 980,
   "height": 420,
   "background": "#FFF7ED",
   "padding": {
     "left": 10,
     "right": 10,
-    "top": 20,
+    "top": 14,
     "bottom": 10
   },
   "data": {
@@ -55,90 +55,140 @@
         "Migration stream",
         "Settlers"
       ]
-    }
-  ],
-  "mark": {
-    "type": "area",
-    "interpolate": "monotone",
-    "opacity": 0.9,
-    "stroke": "#FFF7ED",
-    "strokeWidth": 1.2
-  },
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "sort": "ascending",
-      "axis": {
-        "title": null,
-        "labelAngle": 0,
-        "labelFont": "Source Sans 3",
-        "labelFontSize": 12,
-        "labelColor": "#655A67",
-        "tickColor": "#DED3C8",
-        "domainColor": "#DED3C8",
-        "grid": false
-      }
     },
-    "y": {
-      "field": "Settlers",
-      "type": "quantitative",
-      "stack": "center",
-      "axis": null
+    {
+      "calculate": "datum['Migration stream'] === 'Skilled' ? 0 : datum['Migration stream'] === 'Family' ? 1 : 2",
+      "as": "streamOrder"
     },
-    "color": {
-      "field": "Migration stream",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Skilled",
-          "Family",
-          "Humanitarian"
-        ],
-        "range": [
-          "#315B7D",
-          "#43A829",
-          "#D97A34"
-        ]
-      },
-      "legend": {
-        "title": null,
-        "orient": "top",
-        "direction": "horizontal",
-        "labelFont": "Source Sans 3",
-        "labelFontSize": 12,
-        "labelColor": "#655A67",
-        "symbolType": "square",
-        "symbolSize": 120,
-        "columnPadding": 24
-      }
-    },
-    "order": {
-      "field": "Migration stream",
+    {
+      "stack": "Settlers",
+      "groupby": [
+        "Year"
+      ],
       "sort": [
-        "Skilled",
-        "Family",
-        "Humanitarian"
+        {
+          "field": "streamOrder",
+          "order": "ascending"
+        }
+      ],
+      "offset": "center",
+      "as": [
+        "y0",
+        "y1"
       ]
     },
-    "tooltip": [
-      {
-        "field": "Year",
-        "type": "ordinal",
-        "title": "Year"
+    {
+      "calculate": "(datum.y0 + datum.y1) / 2",
+      "as": "labelY"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "opacity": 0.9,
+        "stroke": "#FFF7ED",
+        "strokeWidth": 1.2
       },
-      {
-        "field": "Migration stream",
-        "type": "nominal",
-        "title": "Migration stream"
-      },
-      {
-        "field": "Settlers",
-        "type": "quantitative",
-        "title": "Settlers",
-        "format": ",.0f"
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 12,
+            "labelColor": "#655A67",
+            "tickColor": "#DED3C8",
+            "domainColor": "#DED3C8",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "Migration stream",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Skilled",
+              "Family",
+              "Humanitarian"
+            ],
+            "range": [
+              "#315B7D",
+              "#43A829",
+              "#D97A34"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "Migration stream",
+            "type": "nominal",
+            "title": "Migration stream"
+          },
+          {
+            "field": "Settlers",
+            "type": "quantitative",
+            "title": "Settlers",
+            "format": ",.0f"
+          }
+        ]
       }
-    ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year === 2023"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Space Grotesk",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "fill": "#FFF7ED",
+        "stroke": "#4A2545",
+        "strokeWidth": 0.45,
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "sort": "ascending"
+        },
+        "y": {
+          "field": "labelY",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Migration stream"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
   },
   "config": {
     "font": "Source Sans 3",
@@ -148,10 +198,6 @@
     "axis": {
       "titleFont": "Source Sans 3",
       "labelFont": "Source Sans 3"
-    },
-    "legend": {
-      "labelFont": "Source Sans 3",
-      "labelColor": "#655A67"
     }
   },
   "autosize": {
