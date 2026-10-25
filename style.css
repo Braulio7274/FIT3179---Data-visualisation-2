@@ -1383,5 +1383,5 @@ img {
 
 /* Tighten spacing below treemap */
 .viz--treemap .viz-note {
-  margin-top: 4px;
+  margin-top: 0;
 }
